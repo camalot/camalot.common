@@ -19,9 +19,105 @@ namespace Camalot.Common.Extensions {
 			return ( type.IsGenericType && type.GetGenericTypeDefinition ( ) == typeof ( Nullable<> ) );
 		}
 
+		/// <summary>
+		/// Gets the custom attribute.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="type">The type.</param>
+		/// <returns></returns>
 		public static T GetCustomAttribute<T> ( this Type type ) where T : Attribute {
 			var attr = type.GetCustomAttributes<T> ( ).FirstOrDefault ( );
 			return attr;
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="member">The member.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this MemberInfo member, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = member.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="field">The field.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this FieldInfo field, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = field.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="property">The property.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this PropertyInfo property, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = property.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="method">The method.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this MethodInfo method, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = method.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="module">The module.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this Module module, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = module.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the expected.</typeparam>
+		/// <param name="param">The parameter.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this ParameterInfo param, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = param.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
 		}
 
 		/// <summary>
@@ -95,6 +191,28 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
+		/// Withes the attribute.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="assembly">The assembly.</param>
+		/// <returns></returns>
+		public static IEnumerable<Type> WithAttribute<T> ( this Assembly assembly ) where T : Attribute {
+			return assembly.GetTypes ( ).WithAttribute<T> ( );
+		}
+
+		/// <summary>
+		/// Withes the attribute.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="domain">The domain.</param>
+		/// <returns></returns>
+		public static IEnumerable<Type> WithAttribute<T> ( this AppDomain domain ) where T : Attribute {
+			var types = new List<Type> ( );
+			domain.GetAssemblies ( ).ForEach ( a => types.AddRange ( a.WithAttribute<T> ( ) ) );
+			return types;
+		}
+
+		/// <summary>
 		/// Gets the methods that have the specified return type.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
@@ -136,28 +254,6 @@ namespace Camalot.Common.Extensions {
 		public static IEnumerable<Type> GetTypesThatAre<TType> ( this AppDomain domain ) where TType : class {
 			var types = new List<Type> ( );
 			domain.GetAssemblies ( ).ForEach ( a => types.AddRange ( a.GetTypesThatAre<TType> ( ) ) );
-			return types;
-		}
-
-		/// <summary>
-		/// Withes the attribute.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="assembly">The assembly.</param>
-		/// <returns></returns>
-		public static IEnumerable<Type> WithAttribute<T> ( this Assembly assembly ) where T : Attribute {
-			return assembly.GetTypes ( ).WithAttribute<T> ( );
-		}
-
-		/// <summary>
-		/// Withes the attribute.
-		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="domain">The domain.</param>
-		/// <returns></returns>
-		public static IEnumerable<Type> WithAttribute<T> ( this AppDomain domain ) where T : Attribute {
-			var types = new List<Type> ( );
-			domain.GetAssemblies ( ).ForEach ( a => types.AddRange ( a.WithAttribute<T> ( ) ) );
 			return types;
 		}
 

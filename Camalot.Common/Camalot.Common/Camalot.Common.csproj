@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\Byte.cs" />
+    <Compile Include="Extensions\Enum.cs" />
     <Compile Include="Extensions\Match.cs" />
     <Compile Include="Extensions\OrValue.cs" />
     <Compile Include="Extensions\Reflection.cs" />
