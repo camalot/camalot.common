@@ -25,8 +25,9 @@
 		</CreateProperty>
 
 		<Error Condition=" '$(NuSpecFile)' == '' " Code="500" Text="'NuSpecFile' property was not set."></Error>
+		<Error Condition=" '$(NugetPackage)' == '' " Code="500" Text="'NugetPackage' property was not set."></Error>
+		<Error Condition="!Exists('$(NugetPath)\$(NugetPackage)')" Code="500" Text="'$(NugetPackage)' does not exist."></Error>
 
-		<Exec WorkingDirectory="$(NugetPath)" Command="nuget push setApiKey $(NuGetKey)" Condition=" '$(NuGetKey)' != '' "/>
 		<Exec WorkingDirectory="$(NugetPath)" Command="nuget push $(NugetPackage) $(NuGetKey)"  Condition=" '$(NuGetKey)' != '' "/>
 
 
