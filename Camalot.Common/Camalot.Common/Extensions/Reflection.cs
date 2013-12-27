@@ -20,6 +20,15 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
+		/// Determines whether the specified type is primitive.
+		/// </summary>
+		/// <param name="type">The type.</param>
+		/// <returns></returns>
+		public static bool IsPrimitive ( this Type type ) {
+			return type.IsPrimitive || type.Is<String> ( ) || type == typeof ( Decimal ) || type == typeof ( DateTime ) || type == typeof ( TimeSpan ) || type.Is<Object> ( );
+		}
+
+		/// <summary>
 		/// Gets the custom attribute.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
@@ -28,6 +37,21 @@ namespace Camalot.Common.Extensions {
 		public static T GetCustomAttribute<T> ( this Type type ) where T : Attribute {
 			var attr = type.GetCustomAttributes<T> ( ).FirstOrDefault ( );
 			return attr;
+		}
+
+		/// <summary>
+		/// Gets the custom attribute value.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="Expected">The type of the Expected.</typeparam>
+		/// <param name="type">The type.</param>
+		/// <param name="expression">The expression.</param>
+		/// <returns></returns>
+		public static Expected GetCustomAttributeValue<T, Expected> ( this Type type, Func<T, Expected> expression ) where T : Attribute {
+			var attribute = type.GetCustomAttribute<T> ( );
+			if ( attribute == null )
+				return default ( Expected );
+			return expression ( attribute );
 		}
 
 		/// <summary>
@@ -363,7 +387,7 @@ namespace Camalot.Common.Extensions {
 		/// Determines whether [is] [the specified attribute].
 		/// </summary>
 		/// <typeparam name="TType">The type of the type.</typeparam>
-		/// <param name="t">The attribute.</param>
+		/// <param name="t">The type.</param>
 		/// <returns></returns>
 		public static bool Is<TType> ( this TType t ) where TType : class {
 			return t.GetType ( ).Is<TType> ( );
@@ -373,7 +397,7 @@ namespace Camalot.Common.Extensions {
 		/// Determines whether [is] [the specified attribute].
 		/// </summary>
 		/// <typeparam name="TType">The type of the type.</typeparam>
-		/// <param name="t">The attribute.</param>
+		/// <param name="t">The type.</param>
 		/// <returns></returns>
 		public static bool Is<TType> ( this object t ) {
 			return t is TType;
@@ -391,9 +415,9 @@ namespace Camalot.Common.Extensions {
 
 
 		/// <summary>
-		/// Qualifieds the name.
+		/// Gets the fully qualified name of the type
 		/// </summary>
-		/// <param name="t">The attribute.</param>
+		/// <param name="t">The type.</param>
 		/// <returns></returns>
 		public static String QualifiedName ( this Type t ) {
 			return "{0}, {1}".With ( t.FullName, t.Assembly.GetName ( ).Name );
@@ -403,7 +427,7 @@ namespace Camalot.Common.Extensions {
 		/// Creates the instance.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="t">The attribute.</param>
+		/// <param name="t">The type.</param>
 		/// <returns></returns>
 		public static T CreateInstance<T> ( this Type t ) {
 			var result = (T)Activator.CreateInstance ( t );
@@ -419,7 +443,7 @@ namespace Camalot.Common.Extensions {
 		/// Creates the instance.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
-		/// <param name="t">The attribute.</param>
+		/// <param name="t">The type.</param>
 		/// <param name="args">The arguments.</param>
 		/// <returns></returns>
 		public static T CreateInstance<T> ( this Type t, params object[] args ) {

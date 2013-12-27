@@ -5,6 +5,7 @@
 *.suo
 *.user
 *.sln.docstates
+[Pp]ublish.bat
 
 # Build results
 

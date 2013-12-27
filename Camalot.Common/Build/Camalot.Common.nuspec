@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Camalot.Common</id>
+    <version>1.0.0.0</version>
+    <authors>Ryan Conrad</authors>
+		<owners>Ryan Conrad</owners>
+    <licenseUrl>https://raw.github.com/camalot/camalot.common/master/license.md</licenseUrl>
+    <projectUrl>https://github.com/camalot/camalot.common</projectUrl>
+		<!--iconUrl></iconUrl-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A library that I tend to create for just about every project... contains extensions and other things that I find useful, you might too (or maybe not).</description>
+    <summary>A collection of useful extensions and other things.</summary>
+    <language>en-US</language>
+		<releaseNotes></releaseNotes>
+		<copyright>Copyright 2013</copyright>
+		<tags>extensions tools common helpers</tags>
+		<dependencies>
+			<dependency id="morelinq" version="1.0.16006" />
+		</dependencies>
+  </metadata>
+</package>
