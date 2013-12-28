@@ -5,7 +5,7 @@
     <version>1.0.0.0</version>
     <authors>Ryan Conrad</authors>
 		<owners>Ryan Conrad</owners>
-    <licenseUrl>https://raw.github.com/camalot/camalot.common/master/license.md</licenseUrl>
+    <licenseUrl>https://raw.github.com/camalot/camalot.common/master/License.md</licenseUrl>
     <projectUrl>https://github.com/camalot/camalot.common</projectUrl>
 		<!--iconUrl></iconUrl-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
