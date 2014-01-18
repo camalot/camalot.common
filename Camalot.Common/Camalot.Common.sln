@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.UnitTest", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A-A1BD-4CD8-B5AE-FF81E73C0982}"
 	ProjectSection(SolutionItems) = preProject
+		Build\Camalot.Common.Mvc3.nuspec = Build\Camalot.Common.Mvc3.nuspec
+		Build\Camalot.Common.Mvc4.nuspec = Build\Camalot.Common.Mvc4.nuspec
+		Build\Camalot.Common.Mvc5.nuspec = Build\Camalot.Common.Mvc5.nuspec
 		Build\Camalot.Common.nuspec = Build\Camalot.Common.nuspec
 		Build\nuget.bat = Build\nuget.bat
 		Build\NugetPublish.msbuild = Build\NugetPublish.msbuild

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>Camalot.Common.Mvc</id>
+		<version>1.0.0.0</version>
+		<authors>Ryan Conrad</authors>
+		<owners>Ryan Conrad</owners>
+		<licenseUrl>https://raw.github.com/camalot/camalot.common/master/License.md</licenseUrl>
+		<projectUrl>https://github.com/camalot/camalot.common</projectUrl>
+		<!--iconUrl></iconUrl--> 
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A library that I tend to create for just about every project... contains extensions and other things that I find useful, you might too (or maybe not).</description>
+		<summary>A collection of useful extensions and other things.</summary>
+		<language>en-US</language>
+		<releaseNotes></releaseNotes>
+		<copyright>Copyright 2013</copyright>
+		<tags>extensions tools common helpers</tags>
+		<dependencies>
+			<dependency id="Camalot.Common" />
+			<dependency id="morelinq" version="1.0.16006" />
+			<dependency id="Newtonsoft.Json" version="5.0.8" />
+		</dependencies>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Web" version="4.0.0" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Web.Mvc" version="3.0.0" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Web.Http" version="4.0.0" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Web.WebPages" version="2.0.0" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Web.Helpers" version="2.0.0" targetFramework="net45" />
+		</frameworkAssemblies>
+	</metadata>
+</package>
