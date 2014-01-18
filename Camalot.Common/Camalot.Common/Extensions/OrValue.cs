@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Camalot.Common.Properties;
 
 namespace Camalot.Common.Extensions {
 	public static partial class CamalotCommonExtensions {
@@ -11,9 +12,6 @@ namespace Camalot.Common.Extensions {
 		}
 
 		public static Guid Or ( this Guid guid, Guid value ) {
-			if ( guid == Guid.Empty ) {
-				throw new ArgumentException ( );
-			}
 			return guid == Guid.Empty ? value : guid;
 		}
 

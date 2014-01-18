@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Camalot.Common.Properties;
 
 namespace Camalot.Common.Extensions {
 	public static partial class CamalotCommonExtensions {
@@ -33,19 +34,19 @@ namespace Camalot.Common.Extensions {
 		public static String ToFriendlyString ( this DateTime dt ) {
 			TimeSpan ts = DateTime.UtcNow - dt;
 			if ( ts.TotalMinutes < 1 )//seconds ago
-				return "just now";
+				return Resources.Date_FriendlyNow;
 			if ( ts.TotalHours < 1 )//min ago
-				return (int)ts.TotalMinutes == 1 ? "a minute ago" : (int)ts.TotalMinutes + " minutes ago";
+				return (int)ts.TotalMinutes == 1 ? Resources.Date_Friendly1Minute : Resources.Date_FriendlyMinutes.With ( (int)ts.TotalMinutes );
 			if ( ts.TotalDays < 1 )//hours ago
-				return (int)ts.TotalHours == 1 ? "an hour ago" : (int)ts.TotalHours + " hours ago";
+				return (int)ts.TotalHours == 1 ? Resources.Date_Friendly1Hour : Resources.Date_FriendlyHours.With ( (int)ts.TotalHours );
 			if ( ts.TotalDays < 7 )//days ago
-				return (int)ts.TotalDays == 1 ? "a day ago" : (int)ts.TotalDays + " days ago";
+				return (int)ts.TotalDays == 1 ? Resources.Date_Friendly1Day : Resources.Date_FriendlyDays.With ( (int)ts.TotalDays );
 			if ( ts.TotalDays < 30.4368 )//weeks ago
-				return (int)( ts.TotalDays / 7 ) == 1 ? "a week ago" : (int)( ts.TotalDays / 7 ) + " weeks ago";
+				return (int)( ts.TotalDays / 7 ) == 1 ? Resources.Date_Friendly1Week : Resources.Date_FriendlyWeeks.With ( (int)( ts.TotalDays / 7 ) );
 			if ( ts.TotalDays < 365.242 )//months ago
-				return (int)( ts.TotalDays / 30.4368 ) == 1 ? "a month ago" : (int)( ts.TotalDays / 30.4368 ) + " months ago";
+				return (int)( ts.TotalDays / 30.4368 ) == 1 ? Resources.Date_Friendly1Month : Resources.Date_FriendlyMonths.With ( (int)( ts.TotalDays / 30.4368 ) );
 			//years ago
-			return (int)( ts.TotalDays / 365.242 ) == 1 ? "a year ago" : (int)( ts.TotalDays / 365.242 ) + " years ago";
+			return (int)( ts.TotalDays / 365.242 ) == 1 ? Resources.Date_Friendly1Year : Resources.Date_FriendlyYears.With ( (int)( ts.TotalDays / 365.242 ) );
 		}
 
 		/// <summary>
@@ -56,19 +57,19 @@ namespace Camalot.Common.Extensions {
 		public static String ToShortFriendlyString ( this DateTime dt ) {
 			TimeSpan ts = DateTime.UtcNow - dt;
 			if ( ts.TotalMinutes < 1 )//seconds ago
-				return "now";
+				return Resources.Date_FriendlyNow_Short;
 			if ( ts.TotalHours < 1 )//min ago
-				return (int)ts.TotalMinutes + "m";
+				return (int)ts.TotalMinutes + Resources.Date_FriendlyMinute_Short;
 			if ( ts.TotalDays < 1 )//hours ago
-				return (int)ts.TotalHours + "h";
+				return (int)ts.TotalHours + Resources.Date_FriendlyHour_Short;
 			if ( ts.TotalDays < 7 )//days ago
-				return (int)ts.TotalDays + "d";
+				return (int)ts.TotalDays + Resources.Date_FriendlyDay_Short;
 			if ( ts.TotalDays < 30.4368 )//weeks ago
-				return (int)( ts.TotalDays / 7 ) + "w";
+				return (int)( ts.TotalDays / 7 ) + Resources.Date_FriendlyWeek_Short;
 			if ( ts.TotalDays < 365.242 )//months ago
-				return (int)( ts.TotalDays / 30.4368 ) + "m";
+				return (int)( ts.TotalDays / 30.4368 ) + Resources.Date_FriendlyMonth_Short;
 			//years ago
-			return (int)( ts.TotalDays / 365.242 ) + "y";
+			return (int)( ts.TotalDays / 365.242 ) + Resources.Date_FriendlyYear_Short;
 		}
 
 		/// <summary>

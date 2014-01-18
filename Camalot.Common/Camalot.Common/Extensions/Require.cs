@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Camalot.Common.Properties;
 
 namespace Camalot.Common.Extensions {
 	/// <summary>
@@ -17,7 +18,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		public static Object Require ( this Object obj ) {
 			if ( obj == null ) {
-				throw new ArgumentException ( );
+				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return obj;
 		}
@@ -53,7 +54,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		public static Guid Require ( this Guid guid ) {
 			if ( guid == Guid.Empty ) {
-				throw new ArgumentException ( );
+				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return guid;
 		}
@@ -95,7 +96,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		public static T Require<T> ( this T t ) {
 			if ( t.Equals ( default ( T ) ) ) {
-				throw new ArgumentException ( );
+				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return t;
 		}
@@ -121,7 +122,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		public static String Require ( this String s ) {
 			if ( String.IsNullOrWhiteSpace ( s ) ) {
-				throw new ArgumentException ( );
+				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return s;
 		}
@@ -149,7 +150,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		public static T? Require<T> ( this T? t ) where T : struct, IComparable {
 			if ( !t.HasValue ) {
-				throw new ArgumentException ( );
+				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return t;
 		}
@@ -160,10 +161,10 @@ namespace Camalot.Common.Extensions {
 		/// </summary>
 		/// <param name="i">The i.</param>
 		/// <returns></returns>
-		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero.With ( i )</exception>
 		public static int RequireZero ( this int i ) {
 			if ( i != 0 ) {
-				throw new ArgumentException ( "value '{0}' must zero.".With ( i ) );
+				throw new ArgumentException ( Resources.Require_Zero.With ( i ) );
 			}
 			return i;
 		}
@@ -176,7 +177,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
 		public static int RequireZero ( this int i, String param ) {
 			if ( i != 0 ) {
-				throw new ArgumentException ( "value '{0}' must zero.".With ( i ), param );
+				throw new ArgumentException ( Resources.Require_Zero.With ( i ), param );
 			}
 			return i;
 		}
@@ -230,7 +231,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
 		public static int RequireBetween ( this int i, int low, int high, String param ) {
 			if ( i <= low || i >= high ) {
-				throw new ArgumentException ( "value '{2}' must be a value between {0} and {1}".With ( low, high, i ), param );
+				throw new ArgumentException ( Resources.Require_Between.With ( low, high, i ), param );
 			}
 			return i;
 		}
@@ -245,7 +246,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
 		public static int RequireBetween ( this int i, int low, int high ) {
 			if ( i <= low || i >= high ) {
-				throw new ArgumentException ( "value '{2}' must be a value between {0} and {1}".With ( low, high, i ) );
+				throw new ArgumentException ( Resources.Require_Between.With ( low, high, i ) );
 			}
 			return i;
 		}
@@ -258,7 +259,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
 		public static short RequireZero ( this short i ) {
 			if ( i != 0 ) {
-				throw new ArgumentException ( "value '{0}' must zero.".With ( i ) );
+				throw new ArgumentException ( Resources.Require_Zero.With ( i ) );
 			}
 			return i;
 		}
@@ -271,7 +272,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
 		public static short RequireZero ( this short i, String param ) {
 			if ( i != 0 ) {
-				throw new ArgumentException ( "value '{0}' must zero.".With ( i ), param );
+				throw new ArgumentException ( Resources.Require_Zero.With ( i ), param );
 			}
 			return i;
 		}
@@ -325,7 +326,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
 		public static short RequireBetween ( this short i, short low, short high, String param ) {
 			if ( i <= low || i >= high ) {
-				throw new ArgumentException ( "value '{2}' must be a value between {0} and {1}".With ( low, high, i ), param );
+				throw new ArgumentException ( Resources.Require_Between.With ( low, high, i ), param );
 			}
 			return i;
 		}
@@ -340,7 +341,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
 		public static short RequireBetween ( this short i, short low, short high ) {
 			if ( i <= low || i >= high ) {
-				throw new ArgumentException ( "value '{2}' must be a value between {0} and {1}".With ( low, high, i ) );
+				throw new ArgumentException ( Resources.Require_Between.With ( low, high, i ) );
 			}
 			return i;
 		}

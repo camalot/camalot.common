@@ -4,8 +4,6 @@
 				Condition="'$(MSBuildCommunityTasksPath)' == ''"/>
 
 	<PropertyGroup>
-		<Project>Camalot.Common</Project>
-		<ProjectFriendlyName>Camalot.Common</ProjectFriendlyName>
 		<ReleaseName>$(ProjectFriendlyName) $(Version) $(Status)</ReleaseName>
 		<PublishNuGet Condition=" '$(PublishMode)' == 'NuGet' ">PublishNuGet</PublishNuGet>
 		<NuSpecFile Condition=" '$(NuSpecFile)' == '' ">$(ProjectFriendlyName).nuspec</NuSpecFile>
@@ -19,6 +17,11 @@
 	</ItemGroup>
 
 	<Target Name="Publish" Condition=" '$(PublishMode)' == 'NuGet' " DependsOnTargets="NuGetPackage">
+		<Error Condition=" '$(Project)' == '' " Code="500" Text="'Project' property was not set."></Error>
+
+		<CreateProperty Value="$(Project)">
+			<Output TaskParameter="Value" PropertyName="ProjectFriendlyName" />
+		</CreateProperty>
 
 		<CreateProperty Value="$(ProjectFriendlyName).$(ProjectVersion).nupkg">
 			<Output TaskParameter="Value" PropertyName="NugetPackage" />

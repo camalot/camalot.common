@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Camalot.Common.Properties;
 using MoreLinq;
 
 namespace Camalot.Common.Extensions {
@@ -93,11 +94,11 @@ namespace Camalot.Common.Extensions {
 		}
 
 		public static String ToCamelCase ( this String input ) {
-			return input.Require ( "'input' cannot be null or empty." ).Replace ( input[0], input.ToLower ( )[0] );
+			return input.Require ( Resources.Common_NullOrEmpty ).Replace ( input[0], input.ToLower ( )[0] );
 		}
 
 		public static String ToPascalCase ( this String input ) {
-			return CultureInfo.CurrentUICulture.TextInfo.ToTitleCase ( input.Require ( "'input' cannot be null or empty." ) );
+			return CultureInfo.CurrentUICulture.TextInfo.ToTitleCase ( input.Require ( Resources.Common_NullOrEmpty ) );
 		}
 
 		public static String[] SplitAndTrim ( this String input, char[] separator, StringSplitOptions options ) {

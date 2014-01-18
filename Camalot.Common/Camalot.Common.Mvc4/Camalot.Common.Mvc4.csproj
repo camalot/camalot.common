@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DF6FE85F-0CF4-4F29-8A38-878D570E8F4D}</ProjectGuid>
+    <ProjectGuid>{1DE05D3F-2EEC-497D-B507-284B5579738D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Camalot.Common</RootNamespace>
-    <AssemblyName>Camalot.Common</AssemblyName>
+    <RootNamespace>Camalot.Common.Mvc</RootNamespace>
+    <AssemblyName>Camalot.Common.Mvc4</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +40,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,43 +52,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\Assembly.cs" />
-    <Compile Include="Extensions\Byte.cs" />
-    <Compile Include="Extensions\Color.cs" />
-    <Compile Include="Extensions\DateTime.cs" />
-    <Compile Include="Extensions\Enum.cs" />
-    <Compile Include="Extensions\FieldInfo.cs" />
-    <Compile Include="Extensions\Match.cs" />
-    <Compile Include="Extensions\MemberInfo.cs" />
-    <Compile Include="Extensions\MethodInfo.cs" />
-    <Compile Include="Extensions\Module.cs" />
-    <Compile Include="Extensions\OrValue.cs" />
-    <Compile Include="Extensions\ParameterInfo.cs" />
-    <Compile Include="Extensions\PropertyInfo.cs" />
-    <Compile Include="Extensions\AppDomain.cs" />
-    <Compile Include="Extensions\Require.cs" />
-    <Compile Include="Extensions\Stream.cs" />
-    <Compile Include="Extensions\String.cs" />
-    <Compile Include="Extensions\Type.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\AjaxOnlyAttribute.cs">
+      <Link>Attributes\AjaxOnlyAttribute.cs</Link>
     </Compile>
-    <Compile Include="Serialization\Converters\GuidConverter.cs" />
-    <Compile Include="Serialization\Converters\HtmlColorConverter.cs" />
-    <Compile Include="Serialization\Converters\UnixDateTimeConverter.cs" />
-    <Compile Include="Serialization\JsonSerializerFactory.cs" />
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\AjaxValidateAntiForgeryTokenAttribute.cs">
+      <Link>Attributes\AjaxValidateAntiForgeryTokenAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\CompressAttribute.cs">
+      <Link>Attributes\CompressAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\NoCacheAttribute.cs">
+      <Link>Attributes\NoCacheAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\Controller.cs">
+      <Link>Extensions\Controller.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\ControllerContext.cs">
+      <Link>Extensions\ControllerContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\HttpContext.cs">
+      <Link>Extensions\HttpContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\String.cs">
+      <Link>Extensions\String.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Results\JsonpResult.cs">
+      <Link>Results\JsonpResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Results\JsonResult.cs">
+      <Link>Results\JsonResult.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Camalot.Common\Camalot.Common.csproj">
+      <Project>{df6fe85f-0cf4-4f29-8a38-878d570e8f4d}</Project>
+      <Name>Camalot.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
