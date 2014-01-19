@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -14,12 +15,18 @@ namespace Camalot.Common.Mvc.Attributes {
 	/// This checks the request headers for the request verification token if the request is an ajax request.
 	/// </summary>
 	[AttributeUsage ( AttributeTargets.Class | AttributeTargets.Method )]
+	[AspNetHostingPermission ( SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal )]
 	public class AjaxValidateAntiForgeryTokenAttribute : FilterAttribute, IAuthorizationFilter {
 		private const string TOKEN_FIELD = "__RequestVerificationToken";
 		private static HttpAntiForgeryException CreateValidationException ( string message ) {
 			return new HttpAntiForgeryException ( message );
 		}
 
+		/// <summary>
+		/// Called when authorization is required.
+		/// </summary>
+		/// <param name="filterContext">The filter context.</param>
+		/// <exception cref="System.ArgumentNullException">filterContext</exception>
 		public void OnAuthorization ( AuthorizationContext filterContext ) {
 			if ( filterContext == null ) {
 				throw new ArgumentNullException ( "filterContext" );

@@ -76,7 +76,8 @@
     <Compile Include="Serialization\Converters\GuidConverter.cs" />
     <Compile Include="Serialization\Converters\HtmlColorConverter.cs" />
     <Compile Include="Serialization\Converters\UnixDateTimeConverter.cs" />
-    <Compile Include="Serialization\JsonSerializerFactory.cs" />
+    <Compile Include="Serialization\JsonSerializationBuilder.cs" />
+    <Compile Include="Serialization\XmlSerializationBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

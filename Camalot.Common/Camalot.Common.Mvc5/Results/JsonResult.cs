@@ -13,8 +13,30 @@ namespace Camalot.Common.Mvc.Results {
 	/// 
 	/// </summary>
 	public class JsonResult<T> : JsonResult {
-		public JsonResult ( T data ) {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonResult{T}"/> class.
+		/// </summary>
+		public JsonResult ( )
+			: this ( default(T) ) {
 
+		}
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonResult{T}"/> class.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		public JsonResult ( T data )
+			: this ( data, Encoding.UTF8 ) {
+
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonResult{T}"/> class.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		/// <param name="encoding">The encoding.</param>
+		public JsonResult ( T data, Encoding encoding ) {
+			this.Data = data;
+			this.Encoding = encoding;
 		}
 
 		/// <summary>
@@ -22,6 +44,8 @@ namespace Camalot.Common.Mvc.Results {
 		/// </summary>
 		/// <returns>The data.</returns>
 		public T Data { get; set; }
+		public Encoding Encoding { get; set; }
+
 
 		/// <summary>
 		/// Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
@@ -31,11 +55,11 @@ namespace Camalot.Common.Mvc.Results {
 			var response = context.HttpContext.Response;
 
 			response.ContentType = "application/json";
-			response.ContentEncoding = Encoding.UTF8;
+			response.ContentEncoding = this.Encoding;
 
 			using ( var sw = new StreamWriter ( response.OutputStream ) ) {
 				using ( var jw = new JsonTextWriter ( sw ) ) {
-					JsonSerializerFactory.Create ( ).Serialize ( jw, this.Data );
+					JsonSerializationBuilder.Build ( ).Create ( ).Serialize ( jw, this.Data );
 				}
 			}
 		}

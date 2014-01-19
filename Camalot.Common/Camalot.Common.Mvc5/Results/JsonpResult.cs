@@ -17,17 +17,48 @@ namespace Camalot.Common.Mvc.Results {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="JsonpResult{T}"/> class.
 		/// </summary>
-		/// <param name="data">The data.</param>
-		public JsonpResult ( T data ) : this(data,"callback") {
-		
-		}
+		public JsonpResult ( )
+			: this ( default ( T ) ) {
 
-		public JsonpResult ( T data, string callback ) : base(data) {
+		}
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonpResult{T}"/> class.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		public JsonpResult ( T data ) : this ( data, "callback", Encoding.UTF8 ) { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonpResult{T}"/> class.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		/// <param name="callback">The callback.</param>
+		public JsonpResult ( T data, string callback ) : this ( data, callback, Encoding.UTF8 ) { }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="JsonpResult{T}"/> class.
+		/// </summary>
+		/// <param name="data">The data.</param>
+		/// <param name="callback">The callback.</param>
+		/// <param name="encoding">The encoding.</param>
+		public JsonpResult ( T data, string callback, Encoding encoding )
+			: base ( data, encoding ) {
 			this.Callback = callback ?? "callback";
 		}
 
-		public string Callback { get; set; }
 
+		/// <summary>
+		/// Gets or sets the callback.
+		/// </summary>
+		/// <value>
+		/// The callback.
+		/// </value>
+		private string Callback { get; set; }
+
+		/// <summary>
+		/// <summary>
+		/// Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+		/// </summary>
+		/// <param name="context">The context within which the result is executed.</param>
 		public override void ExecuteResult ( System.Web.Mvc.ControllerContext context ) {
 			var response = context.HttpContext.Response;
 			var request = context.HttpContext.Request;
@@ -37,11 +68,11 @@ namespace Camalot.Common.Mvc.Results {
 				callback = request.QueryString[callback];
 			}
 			response.ContentType = "application/javascript";
-			response.ContentEncoding = Encoding.UTF8;
+			response.ContentEncoding = this.Encoding;
 			using ( var sw = new StreamWriter ( response.OutputStream ) ) {
 				using ( var jw = new JsonTextWriter ( sw ) ) {
 					jw.WriteRaw ( callback + "(" );
-					JsonSerializerFactory.Create ( ).Serialize ( jw, this.Data );
+					JsonSerializationBuilder.Build ( ).Create ( ).Serialize ( jw, this.Data );
 					jw.WriteRaw ( ");" );
 				}
 			}
