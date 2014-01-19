@@ -40,12 +40,17 @@ namespace Camalot.Common.Mvc.Results {
 		}
 
 		/// <summary>
+		/// Gets or sets the encoding.
+		/// </summary>
+		/// <value>
+		/// The encoding.
+		/// </value>
+		public Encoding Encoding { get; set; }
+		/// <summary>
 		/// Gets or sets the data.
 		/// </summary>
 		/// <returns>The data.</returns>
-		public T Data { get; set; }
-		public Encoding Encoding { get; set; }
-
+		public new T Data { get; set; }
 
 		/// <summary>
 		/// Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.

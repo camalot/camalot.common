@@ -1,29 +1,23 @@
 <?xml version="1.0"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0" DefaultTargets="Publish">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0" DefaultTargets="Publish">
 	<Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"
 				Condition="'$(MSBuildCommunityTasksPath)' == ''"/>
 
 	<PropertyGroup>
-		<ReleaseName>$(ProjectFriendlyName) $(Version) $(Status)</ReleaseName>
 		<PublishNuGet Condition=" '$(PublishMode)' == 'NuGet' ">PublishNuGet</PublishNuGet>
-		<NuSpecFile Condition=" '$(NuSpecFile)' == '' ">$(ProjectFriendlyName).nuspec</NuSpecFile>
 		<OutputPath>$(MSBuildProjectDirectory)\..\$(Project)\bin\debug</OutputPath>
 		<ReleasesPath>$(MSBuildProjectDirectory)\..\$(Project)\bin\nuget</ReleasesPath>
 		<NugetPath>$(MSBuildProjectDirectory)\..\.nuget</NugetPath>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectAssemblies Include="$(OutputPath)\$(Project).dll" />
+		<NugetContentFiles Include="$(OutputPath)\Nuget\content\**" />
+		<NugetToolsFiles Include="$(OutputPath)\Nuget\tools\**" />
 	</ItemGroup>
 
 	<Target Name="Publish" Condition=" '$(PublishMode)' == 'NuGet' " DependsOnTargets="NuGetPackage">
-		<Error Condition=" '$(Project)' == '' " Code="500" Text="'Project' property was not set."></Error>
-
-		<CreateProperty Value="$(Project)">
-			<Output TaskParameter="Value" PropertyName="ProjectFriendlyName" />
-		</CreateProperty>
-
-		<CreateProperty Value="$(ProjectFriendlyName).$(ProjectVersion).nupkg">
+		
+		<CreateProperty Value="$(Project).$(ProjectVersion).nupkg">
 			<Output TaskParameter="Value" PropertyName="NugetPackage" />
 		</CreateProperty>
 
@@ -33,14 +27,21 @@
 
 		<Exec WorkingDirectory="$(NugetPath)" Command="nuget push $(NugetPackage) $(NuGetKey)"  Condition=" '$(NuGetKey)' != '' "/>
 
-
 		<MakeDir Directories="$(ReleasesPath)" Condition="!Exists('$(ReleasesPath)')" />
-		<Copy SourceFiles="$(NugetPath)\$(ProjectFriendlyName).$(ProjectVersion).nupkg" DestinationFolder="$(ReleasesPath)" />
+		<Copy SourceFiles="$(NugetPath)\$(NugetPackage)" DestinationFolder="$(ReleasesPath)" />
 		<Delete Files="$(NugetPath)\$(NugetPackage)" />
 
 	</Target>
 
 	<Target Name="RetrieveIdentities">
+		<CreateProperty Value="$(Project)" Condition=" '$(ProjectFriendlyName)' == '' ">
+			<Output TaskParameter="Value" PropertyName="ProjectFriendlyName" />
+		</CreateProperty>
+
+		<CreateItem Include="$(OutputPath)\$(ProjectFriendlyName).dll">
+			<Output ItemName="ProjectAssemblies" TaskParameter="Include"/>
+		</CreateItem>
+
 		<GetAssemblyIdentity
         AssemblyFiles="@(ProjectAssemblies)">
 			<Output
@@ -50,11 +51,18 @@
 	</Target>
 
 	<Target Name="NuGetPackage" DependsOnTargets="RetrieveIdentities">
+		<Error Condition=" '$(Project)' == '' " Code="500" Text="'Project' property was not set."></Error>
+
+		<CreateProperty Value="$(ProjectFriendlyName).nuspec" Condition=" '$(NuSpecFile)' == '' ">
+			<Output TaskParameter="Value" PropertyName="NuSpecFile" />
+		</CreateProperty>
+		
+		
 		<CreateProperty Value="%(ProjectIdentities.Version)">
 			<Output TaskParameter="Value" PropertyName="ProjectVersion" />
 		</CreateProperty>
 
-		<CreateProperty Value="$(OutputPath)\$(ProjectFriendlyName).$(ProjectVersion)">
+		<CreateProperty Value="$(OutputPath)\$(Project).$(ProjectVersion)">
 			<Output TaskParameter="Value" PropertyName="PackagePath" />
 		</CreateProperty>
 
@@ -63,29 +71,34 @@
 		</CreateProperty>
 
 		<MakeDir Directories="$(Net4LibPath)" Condition="!Exists('$(Net4LibPath)')" />
-		
-		<Copy SourceFiles="$(MSBuildProjectDirectory)\$(NuSpecFile)" DestinationFiles="$(PackagePath)\$(ProjectFriendlyName).nuspec" />
+		<MakeDir Directories="$(PackagePath)/content" Condition="!Exists('$(PackagePath)/content')" />
+		<MakeDir Directories="$(PackagePath)/tools" Condition="!Exists('$(PackagePath)/tools')" />
+
+		<Copy SourceFiles="$(MSBuildProjectDirectory)\$(NuSpecFile)" DestinationFiles="$(PackagePath)\$(NuSpecFile)" />
 
 		<CreateItem Include="@(ProjectAssemblies)" Exclude="$(OutputPath)*.zip;$(OutputPath)*.vshost.*;">
 			<Output ItemName="CopyFiles" TaskParameter="Include"/>
 		</CreateItem>
 
 		<Copy SourceFiles="@(CopyFiles)" DestinationFolder="$(Net4LibPath)" />
+		
+		<Copy SourceFiles="@(NugetContentFiles)" DestinationFolder="$(PackagePath)\content\%(RecursiveDir)" />
+		<Copy SourceFiles="@(NugetToolsFiles)" DestinationFolder="$(PackagePath)\tools\%(RecursiveDir)" />
 
 		<XmlUpdate
 			XPath="/package/metadata/version"
-			XmlFileName="$(PackagePath)\$(ProjectFriendlyName).nuspec"
+			XmlFileName="$(PackagePath)\$(NuSpecFile)"
 			Value="%(ProjectIdentities.Version)"/>
 		<XmlUpdate
 			XPath="/package/metadata/id"
-			XmlFileName="$(PackagePath)\$(ProjectFriendlyName).nuspec"
-			Value="$(ProjectFriendlyName)"/>
+			XmlFileName="$(PackagePath)\$(NuSpecFile)"
+			Value="$(Project)"/>
 		<XmlUpdate
 			XPath="/package/metadata/releaseNotes"
-			XmlFileName="$(PackagePath)\$(ProjectFriendlyName).nuspec"
+			XmlFileName="$(PackagePath)\$(NuSpecFile)"
 			Value="$(ReleaseDescription)"/>
 
-		<Exec WorkingDirectory="$(NugetPath)" Command="nuget pack &quot;$(PackagePath)\$(ProjectFriendlyName).nuspec&quot;" />
+		<Exec WorkingDirectory="$(NugetPath)" Command="nuget pack &quot;$(PackagePath)\$(NuSpecFile)&quot;" />
 		<RemoveDir Directories="$(PackagePath)" Condition="Exists('$(PackagePath)')" ContinueOnError="true" />
 	</Target>
 </Project>

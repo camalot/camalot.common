@@ -195,4 +195,7 @@
   <data name="AntiForgeryToken_InvalidMethod" xml:space="preserve">
     <value>Method not allowed.</value>
   </data>
+  <data name="XmlNode_UnknownNodeType" xml:space="preserve">
+    <value>Unknown Xml Node Type</value>
+  </data>
 </root>

@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
     <Reference Include="MoreLinq">
       <HintPath>..\packages\morelinq.1.0.16006\lib\net35\MoreLinq.dll</HintPath>
     </Reference>
@@ -45,12 +53,18 @@
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\AjaxOnlyAttribute.cs">
@@ -64,6 +78,15 @@
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\NoCacheAttribute.cs">
       <Link>Attributes\NoCacheAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Configuration\BundlesConfiguration.cs">
+      <Link>Configuration\BundlesConfiguration.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Configuration\Handlers\BundlesSectionHandler.cs">
+      <Link>Configuration\Handlers\BundlesSectionHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\BundleCollection.cs">
+      <Link>Extensions\BundleCollection.cs</Link>
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Extensions\Controller.cs">
       <Link>Extensions\Controller.cs</Link>
@@ -83,6 +106,9 @@
     <Compile Include="..\Camalot.Common.Mvc5\Results\JsonResult.cs">
       <Link>Results\JsonResult.cs</Link>
     </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Results\XmlResult.cs">
+      <Link>Results\XmlResult.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,7 +118,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Camalot.Common.Mvc5\Nuget\content\web.config.install.xdt">
+      <Link>Nuget\content\web.config.install.xdt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\Camalot.Common.Mvc5\Nuget\content\web.config.uninstall.xdt">
+      <Link>Nuget\content\web.config.uninstall.xdt</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Nuget\tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

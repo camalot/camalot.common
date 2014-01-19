@@ -293,5 +293,14 @@ namespace Camalot.Common.Properties {
                 return ResourceManager.GetString("Require_Zero", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown Xml Node Type.
+        /// </summary>
+        public static string XmlNode_UnknownNodeType {
+            get {
+                return ResourceManager.GetString("XmlNode_UnknownNodeType", resourceCulture);
+            }
+        }
     }
 }

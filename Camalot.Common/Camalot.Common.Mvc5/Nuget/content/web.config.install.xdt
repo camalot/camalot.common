@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<configSections>
+		<sectionGroup name="camalot.common" xdt:Transform="Insert">
+			<section name="bundles" requirePermission="false" type="Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler, Camalot.Common.Mvc" />
+		</sectionGroup>
+	</configSections>
+
+	<camalot.common xdt:Transform="InsertAfter(/configuration/appSettings)">
+		<bundles>
+			<ignores>
+				<ignore pattern="*.map" when="Always" />
+			</ignores>
+			<scripts>
+				<bundle name="~/bundles/jquery" cdnFallbackExpression="window.jQuery" cdnPath="//code.jquery.com/jquery-2.0.3.min.js">
+					<include path="~/scripts/jquery-{version}.js" />
+				</bundle>
+				<bundle name="~/bundles/modernizr">
+					<include path="~/scripts/modernizr-*" />
+				</bundle>
+				<bundle name="~/bundles/bootstrap">
+					<include path="~/scripts/bootstrap.js" />
+					<include path="~/Scripts/respond.js" />
+				</bundle>
+				<!--bundle name="~/bundles/knockout">
+					<include path="~/scripts/knockout-{version}.js" />
+				</bundle-->
+			</scripts>
+			<styles>
+				<bundle name="~/content/css">
+					<include path="~/content/bootstrap.css" />
+					<include path="~/content/site.css" />
+				</bundle>
+			</styles>
+		</bundles>
+	</camalot.common>
+</configuration>
