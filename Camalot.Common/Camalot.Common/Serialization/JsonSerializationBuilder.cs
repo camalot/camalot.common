@@ -19,7 +19,7 @@ namespace Camalot.Common.Serialization {
 				Converters = new List<JsonConverter> {
 					new GuidConverter(),
 					new UnixDateTimeConverter(),
-					new HtmlColorConverter()
+					//new HtmlColorConverter()
 				},
 				CheckAdditionalContent = true,
 				DateFormatHandling = DateFormatHandling.IsoDateFormat,

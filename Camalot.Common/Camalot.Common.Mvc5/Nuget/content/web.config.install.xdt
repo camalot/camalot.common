@@ -1,17 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- https://webconfigtransformationtester.apphb.com/ -->
+<!-- According to that URL this works as it should. -->
+
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 	<configSections>
-		<sectionGroup name="camalot.common" xdt:Transform="Insert">
-			<section name="bundles" requirePermission="false" type="Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler, Camalot.Common.Mvc" />
+		<sectionGroup name="camalot.common" xdt:Transform="InsertIfMissing">
+			<section xdt:Transform="InsertIfMissing" name="bundles" requirePermission="false" type="Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler, Camalot.Common.Mvc" />
 		</sectionGroup>
 	</configSections>
 
-	<camalot.common xdt:Transform="InsertAfter(/configuration/appSettings)">
-		<bundles>
+	<camalot.common xdt:Transform="InsertIfMissing(/configuration/appSettings)">
+		<bundles xdt:Transform="InsertIfMissing">
 			<ignores>
 				<ignore pattern="*.map" when="Always" />
 			</ignores>
-			<scripts>
+			<scripts xdt:Transform="InsertIfMissing">
 				<bundle name="~/bundles/jquery" cdnFallbackExpression="window.jQuery" cdnPath="//code.jquery.com/jquery-2.0.3.min.js">
 					<include path="~/scripts/jquery-{version}.js" />
 				</bundle>
@@ -26,7 +29,7 @@
 					<include path="~/scripts/knockout-{version}.js" />
 				</bundle-->
 			</scripts>
-			<styles>
+			<styles xdt:Transform="InsertIfMissing">
 				<bundle name="~/content/css">
 					<include path="~/content/bootstrap.css" />
 					<include path="~/content/site.css" />

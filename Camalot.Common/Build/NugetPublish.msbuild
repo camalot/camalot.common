@@ -8,6 +8,8 @@
 		<OutputPath>$(MSBuildProjectDirectory)\..\$(Project)\bin\debug</OutputPath>
 		<ReleasesPath>$(MSBuildProjectDirectory)\..\$(Project)\bin\nuget</ReleasesPath>
 		<NugetPath>$(MSBuildProjectDirectory)\..\.nuget</NugetPath>
+
+		<LocalDeploy Condition=" '$(LocalDeploy)' == '' "></LocalDeploy>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -29,8 +31,13 @@
 
 		<MakeDir Directories="$(ReleasesPath)" Condition="!Exists('$(ReleasesPath)')" />
 		<Copy SourceFiles="$(NugetPath)\$(NugetPackage)" DestinationFolder="$(ReleasesPath)" />
+
+		<MakeDir Directories="$(LocalDeploy)" Condition=" '$(LocalDeploy)' != '' AND !Exists('$(LocalDeploy)')" />
+		<Copy SourceFiles="$(NugetPath)\$(NugetPackage)" DestinationFolder="$(LocalDeploy)" Condition=" '$(LocalDeploy)' != '' AND Exists('$(LocalDeploy)') " />
+		
 		<Delete Files="$(NugetPath)\$(NugetPackage)" />
 
+		
 	</Target>
 
 	<Target Name="RetrieveIdentities">
