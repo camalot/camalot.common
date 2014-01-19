@@ -6,7 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Camalot.Common.Serialization;
+using Camalot.Common.Extensions;
+using Camalot.Common.Mvc.Extensions;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using Camalot.Common.Properties;
 
 namespace Camalot.Common.Mvc.Results {
 	/// <summary>
@@ -67,15 +71,42 @@ namespace Camalot.Common.Mvc.Results {
 			if ( request.QueryString.AllKeys.Any ( s => string.Compare ( s, callback, StringComparison.InvariantCultureIgnoreCase ) == 0 ) ) {
 				callback = request.QueryString[callback];
 			}
+
+			if ( !IsValidJsonPIdentifier ( callback ) ) {
+				throw new ArgumentException ( Resources.JsonP_InvalidIdentifier.With ( callback.HtmlEncode ( ) ) );
+			}
+
 			response.ContentType = "application/javascript";
 			response.ContentEncoding = this.Encoding;
 			using ( var sw = new StreamWriter ( response.OutputStream ) ) {
 				using ( var jw = new JsonTextWriter ( sw ) ) {
-					jw.WriteRaw ( callback + "(" );
+					jw.WriteRaw ( callback.Trim() + "(" );
 					JsonSerializationBuilder.Build ( ).Create ( ).Serialize ( jw, this.Data );
 					jw.WriteRaw ( ");" );
 				}
 			}
+		}
+
+
+		private bool IsValidJsonPIdentifier ( string identifier ) {
+			if ( string.IsNullOrWhiteSpace ( identifier ) ) {
+				return false;
+			}
+			var reserved = new[] {
+				 "abstract", "boolean", "break", "byte", "case", "catch", "char", "class",
+					"const", "continue", "debugger", "default", "delete", "do", "double",
+					"else", "enum", "export", "extends", "false", "final", "finally", "float",
+					"for", "function", "goto", "if", "implements", "import", "in", "instanceof",
+					"int", "interface", "long", "native", "new", "null", "package", "private",
+					"protected", "public", "return", "short", "static", "super", "switch",
+					"synchronized", "this", "throw", "throws", "transient", "true", "try",
+					"typeof", "var", "void", "volatile", "while", "with", "let", "yeild"
+			 };
+			var trimmed = identifier.Trim ( );
+			var isMatch = trimmed.IsMatch ( "^[$_a-z][a-z0-9$\\-_\\.]*$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled | RegexOptions.Singleline );
+			var isReserved = reserved.Any ( x => x == trimmed );
+			var isValid = isMatch && !isReserved;
+			return isValid;
 		}
 	}
 }

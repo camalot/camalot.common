@@ -12,7 +12,8 @@ namespace Camalot.Common.Mvc.Results {
 			: this ( default ( T ), Encoding.UTF8 ) {
 
 		}
-		public XmlResult ( T data ) {
+		public XmlResult ( T data )
+			: this ( data, Encoding.UTF8 ) {
 
 		}
 
@@ -31,7 +32,7 @@ namespace Camalot.Common.Mvc.Results {
 		/// Gets or sets the data.
 		/// </summary>
 		/// <returns>The data.</returns>
-		public new T Data { get; set; }
+		public T Data { get; set; }
 
 		public override void ExecuteResult ( ControllerContext context ) {
 			var response = context.HttpContext.Response;

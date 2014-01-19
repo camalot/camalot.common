@@ -18,7 +18,7 @@ Available on nuget
 
 ### Serialization (Camalot.Common.Serialization)
 * JsonSerializationBuilder : This creates a Newtonsoft.Json Serializer
-* XmlSerializationBuilder
+* XmlSerializationBuilder : This creates an XmlSerializer
 
 ## Camalot.Common.Mvc
 > There are additional libraries that are specifically built for ASPNET MVC. Support for versions MVC3, MVC4, MVC5. 

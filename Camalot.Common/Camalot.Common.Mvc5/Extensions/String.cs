@@ -62,5 +62,6 @@ namespace Camalot.Common.Mvc.Extensions {
 		public static string HtmlDecode ( this string s ) {
 			return HttpUtility.HtmlDecode ( s );
 		}
+
 	}
 }

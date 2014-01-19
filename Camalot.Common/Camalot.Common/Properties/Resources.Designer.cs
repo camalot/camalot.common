@@ -277,6 +277,15 @@ namespace Camalot.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; is not valid for a jsonp callback identifier..
+        /// </summary>
+        public static string JsonP_InvalidIdentifier {
+            get {
+                return ResourceManager.GetString("JsonP_InvalidIdentifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value &apos;{2}&apos; must be a value between {0} and {1}..
         /// </summary>
         public static string Require_Between {

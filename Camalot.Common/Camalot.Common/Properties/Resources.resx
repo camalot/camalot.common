@@ -198,4 +198,7 @@
   <data name="XmlNode_UnknownNodeType" xml:space="preserve">
     <value>Unknown Xml Node Type</value>
   </data>
+  <data name="JsonP_InvalidIdentifier" xml:space="preserve">
+    <value>'{0}' is not valid for a jsonp callback identifier.</value>
+  </data>
 </root>
