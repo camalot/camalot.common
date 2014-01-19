@@ -53,5 +53,6 @@ This can be used if you are posting normally with a Form as well.
 See the &lt;camalot.common/bundles&gt; section in the web.config for samples. In the BundleConfig you can delete it all and just call
 this method and be done. 
 * Controller 
- * Json&lt;T&gt;(T data) : A clean serialization of an object to JSON
- * JsonP&lt;T&gt;(T data [, callback]) : Support for JSONP Action Result.
+ * JSON&lt;T&gt;(T data) : A clean serialization of an object to JSON
+ * JSONP&lt;T&gt;(T data [, callback]) : Support for JSONP Action Result.
+ * XML&lt;T&gt;(T data) : A clean serialization of an object to XML
