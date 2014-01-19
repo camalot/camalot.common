@@ -33,7 +33,10 @@ namespace Camalot.Common.Mvc.Extensions {
 					bndl.CdnPath = b.CdnPath;
 					bndl.CdnFallbackExpression = b.CdnFallbackExpression;
 				}
-				b.Includes.ForEach ( i => bndl.Include ( i.Path ) );
+				b.Includes.ForEach ( i => {
+					bndl.Include ( i.Path );
+				});
+				bundles.Add ( bndl );
 			} );
 
 			bConfig.Styles.Bundles.ForEach ( b => {
