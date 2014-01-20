@@ -21,6 +21,7 @@
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Net" targetFramework="net45" />
 			<frameworkAssembly assemblyName="System.Configuration" targetFramework="net45" />
 		</frameworkAssemblies>
 	</metadata>
