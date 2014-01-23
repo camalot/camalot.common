@@ -15,10 +15,20 @@ namespace Camalot.Common.Mime {
 	/// </summary>
 	public class ApacheFileTypeMap : FileTypeMap {
 		private static ICollection<MimeType> MimeTypeCache;
+		/// <summary>
+		/// Gets the mime type of the file.
+		/// </summary>
+		/// <param name="file">The file.</param>
+		/// <returns></returns>
 		public override MimeType GetMimeType ( System.IO.FileInfo file ) {
 			return GetMimeType ( file.Name );
 		}
 
+		/// <summary>
+		/// Gets the mime type of the file.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns></returns>
 		public override MimeType GetMimeType ( string fileName ) {
 			var ext = new String ( fileName.Skip ( fileName.LastIndexOf ( '.' ) + 1 ).ToArray ( ) );
 			if ( string.IsNullOrWhiteSpace ( ext ) ) {
@@ -38,11 +48,18 @@ namespace Camalot.Common.Mime {
 			return result;
 		}
 
+		/// <summary>
+		/// Gets all MimeTypes.
+		/// </summary>
+		/// <returns></returns>
 		public override ICollection<MimeType> GetAllMimeTypes ( ) {
 			CheckCache ( );
 			return MimeTypeCache;
-		} 
+		}
 
+		/// <summary>
+		/// Checks the cache to see if it has been retrieved.
+		/// </summary>
 		private void CheckCache ( ) {
 			if ( MimeTypeCache == null ) {
 				// load the cache
@@ -50,9 +67,16 @@ namespace Camalot.Common.Mime {
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		private class ApacheMimeTypesFileReader {
 			private const string SOURCE = "http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types";
 
+			/// <summary>
+			/// Loads this instance.
+			/// </summary>
+			/// <returns></returns>
 			public ICollection<MimeType> Load ( ) {
 				var options = RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase;
 

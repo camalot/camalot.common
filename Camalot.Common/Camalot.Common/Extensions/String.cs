@@ -124,5 +124,25 @@ namespace Camalot.Common.Extensions {
 			var sha1 = new SHA1CryptoServiceProvider ( );
 			return sha1.ComputeHash ( bytes );
 		}
+
+		/// <summary>
+		/// Base64 Encodes the specified string.
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <returns></returns>
+		public static string ToBase64String ( this string input ) {
+			return ToBase64String ( input.Require ( ), Encoding.UTF8 ).ToBase64String ( );
+		}
+
+		/// <summary>
+		/// Base64 Encodes the specified string.
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <param name="encoding">The encoding.</param>
+		/// <returns></returns>
+		public static string ToBase64String ( this string input, Encoding encoding ) {
+			return Encoding.UTF8.GetBytes ( input.Require ( ) ).ToBase64String ( );
+		}
+
 	}
 }

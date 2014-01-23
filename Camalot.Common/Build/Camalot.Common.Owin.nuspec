@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>Camalot.Common.Owin</id>
+		<version>1.0.0.0</version>
+		<authors>Ryan Conrad</authors>
+		<owners>Ryan Conrad</owners>
+		<licenseUrl>https://raw.github.com/camalot/camalot.common/master/License.md</licenseUrl>
+		<projectUrl>https://github.com/camalot/camalot.common</projectUrl>
+		<!--iconUrl></iconUrl-->
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A library that I tend to create for just about every project... contains extensions and other things that I find useful, you might too (or maybe not).</description>
+		<summary>A collection of useful extensions and other things.</summary>
+		<language>en-US</language>
+		<releaseNotes></releaseNotes>
+		<copyright>Copyright 2013 - 2014</copyright>
+		<tags>extensions tools common helpers</tags>
+		<dependencies>
+			<dependency id="Camalot.Common" version="1.0" />
+			<dependency id="Microsoft.AspNet.Identity.Owin" version="1.0" />
+		</dependencies>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Net" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Net.Http.WebRequest" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Net.Http" targetFramework="net45" />
+		</frameworkAssemblies>
+	</metadata>
+</package>

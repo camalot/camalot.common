@@ -9,12 +9,25 @@ using Microsoft.Win32;
 using MoreLinq;
 
 namespace Camalot.Common.Mime {
+	/// <summary>
+	/// Reads the system registry for information on the mime types of a file.
+	/// </summary>
 	public class RegistryFileTypeMap : FileTypeMap {
 		private const string ValueKeyName = "Content Type";
+		/// <summary>
+		/// Gets the mime type of the file.
+		/// </summary>
+		/// <param name="file">The file.</param>
+		/// <returns></returns>
 		public override MimeType GetMimeType ( System.IO.FileInfo file ) {
 			return GetMimeType ( file.FullName );
 		}
 
+		/// <summary>
+		/// Gets the mime type of the file.
+		/// </summary>
+		/// <param name="fileName">Name of the file.</param>
+		/// <returns></returns>
 		public override MimeType GetMimeType ( string fileName ) {
 			// set a default mimetype if not found.
 			var contentType = this.DefaultMimeType;
@@ -38,6 +51,10 @@ namespace Camalot.Common.Mime {
 			};
 		}
 
+		/// <summary>
+		/// Gets all MimeTypes that are registered.
+		/// </summary>
+		/// <returns></returns>
 		public override ICollection<MimeType> GetAllMimeTypes ( ) {
 			var result = new List<MimeType> ( );
 			try {

@@ -16,6 +16,10 @@ namespace Camalot.Common.Extensions {
 			return GetString ( bytes, Encoding.Unicode );
 		}
 
+		public static String ToBase64String ( this byte[] bytes ) {
+			return Convert.ToBase64String ( bytes );
+		}
+
 		public static String ToHex ( this byte[] bytes ) {
 			var sb = new StringBuilder ( );
 			bytes.ForEach ( b => sb.Append ( b.ToString ( "X2" ) ) );
