@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12" DefaultTargets="Build">
+	<PropertyGroup>
+		<Project>$(Project)</Project>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectsToBuild Include="$(MSBuildProjectDirectory)\..\$(Project)\**\*.csproj" />
+	</ItemGroup>
+
+	<Target Name="Build" DependsOnTargets="CleanBuild;CoreBuild">
+	</Target>
+
+	<Target Name="CleanBuild">
+		<RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" ContinueOnError="true" />
+		<MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+		<MakeDir Directories="$(OutputPath)Plugins\" Condition="!Exists('$(OutputPath)Plugins\')" />
+		<MakeDir Directories="$(OutputPath)Data\" Condition="!Exists('$(OutputPath)Data\')" />
+	</Target>
+
+	<Target Name="CoreBuild">
+		<MSBuild Projects ="@(ProjectsToBuild)" ContinueOnError="false"
+						 Properties="$(MSBuildProperties)">
+			<Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+		</MSBuild>
+	</Target>
+
+
+</Project>

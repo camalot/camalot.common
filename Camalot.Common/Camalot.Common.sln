@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common", "Camalot.Common\Camalot.Common.csproj", "{DF6FE85F-0CF4-4F29-8A38-878D570E8F4D}"
 EndProject
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.UnitTest", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A-A1BD-4CD8-B5AE-FF81E73C0982}"
 	ProjectSection(SolutionItems) = preProject
+		Build\Build.msbuild = Build\Build.msbuild
 		Build\Camalot.Common.Mvc3.nuspec = Build\Camalot.Common.Mvc3.nuspec
 		Build\Camalot.Common.Mvc4.nuspec = Build\Camalot.Common.Mvc4.nuspec
 		Build\Camalot.Common.Mvc5.nuspec = Build\Camalot.Common.Mvc5.nuspec
