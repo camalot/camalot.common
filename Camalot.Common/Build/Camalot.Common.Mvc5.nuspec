@@ -20,12 +20,12 @@
 			<dependency id="morelinq" version="1.0" />
 			<dependency id="Newtonsoft.Json" version="5.0" />
 			<dependency id="Microsoft.AspNet.Mvc" version="[5.0,5.9]" />
+			<dependency id="Microsoft.AspNet.WebApi.Core" version="[5.0,5.9]" />
 			<dependency id="Microsoft.AspNet.Web.Optimization" version="1.1" />
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />
 			<frameworkAssembly assemblyName="System.Web" targetFramework="net45" />
-			<frameworkAssembly assemblyName="System.Web.Http" targetFramework="net45" />
 			<frameworkAssembly assemblyName="System.Configuration" targetFramework="net45" />
 		</frameworkAssemblies>
 	</metadata>

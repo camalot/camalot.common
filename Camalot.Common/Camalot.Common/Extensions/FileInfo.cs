@@ -29,5 +29,6 @@ namespace Camalot.Common.Extensions {
 		public static MimeType GetMimeType ( this FileInfo file ) {
 			return FileTypeMap.DefaultFileTypeMap.GetMimeType ( file );
 		}
+
 	}
 }

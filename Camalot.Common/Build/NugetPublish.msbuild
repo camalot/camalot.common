@@ -36,8 +36,6 @@
 		<Copy SourceFiles="$(NugetPath)\$(NugetPackage)" DestinationFolder="$(LocalDeploy)" Condition=" '$(LocalDeploy)' != '' AND Exists('$(LocalDeploy)') " />
 		
 		<Delete Files="$(NugetPath)\$(NugetPackage)" />
-
-		
 	</Target>
 
 	<Target Name="RetrieveIdentities">

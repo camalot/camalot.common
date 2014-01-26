@@ -28,7 +28,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="modules">The modules.</param>
 		/// <returns></returns>
 		public static IEnumerable<Module> WithAttribute<T> ( this IEnumerable<Module> modules ) where T : Attribute {
-			return modules.Where ( m => !( m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return modules.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 
 	}

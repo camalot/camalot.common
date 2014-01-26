@@ -6,6 +6,8 @@
 *.user
 *.sln.docstates
 [Pp]ublish.bat
+.localhistory/
+*.nupkg
 
 # Build results
 [Dd]ebug/

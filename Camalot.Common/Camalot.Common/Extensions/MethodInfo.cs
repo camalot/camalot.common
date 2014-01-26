@@ -29,7 +29,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="methods">The methods.</param>
 		/// <returns></returns>
 		public static IEnumerable<MethodInfo> WithAttribute<T> ( this IEnumerable<MethodInfo> methods ) where T : Attribute {
-			return methods.Where ( m => !( m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return methods.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 		/// <summary>
 		/// Determines whether the specified method has attribute.
@@ -38,7 +38,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="method">The method.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this MethodInfo method ) where T : Attribute {
-			return !method.GetCustomAttribute<T> ( ).Equals ( default ( T ) );
+			return method.GetCustomAttribute<T> ( ) != default ( T );
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="methods">The methods.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this IEnumerable<MethodInfo> methods ) where T : Attribute {
-			return !( methods.Any ( m => m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return methods.Any ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 	}
 }

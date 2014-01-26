@@ -27,5 +27,6 @@ namespace Camalot.Common.Extensions {
 			return assembly.GetTypes ( ).Where ( t => typeof ( TType ).IsAssignableFrom ( t ) && !t.IsAbstract && !t.IsGenericType && !t.IsInterface && !t.IsEquivalentTo ( typeof ( TType ) ) );
 		}
 
+
 	}
 }

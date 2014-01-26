@@ -29,7 +29,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="fields">The fields.</param>
 		/// <returns></returns>
 		public static IEnumerable<FieldInfo> WithAttribute<T> ( this IEnumerable<FieldInfo> fields ) where T : Attribute {
-			return fields.Where ( m => !( m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return fields.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 
 		/// <summary>
@@ -39,7 +39,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="field">The field.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this FieldInfo field ) where T : Attribute {
-			return !field.GetCustomAttribute<T> ( ).Equals ( default ( T ) );
+			return field.GetCustomAttribute<T> ( ) != default ( T );
 		}
 
 		/// <summary>
@@ -49,7 +49,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="fields">The fields.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this IEnumerable<FieldInfo> fields ) where T : Attribute {
-			return !( fields.Any ( m => m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return  fields.Any ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 	}
 }

@@ -30,7 +30,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="parameters">The parameters.</param>
 		/// <returns></returns>
 		public static IEnumerable<ParameterInfo> WithAttribute<T> ( this IEnumerable<ParameterInfo> parameters ) where T : Attribute {
-			return parameters.Where ( m => !( m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			return parameters.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 	}
 }
