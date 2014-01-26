@@ -14,8 +14,6 @@
 	<Target Name="CleanBuild">
 		<RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" ContinueOnError="true" />
 		<MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
-		<MakeDir Directories="$(OutputPath)Plugins\" Condition="!Exists('$(OutputPath)Plugins\')" />
-		<MakeDir Directories="$(OutputPath)Data\" Condition="!Exists('$(OutputPath)Data\')" />
 	</Target>
 
 	<Target Name="CoreBuild">
