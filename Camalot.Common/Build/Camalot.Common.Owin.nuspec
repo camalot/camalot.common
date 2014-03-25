@@ -16,7 +16,7 @@
 		<copyright>Copyright 2013 - 2014</copyright>
 		<tags>extensions tools common helpers</tags>
 		<dependencies>
-			<dependency id="Camalot.Common" version="1.0" />
+			<dependency id="Camalot.Common.Mvc5" version="5.0" />
 			<dependency id="Microsoft.AspNet.Identity.Owin" version="1.0" />
 		</dependencies>
 		<frameworkAssemblies>

@@ -24,9 +24,9 @@
 			<dependency id="Microsoft.AspNet.Web.Optimization" version="1.1" />
 		</dependencies>
 		<frameworkAssemblies>
-			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />
-			<frameworkAssembly assemblyName="System.Web" targetFramework="net45" />
-			<frameworkAssembly assemblyName="System.Configuration" targetFramework="net45" />
+			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net451" />
+			<frameworkAssembly assemblyName="System.Web" targetFramework="net451" />
+			<frameworkAssembly assemblyName="System.Configuration" targetFramework="net451" />
 		</frameworkAssemblies>
 	</metadata>
 </package>

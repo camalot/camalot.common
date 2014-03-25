@@ -3,18 +3,22 @@
 <!-- According to that URL this works as it should. -->
 
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<configSections xdt:Transform="InsertIfMissing"></configSections>
+	
 	<configSections>
 		<sectionGroup name="camalot.common" xdt:Transform="InsertIfMissing">
 			<section xdt:Transform="InsertIfMissing" name="bundles" requirePermission="false" type="Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler, Camalot.Common.Mvc" />
 		</sectionGroup>
 	</configSections>
+	
+	
 
 	<camalot.common xdt:Transform="InsertIfMissing(/configuration/appSettings)">
-		<bundles xdt:Transform="InsertIfMissing">
+		<bundles>
 			<ignores>
 				<ignore pattern="*.map" when="Always" />
 			</ignores>
-			<scripts xdt:Transform="InsertIfMissing">
+			<scripts>
 				<bundle name="~/bundles/jquery" cdnFallbackExpression="window.jQuery" cdnPath="//code.jquery.com/jquery-2.0.3.min.js">
 					<include path="~/scripts/jquery-{version}.js" />
 				</bundle>
@@ -29,7 +33,7 @@
 					<include path="~/scripts/knockout-{version}.js" />
 				</bundle-->
 			</scripts>
-			<styles xdt:Transform="InsertIfMissing">
+			<styles>
 				<bundle name="~/content/css">
 					<include path="~/content/bootstrap.css" />
 					<include path="~/content/site.css" />
