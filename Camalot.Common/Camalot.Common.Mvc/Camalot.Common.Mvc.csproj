@@ -43,8 +43,9 @@
     <Reference Include="MoreLinq">
       <HintPath>..\packages\morelinq.1.0.16006\lib\net35\MoreLinq.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -120,6 +121,9 @@
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Extensions\String.cs">
       <Link>Extensions\String.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Results\BsonResult.cs">
+      <Link>Results\BsonResult.cs</Link>
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Results\JsonpResult.cs">
       <Link>Results\JsonpResult.cs</Link>

@@ -100,7 +100,7 @@ namespace Camalot.Common.Mvc.Results {
 					"int", "interface", "long", "native", "new", "null", "package", "private",
 					"protected", "public", "return", "short", "static", "super", "switch",
 					"synchronized", "this", "throw", "throws", "transient", "true", "try",
-					"typeof", "var", "void", "volatile", "while", "with", "let", "yeild"
+					"typeof", "var", "void", "volatile", "while", "with", "let", "yield"
 			 };
 			var trimmed = identifier.Trim ( );
 			var isMatch = trimmed.IsMatch ( "^[$_a-z][a-z0-9$\\-_\\.]*$", RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled | RegexOptions.Singleline );

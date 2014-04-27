@@ -32,7 +32,7 @@ namespace Camalot.Common.Serialization {
 				Formatting = Formatting.None,
 				MaxDepth = null,
 				MissingMemberHandling = MissingMemberHandling.Ignore,
-				NullValueHandling = NullValueHandling.Ignore,
+				NullValueHandling = NullValueHandling.Include,
 				ObjectCreationHandling = ObjectCreationHandling.Auto,
 				PreserveReferencesHandling = PreserveReferencesHandling.None,
 				ReferenceLoopHandling = ReferenceLoopHandling.Ignore,

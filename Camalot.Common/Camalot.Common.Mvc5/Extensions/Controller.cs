@@ -44,6 +44,17 @@ namespace Camalot.Common.Mvc.Extensions {
 		}
 
 		/// <summary>
+		/// Serializes the data to bson and returns a BsonPResult
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="controller">The controller.</param>
+		/// <param name="data">The data.</param>
+		/// <returns></returns>
+		public static BsonResult BSON<T>(this Controller controller, T data) {
+			return new BsonResult<T>(data);
+		}
+
+		/// <summary>
 		/// returns the content as XML
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
