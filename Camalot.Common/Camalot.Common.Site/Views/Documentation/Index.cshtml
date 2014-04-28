@@ -1,0 +1,45 @@
+﻿@model Camalot.Common.Site.Models.Documentation.NamespaceModel
+
+@{
+	ViewBag.Title = Model.Name;
+}
+
+@section featured {
+	<div id="home"></div>
+	<section class="featured jumbotron jumbotron-info mbl">
+		<div class="container">
+			<div class="title">
+				<i class="logo pull-left"></i>
+				<h1>@ViewBag.Title.</h1>
+				<h2 class="muted">@Model.Namespaces.Count()</h2>
+			</div>
+		</div>
+	</section>
+}
+
+@foreach(var ns in Model.Namespaces) {
+	@(Html.Partial("_AdPartial"))
+	<div id="@(ns.Name)">
+		<div class="page-header">
+			<h3 class="zero"><i class="fa fa-download mrm"></i>@ns.Name</h3>
+		</div>
+		<div class="mhl">
+			@foreach(var c in ns.Classes) {
+				<div id="@(c.Namespace).@(c.Name)">
+					<div class="page-header">
+						<h4 class="zero">@c.Name</h4>
+					</div>
+					<div class="mhl">
+						@foreach(var m in c.Methods) {
+							<div id="@(c.Namespace).@(c.Name).@(m.Name)">
+								<div class="page-header">
+									<h5 class="zero">@m.ToString()</h5>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+}

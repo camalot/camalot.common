@@ -10,7 +10,7 @@ using Camalot.Common.Properties;
 using MoreLinq;
 
 namespace Camalot.Common.Extensions {
-	public static partial class BawsaqExtensions {
+	public static partial class CamalotCommonExtensions {
 		/// <summary>
 		/// Sets the source string format with the values passed as arguments 
 		/// </summary>

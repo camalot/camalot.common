@@ -1,0 +1,11 @@
+﻿.nuget-badge {
+	background-color: rgb(38,38,38);
+	padding: 15px 0 15px 0;
+	border: 5px solid rgb(128,128,128);
+}
+
+.nuget-badge code {
+	background-color: transparent;
+	font-size: 1.5em;
+	font-family: 'andale mono','lucida console',monospace;
+}

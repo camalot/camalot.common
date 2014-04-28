@@ -14,7 +14,7 @@ using Camalot.Common.Properties;
 
 namespace Camalot.Common.Mvc.Results {
 	/// <summary>
-	/// 
+	/// Represents a response as JSONP.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
 	public class JsonpResult<T> : JsonResult<T> {
@@ -88,6 +88,11 @@ namespace Camalot.Common.Mvc.Results {
 		}
 
 
+		/// <summary>
+		/// Determines whether the specified identifier is valid jsonp identifier.
+		/// </summary>
+		/// <param name="identifier">The identifier.</param>
+		/// <returns></returns>
 		private bool IsValidJsonPIdentifier ( string identifier ) {
 			if ( string.IsNullOrWhiteSpace ( identifier ) ) {
 				return false;

@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Camalot.Common.Mvc.Results {
 	/// <summary>
-	/// 
+	/// Represents a response as JSON.
 	/// </summary>
 	public class JsonResult<T> : JsonResult {
 		/// <summary>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common", "Camalot.Common\Camalot.Common.csproj", "{DF6FE85F-0CF4-4F29-8A38-878D570E8F4D}"
 EndProject
@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Owin", "Owin", "{CF6FDD37-5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.Owin", "Camalot.Common.Owin\Camalot.Common.Owin.csproj", "{A038B7F2-53A2-46D7-BC79-FC8C2420240E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BBE40798-65C1-4839-A82A-090D84CE53CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.Site", "Camalot.Common.Site\Camalot.Common.Site.csproj", "{E4E623B1-E5FA-4440-9401-F00525E9F90E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,14 +83,19 @@ Global
 		{A038B7F2-53A2-46D7-BC79-FC8C2420240E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A038B7F2-53A2-46D7-BC79-FC8C2420240E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A038B7F2-53A2-46D7-BC79-FC8C2420240E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E623B1-E5FA-4440-9401-F00525E9F90E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E623B1-E5FA-4440-9401-F00525E9F90E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E623B1-E5FA-4440-9401-F00525E9F90E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E623B1-E5FA-4440-9401-F00525E9F90E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{1DE05D3F-2EEC-497D-B507-284B5579738D} = {76A473EE-2EF9-4BEC-ABB4-FF4CC9A5DE8B}
 		{A4F6DA8C-180F-4ADC-A127-BD6E10854058} = {76A473EE-2EF9-4BEC-ABB4-FF4CC9A5DE8B}
+		{1DE05D3F-2EEC-497D-B507-284B5579738D} = {76A473EE-2EF9-4BEC-ABB4-FF4CC9A5DE8B}
 		{FFC27262-8A85-452C-A483-A42422282CAC} = {76A473EE-2EF9-4BEC-ABB4-FF4CC9A5DE8B}
 		{A038B7F2-53A2-46D7-BC79-FC8C2420240E} = {CF6FDD37-573D-442B-80FE-FC0902D69180}
+		{E4E623B1-E5FA-4440-9401-F00525E9F90E} = {BBE40798-65C1-4839-A82A-090D84CE53CD}
 	EndGlobalSection
 EndGlobal

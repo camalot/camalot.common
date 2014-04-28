@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Camalot.Common.Extensions {
-	public static partial class BawsaqExtensions {
+	public static partial class CamalotCommonExtensions {
 		/// <summary>
 		/// Enumerate through each match. Automatically calls NextMatch for you.
 		/// </summary>

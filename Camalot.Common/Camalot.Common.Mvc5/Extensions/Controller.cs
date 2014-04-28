@@ -61,7 +61,7 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
-		public static XmlResult<T> XML<T> ( this Controller controller, T data ) {
+		public static XmlResult XML<T> ( this Controller controller, T data ) {
 			return new XmlResult<T> ( data );
 		}
 	}

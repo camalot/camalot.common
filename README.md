@@ -28,7 +28,7 @@ Available on nuget
 Well, I think you found that one already...
 ### Binaries
 Available on nuget
-> PS> Install-Package Camalot.Common.Mvc3
+> PS> Install-Package Camalot.Common.Mvc
 
 > PS> Install-Package Camalot.Common.Mvc4
 
@@ -38,7 +38,7 @@ Available on nuget
 ###Attributes (Camalot.Common.Mvc.Attributes)
 * AjaxOnly : The Action is only to be called via ajax.
 * NoCache : The Action will not be cached. This is good to use with AjaxOnly.
-* Compress : If the browsers supports it, the respose will be gzipped or commpressed using DEFLATE.
+* Compress : If the browsers supports it, the response will be gzipped or compressed using DEFLATE.
 * AjaxValidateAntiForgeryToken : This allows you to post JSON via ajax, and pass an Anti-Forgery Token along in the request headers. 
 This can be used if you are posting normally with a Form as well. 
 
@@ -46,6 +46,7 @@ This can be used if you are posting normally with a Form as well.
 * JsonResult&lt;T&gt; : Like the default JsonResult, except it uses Newtonsoft JSON.NET
 * JsonpResult&lt;T&gt; : Support JSONP responses
 * XmlResult&lt;T&gt; : Xml Serialization Result
+* BsonResult&lt;T&gt; : BSON Serialization Result
 
 ### Extensions (Camalot.Common.Mvc.Extensions)
 * BundleCollection
@@ -54,5 +55,6 @@ See the &lt;camalot.common/bundles&gt; section in the web.config for samples. In
 this method and be done. 
 * Controller 
  * JSON&lt;T&gt;(T data) : A clean serialization of an object to JSON
+ * BSON&lt;T&gt;(T data) : A clean serialization of an object to BSON
  * JSONP&lt;T&gt;(T data [, callback]) : Support for JSONP Action Result.
  * XML&lt;T&gt;(T data) : A clean serialization of an object to XML
