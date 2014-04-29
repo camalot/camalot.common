@@ -11,6 +11,7 @@ using System.Xml;
 using System.Web.Hosting;
 using System.IO;
 using System.Security.AccessControl;
+using System.Configuration;
 
 namespace Camalot.Common.Site.Services {
 	public class DocumentationService {
@@ -22,10 +23,10 @@ namespace Camalot.Common.Site.Services {
 			var exclude = this.GetType().Assembly;
 
 			var xml = LoadXml(assemblyName);
-
+			var NSIgnoreList = ConfigurationManager.AppSettings["NamespacesIgnoreList"].Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 			AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic && a != exclude && a.GetName().Name.Equals(assemblyName, StringComparison.InvariantCultureIgnoreCase)).ForEach(a => {
 				a.GetTypes()
-					.Where(t => t.IsInChildNamespace(assemblyName))
+					.Where(t => t.IsInChildNamespace(assemblyName) && !NSIgnoreList.Contains(t.Namespace))
 					.Select(t => t.Namespace)
 					.Distinct()
 					.ForEach(ns => {
@@ -90,15 +91,16 @@ namespace Camalot.Common.Site.Services {
 				!m.IsConstructor &&
 				!m.Name.StartsWith("get_", StringComparison.CurrentCulture) &&
 				!m.Name.StartsWith("set_", StringComparison.CurrentCulture) &&
-				// exclude overrides because I don't care about them.
-				(m.GetBaseDefinition() == null || m.GetBaseDefinition() == m )
+				// exclude overrides because I don't care about them. Unless, base definition is in this assembly.
+				(m.GetBaseDefinition() == null || m.GetBaseDefinition() == m || m.GetBaseDefinition().DeclaringType.Assembly == type.Assembly)
 				).Select(m => new MethodModel {
 					Name = m.Name,
 					Documentation = xml.GetDocumenation(m),
 					XmlName = m.GetXmlDocumentationName(),
 					GenericParameters = ProcessMethodGenericParameters(m),
 					Parameters = ProcessParams(m),
-					ExtensionOf = m.ExtensionOf()
+					ExtensionOf = m.ExtensionOf(),
+					Parent = type
 				}).OrderBy(x => x.Name).ThenBy(x => x.ExtensionOf == null ? "" : x.ExtensionOf.ToSafeFullName()).ThenBy(x => x.Parameters.Count).ToList();
 		}
 

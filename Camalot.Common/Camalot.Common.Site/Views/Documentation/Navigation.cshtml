@@ -12,18 +12,18 @@
 			@foreach(var ns in Model.Namespaces) {
 				if(!ns.Ignore) {
 					<li>
-						<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))" class="track"><i class="mrs fa fa-code"></i><span>@ns.Name.Substring(Model.Name.Length + 1)</span></a>
+						<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@ns.Id" class="track"><i class="mrs fa fa-code"></i><span>@ns.Name.Substring(Model.Name.Length + 1)</span></a>
 						@if(ns.Classes.Count > 0) {
 							<ul class="nav nested">
 								@foreach(var c in ns.Classes) {
 									if(!c.Ignore) {
 										<li>
-											<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@(c.Namespace).@(c.Name)" title="@c.ToString()" class="track"><i class="mll mrs fa fa-bolt"></i><span>@c.Name</span></a>
+											<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@c.Id" title="@c.ToString()" class="track"><i class="mll mrs fa fa-bolt"></i><span>@c.Name</span></a>
 											@if(c.Methods.Count > 0) {
 												<ul class="nav nested mll">
 													@foreach(var m in c.Methods) {
 														if(!m.Ignore) {
-															<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@(ns.Name).@(c.Name).@(m.Name)" title="@m.ToString()" class="track"><i class="mll mrs fa fa-gavel"></i><span>@m.Name</span></a></li>
+															<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@m.Id" title="@m.ToString()" class="track"><i class="mll mrs fa fa-gavel"></i><span>@m.Name</span></a></li>
 														}
 													}
 												</ul>

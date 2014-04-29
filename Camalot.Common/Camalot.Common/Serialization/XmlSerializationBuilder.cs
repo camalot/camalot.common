@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace Camalot.Common.Serialization {
 	/// <summary>
-	/// 
+	/// An Xml Serialization Builder
 	/// </summary>
 	public sealed class XmlSerializationBuilder {
 		/// <summary>
@@ -31,7 +31,7 @@ namespace Camalot.Common.Serialization {
 		}
 
 		/// <summary>
-		/// Adds the type.
+		/// Adds the type to the builder for a supported serialization type.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
@@ -41,9 +41,9 @@ namespace Camalot.Common.Serialization {
 		}
 
 		/// <summary>
-		/// Sets the default namespace.
+		/// Sets the default xml namespace.
 		/// </summary>
-		/// <param name="ns">The ns.</param>
+		/// <param name="ns">The namespace to set as the default.</param>
 		/// <returns></returns>
 		public XmlSerializationBuilder SetDefaultNamespace ( string ns ) {
 			DefaultNamespace = ns;
@@ -51,7 +51,7 @@ namespace Camalot.Common.Serialization {
 		}
 
 		/// <summary>
-		/// Creates this instance.
+		/// Creates an instance of an XML Serializer with the options set from the builder.
 		/// </summary>
 		/// <returns></returns>
 		public XmlSerializer Create ( ) {

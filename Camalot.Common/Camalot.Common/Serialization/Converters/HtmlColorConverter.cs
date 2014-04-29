@@ -8,6 +8,9 @@ using Newtonsoft.Json;
 using Camalot.Common.Extensions;
 
 namespace Camalot.Common.Serialization.Converters {
+	/// <summary>
+	/// Converts Html Colors when reading / writing JSON.
+	/// </summary>
 	public class HtmlColorConverter : JsonConverter {
 		/// <summary>
 		/// Determines whether this instance can convert the specified object type.

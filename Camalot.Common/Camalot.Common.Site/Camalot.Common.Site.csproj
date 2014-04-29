@@ -323,6 +323,7 @@
     <Content Include="Views\Documentation\Index.cshtml" />
     <Content Include="Views\Documentation\DisplayTemplates\Member.cshtml" />
     <Content Include="Views\Documentation\Navigation.cshtml" />
+    <Content Include="Views\Home\_DocumentationPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Camalot.Common.Mvc5\Camalot.Common.Mvc5.csproj">

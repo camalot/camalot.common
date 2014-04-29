@@ -785,10 +785,19 @@
             <summary>
             Does a Regex Replace on the string based on the specified pattern and the specified replacement.
             </summary>
-            <param name="s">The s.</param>
+            <param name="s">The string.</param>
             <param name="pattern">The pattern.</param>
             <param name="replacement">The replacement.</param>
             <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Replace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Does a Regex Replace on the string based on the specified pattern and the specified replacement.
+            </summary>
+            <param name="s">The s.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="evaluator">The evaluator.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Replace(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.MatchEvaluator)">
@@ -906,7 +915,7 @@
             </summary>
             <param name="input">The input.</param>
             <returns></returns>
-            <remarks>This is the equivalent of <code>CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))</code> in TSQL.</remarks>
+            <remarks><![CDATA[This is the equivalent of <code>CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))</code> in TSQL.]]></remarks>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.String)">
             <summary>
@@ -1128,7 +1137,7 @@
             <summary>
             This reads http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types and builds a list of mimeTypes that can be queried against.
             </summary>
-            <see cref="!:http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types"/>
+            <seealso cref="!:http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types">Apache Mime Types</seealso>
         </member>
         <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetMimeType(System.IO.FileInfo)">
             <summary>
@@ -1404,6 +1413,11 @@
               <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
             </returns>
         </member>
+        <member name="T:Camalot.Common.Serialization.Converters.HtmlColorConverter">
+            <summary>
+            Converts Html Colors when reading / writing JSON.
+            </summary>
+        </member>
         <member name="M:Camalot.Common.Serialization.Converters.HtmlColorConverter.CanConvert(System.Type)">
             <summary>
             Determines whether this instance can convert the specified object type.
@@ -1435,6 +1449,11 @@
             <param name="value">The value.</param>
             <param name="serializer">The calling serializer.</param>
             <exception cref="T:System.ArgumentException">Expected token parsing color, expected Color, got {0}..With ( value.GetType ( ).Name )</exception>
+        </member>
+        <member name="T:Camalot.Common.Serialization.Converters.UnixDateTimeConverter">
+            <summary>
+            Converts DateTime to Unix DateTime when reading / writing JSON.
+            </summary>
         </member>
         <member name="M:Camalot.Common.Serialization.Converters.UnixDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
             <summary>
@@ -1490,7 +1509,7 @@
         </member>
         <member name="T:Camalot.Common.Serialization.XmlSerializationBuilder">
             <summary>
-            
+            An Xml Serialization Builder
             </summary>
         </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.#ctor">
@@ -1507,21 +1526,21 @@
         </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.AddType``1">
             <summary>
-            Adds the type.
+            Adds the type to the builder for a supported serialization type.
             </summary>
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.SetDefaultNamespace(System.String)">
             <summary>
-            Sets the default namespace.
+            Sets the default xml namespace.
             </summary>
-            <param name="ns">The ns.</param>
+            <param name="ns">The namespace to set as the default.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.Create">
             <summary>
-            Creates this instance.
+            Creates an instance of an XML Serializer with the options set from the builder.
             </summary>
             <returns></returns>
         </member>

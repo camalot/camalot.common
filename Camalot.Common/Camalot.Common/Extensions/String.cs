@@ -67,7 +67,7 @@ namespace Camalot.Common.Extensions {
 		/// <summary>
 		/// Does a Regex Replace on the string based on the specified pattern and the specified replacement.
 		/// </summary>
-		/// <param name="s">The s.</param>
+		/// <param name="s">The string.</param>
 		/// <param name="pattern">The pattern.</param>
 		/// <param name="replacement">The replacement.</param>
 		/// <param name="options">The options.</param>
@@ -76,6 +76,13 @@ namespace Camalot.Common.Extensions {
 			return REReplace(s, pattern, replacement, options);
 		}
 
+		/// <summary>
+		/// Does a Regex Replace on the string based on the specified pattern and the specified replacement.
+		/// </summary>
+		/// <param name="s">The s.</param>
+		/// <param name="pattern">The pattern.</param>
+		/// <param name="evaluator">The evaluator.</param>
+		/// <returns></returns>
 		public static String Replace(this String s, String pattern, MatchEvaluator evaluator) {
 			return Regex.Replace(s, pattern, evaluator);
 		}
@@ -235,7 +242,7 @@ namespace Camalot.Common.Extensions {
 		/// </summary>
 		/// <param name="input">The input.</param>
 		/// <returns></returns>
-		/// <remarks>This is the equivalent of <code>CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))</code> in TSQL.</remarks>
+		/// <remarks><![CDATA[This is the equivalent of <code>CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))</code> in TSQL.]]></remarks>
 		public static byte[] ToDatabaseHash(this String input) {
 			var bytes = Encoding.Unicode.GetBytes(input.Require().Trim().ToLower());
 			var sha1 = new SHA1CryptoServiceProvider();

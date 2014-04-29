@@ -7,6 +7,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
 namespace Camalot.Common.Serialization.Converters {
+	/// <summary>
+	/// Converts DateTime to Unix DateTime when reading / writing JSON.
+	/// </summary>
 	public class UnixDateTimeConverter : DateTimeConverterBase {
 		/// <summary>
 		/// Reads the JSON representation of the object.

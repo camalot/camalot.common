@@ -15,7 +15,7 @@
 		<div class="callout callout-primary">
 			@foreach(var s in Model.Remarks) {
 				if(!string.IsNullOrWhiteSpace(s.Value)) {
-					<p class="man mbs pan">@s</p>
+					<p class="man mbs pan">@Html.Raw(s)</p>
 				}
 			}
 		</div>

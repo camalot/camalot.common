@@ -14,11 +14,17 @@ namespace Camalot.Common.Site.Models.Documentation {
 		public Xml.Member Documentation { get; set; }
 		public string XmlName { get; set; }
 		public bool Ignore { get { return Documentation != null && Documentation.Ignore; } }
-
+		public Type Parent { get; set; }
 		public IList<ParameterModel> Parameters { get; set; }
 		public IList<TypeModel> GenericParameters { get; set; }
 
 		public Type ExtensionOf { get; set; }
+
+		public string Id {
+			get {
+				return "{0}.{1}".With(Parent.ToSafeFullName(), Name).Slug();
+			}
+		}
 
 		public override string ToString() {
 			if(ExtensionOf == null) {
