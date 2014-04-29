@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A
 		Build\MSBuild.Community.Tasks.xml = Build\MSBuild.Community.Tasks.xml
 		Build\nuget.bat = Build\nuget.bat
 		Build\NugetPublish.msbuild = Build\NugetPublish.msbuild
+		Build\WebPublish.msbuild = Build\WebPublish.msbuild
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{86343AC3-937F-4113-9EAD-DD0296A17C39}"

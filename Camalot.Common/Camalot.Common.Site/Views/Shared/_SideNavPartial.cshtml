@@ -23,25 +23,8 @@
 		<li class="divider"></li>
 		<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("",""))#about" class="track"><i class="mrs fa fa-question-circle"></i><span>About</span></a></li>
 		<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("",""))#nuget" class="track"><i class="mrs fa fa-download"></i><span>Nuget</span></a></li>
-		<li>
-			<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))" class="track"><i class="mrs fa fa-code"></i><span>Camalot.Common</span></a>
-			<ul class="nav nested">
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))#Camalot.Common.Attributes" class="track"><i class="mll mrs fa fa-bolt"></i><span>Attributes</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))#Camalot.Common.Configuration" class="track"><i class="mll mrs fa fa-bolt"></i><span>Configuration</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))#Camalot.Common.Extensions" class="track"><i class="mll mrs fa fa-bolt"></i><span>Extensions</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))#Camalot.Common.Mime" class="track"><i class="mll mrs fa fa-bolt"></i><span>Mime</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common" }))#Camalot.Common.Serization" class="track"><i class="mll mrs fa fa-bolt"></i><span>Serialization</span></a></li>
-			</ul>
-		</li>
-		<li>
-			<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common.Mvc" }))" class="track"><i class="mrs fa fa-code"></i><span>Camalot.Common.Mvc</span></a>
-			<ul class="nav nested">
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common.Mvc" }))#Camalot.Common.Mvc.Attributes" class="track"><i class="mll mrs fa fa-bolt"></i><span>Attributes</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common.Mvc" }))#Camalot.Common.Mvc.Configuration" class="track"><i class="mll mrs fa fa-bolt"></i><span>Configuration</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common.Mvc" }))#Camalot.Common.Mvc.Extensions" class="track"><i class="mll mrs fa fa-bolt"></i><span>Extensions</span></a></li>
-				<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = "Camalot.Common.Mvc" }))#Camalot.Common.Mvc.Results" class="track"><i class="mll mrs fa fa-bolt"></i><span>Results</span></a></li>
-			</ul>
-		</li>
+		@Html.Action("Navigation", new { controller = "Documentation", id = "Camalot.Common"})
+		@Html.Action("Navigation", new { controller = "Documentation", id = "Camalot.Common.Mvc" })
 		<li class="divider"></li>
 		<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("",""))#license" class="track"><i class="mrs fa fa-certificate"></i><span>License</span></a></li>
 	</ul>

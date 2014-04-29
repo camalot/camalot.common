@@ -1,0 +1,1234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Camalot.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Camalot.Common.Extensions.CamalotCommonExtensions">
+            <summary>
+            
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Reflection.Assembly)">
+            <summary>
+            Withes the attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetTypesThatAre``1(System.Reflection.Assembly)">
+            <summary>
+            Gets the types that are assignable from TType.
+            </summary>
+            <typeparam name="TType">The type of the type.</typeparam>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToColor(System.String)">
+            <summary>
+            Transforms HTML Color String (#FFFFFF) in to a Color object
+            </summary>
+            <param name="htmlColor">Color of the HTML.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Unexpected html color string format.</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Epoch(System.DateTime)">
+            <summary>
+            just gets Epoch representation of DateTime
+            </summary>
+            <param name="dt">The dt.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToKind(System.DateTime,System.DateTimeKind)">
+            <summary>
+            To the kind.
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <param name="kind">The kind.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToFriendlyString(System.DateTime)">
+            <summary>
+            To the friendly string.
+            </summary>
+            <param name="dt">The datetime.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToShortFriendlyString(System.DateTime)">
+            <summary>
+            To the short friendly string.
+            </summary>
+            <param name="dt">The datetime.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RoundUp(System.DateTime,System.TimeSpan)">
+            <summary>
+            Rounds a datetime up to the time span
+            </summary>
+            <param name="dt">The datetime.</param>
+            <param name="d">The timespan.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RoundDown(System.DateTime,System.TimeSpan)">
+            <summary>
+            Rounds a datetime down to the time span.
+            </summary>
+            <param name="dt">The datetime.</param>
+            <param name="d">The timespan.</param>
+            <returns></returns>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Enum,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttribute``1(System.Enum)">
+            <summary>
+            Gets the custom attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.FieldInfo,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="field">The field.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.FieldInfo})">
+            <summary>
+            Gets field info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fields">The fields.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.FieldInfo)">
+            <summary>
+            Determines whether the specified field has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="field">The field.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.FieldInfo})">
+            <summary>
+            Determines whether the specified fields has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="fields">The fields.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetMimeType``1(System.IO.FileInfo)">
+            <summary>
+            Gets the mime type of the specified file using the specified FileTypeMap.
+            </summary>
+            <typeparam name="TFileTypeMap">The type of the file type map.</typeparam>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetMimeType(System.IO.FileInfo)">
+            <summary>
+            Gets the mime type of the specified file using the Default FileTypeMap.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEmpty(System.Guid)">
+            <summary>
+            Determines whether the specified unique identifier is empty.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.Match,System.Action{System.Text.RegularExpressions.Match})">
+            <summary>
+            Enumerate through each match. Automatically calls NextMatch for you.
+            </summary>
+            <param name="m"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.MemberInfo,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="member">The member.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})">
+            <summary>
+            Gets member info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="members">The members.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.MemberInfo)">
+            <summary>
+            Determines whether the specified member has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="member">The member.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.MemberInfo})">
+            <summary>
+            Determines whether the specified members has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="members">The members.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.MethodInfo,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="method">The method.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
+            <summary>
+            Gets method info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method">The method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
+            <summary>
+            Determines whether the specified methods has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="methods">The methods.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsExtension(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method is extension of some type.
+            </summary>
+            <param name="method">The method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsExtensionOf``1(System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the specified method is an extension method of the specified type.
+            </summary>
+            <typeparam name="T">The type that it checks if it is an extension of.</typeparam>
+            <param name="method">The method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ExtensionOf(System.Reflection.MethodInfo)">
+            <summary>
+            Gets the type that the specified method is an extension method of.
+            </summary>
+            <param name="method">The method.</param>
+            <returns>The type that this method extends.</returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.Module,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="module">The module.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.Module})">
+            <summary>
+            Gets module info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="modules">The modules.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.ParameterInfo,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="param">The parameter.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.ParameterInfo})">
+            <summary>
+            Gets parameter info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.PropertyInfo,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the expected.</typeparam>
+            <param name="property">The property.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
+            <summary>
+            Gets property info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="properties">The properties.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.PropertyInfo)">
+            <summary>
+            Determines whether the specified property has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.PropertyInfo})">
+            <summary>
+            Determines whether the specified properties has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="properties">The properties.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.AppDomain)">
+            <summary>
+            Withes the attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="domain">The domain.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetTypesThatAre``1(System.AppDomain)">
+            <summary>
+            Gets the types that are assignable from TType.
+            </summary>
+            <typeparam name="TType">The type.</typeparam>
+            <param name="domain">The domain.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Object)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="bf5ce83be2f8b47d03e8"></gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Object,System.String)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="abd4a899b9fe766184de"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Guid)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="bf5ce83be2f8b47d03e8"></gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Guid,System.String)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <gist id="abd4a899b9fe766184de" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0,System.String)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The object.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="abd4a899b9fe766184de"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The object.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="bf5ce83be2f8b47d03e8"></gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.String,System.String)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="abd4a899b9fe766184de"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.String)">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="bf5ce83be2f8b47d03e8"></gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(System.Nullable{``0},System.String)">
+            <summary>
+            Requires the specified nullable object to have a value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The object.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="abd4a899b9fe766184de"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(System.Nullable{``0})">
+            <summary>
+            Requires the specified object to have a value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The object.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+            <gist id="bf5ce83be2f8b47d03e8"></gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireZero(System.Int32)">
+            <summary>
+            Requires the specified number to be zero.
+            </summary>
+            <param name="i">The i.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{0}' must zero.With ( i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireZero(System.Int32,System.String)">
+            <summary>
+            Requires the specified number to be zero.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequirePositive(System.Int32,System.String)">
+            <summary>
+            Requires the specified number to be a positive value.
+            </summary>
+            <param name="i">The int.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequirePositive(System.Int32)">
+            <summary>
+            Requires the specified number to be a positive value.
+            </summary>
+            <param name="i">The int.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireNegative(System.Int32,System.String)">
+            <summary>
+            Requires the specified number to be a negative value.
+            </summary>
+            <param name="i">The int.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireNegative(System.Int32)">
+            <summary>
+            Requires the specified number to be a negative value.
+            </summary>
+            <param name="i">The int.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireBetween(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Requires the specified number to be between the high and low.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="low">The low.</param>
+            <param name="high">The high.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireBetween(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Requires the specified number to be between the high and low.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="low">The low.</param>
+            <param name="high">The high.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireZero(System.Int16)">
+            <summary>
+            Requires the specified number to be zero.
+            </summary>
+            <param name="i">The i.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireZero(System.Int16,System.String)">
+            <summary>
+            Requires the specified number to be zero.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequirePositive(System.Int16,System.String)">
+            <summary>
+            Requires the specified number to be a positive value.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequirePositive(System.Int16)">
+            <summary>
+            Requires the specified number to be a positive value.
+            </summary>
+            <param name="i">The i.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireNegative(System.Int16,System.String)">
+            <summary>
+            Requires the specified number to be a negative value.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireNegative(System.Int16)">
+            <summary>
+            Requires the specified number to be a negative value.
+            </summary>
+            <param name="i">The i.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireBetween(System.Int16,System.Int16,System.Int16,System.String)">
+            <summary>
+            Requires the specified number to be between the high and low.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="low">The low.</param>
+            <param name="high">The high.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RequireBetween(System.Int16,System.Int16,System.Int16)">
+            <summary>
+            Requires the specified number to be between the high and low.
+            </summary>
+            <param name="i">The i.</param>
+            <param name="low">The low.</param>
+            <param name="high">The high.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToByteArray(System.IO.Stream)">
+            <summary>
+            Gets the byte array from a stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.With(System.String,System.Object[])">
+            <summary>
+            Sets the source string format with the values passed as arguments 
+            </summary>
+            <param name="s">The source string format.</param>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToDatabaseHash(System.String)">
+            <summary>
+            this is like: CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))
+            in TSQL
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.String)">
+            <summary>
+            Base64 Encodes the specified string.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Base64 Encodes the specified string.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsNullable(System.Type)">
+            <summary>
+            Determines whether the specified type is nullable.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>
+              <c>true</c> if the specified type is nullable; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsPrimitive(System.Type)">
+            <summary>
+            Determines whether the specified type is primitive.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(``0)">
+            <summary>
+            Determines whether [is] [the specified attribute].
+            </summary>
+            <typeparam name="TType">The type of the type.</typeparam>
+            <param name="t">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(System.Object)">
+            <summary>
+            Determines whether [is] [the specified attribute].
+            </summary>
+            <typeparam name="TType">The type of the type.</typeparam>
+            <param name="t">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(System.Type)">
+            <summary>
+            Determines whether [is] [the specified attribute].
+            </summary>
+            <typeparam name="TType">The type of the type.</typeparam>
+            <param name="t">The attribute.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttribute``1(System.Type)">
+            <summary>
+            Gets the custom attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Type,System.Func{``0,``1})">
+            <summary>
+            Gets the custom attribute value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Expected">The type of the Expected.</typeparam>
+            <param name="type">The type.</param>
+            <param name="expression">The expression.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Gets types that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="types">The types.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetMethodsOfReturnType``1(System.Type)">
+            <summary>
+            Gets the methods that have the specified return type.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetMethodsOfReturnType``1(System.Type,System.Reflection.BindingFlags)">
+            <summary>
+            Gets the methods that have the specified return type.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <param name="bindingFlags">The binding flags.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Type)">
+            <summary>
+            Determines whether the specified type has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Determines whether the specified types has attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="types">The types.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.QualifiedName(System.Type)">
+            <summary>
+            Gets the fully qualified name of the type
+            </summary>
+            <param name="t">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.CreateInstance``1(System.Type)">
+            <summary>
+            Creates the instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.CreateInstance(System.Type)">
+            <summary>
+            Creates the instance.
+            </summary>
+            <param name="t">The t.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.CreateInstance``1(System.Type,System.Object[])">
+            <summary>
+            Creates the instance.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The type.</param>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.CreateInstance(System.Type,System.Object[])">
+            <summary>
+            Creates the instance.
+            </summary>
+            <param name="t">The t.</param>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.CreateConfigurationInstanceFromConfigurationNode``1(System.Xml.XmlNode)">
+            <summary>
+            Creates a configuration section handler.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="section">Section XML node.</param>
+            <returns>
+            The created section handler object.
+            </returns>
+            <exception cref="T:System.ArgumentException">Unknown Xml Node Type</exception>
+        </member>
+        <member name="T:Camalot.Common.Mime.FileTypeMap">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.FileTypeMap.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mime.FileTypeMap"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.FileTypeMap.#cctor">
+            <summary>
+            Initializes the <see cref="T:Camalot.Common.Mime.FileTypeMap"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.FileTypeMap.GetMimeType(System.IO.FileInfo)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.FileTypeMap.GetMimeType(System.String)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.FileTypeMap.GetAllMimeTypes">
+            <summary>
+            Gets all MimeTypes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Camalot.Common.Mime.FileTypeMap.DefaultFileTypeMap">
+            <summary>
+            Gets the default file type map.
+            </summary>
+            <value>
+            The default file type map.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mime.FileTypeMap.DefaultMimeType">
+            <summary>
+            Gets the default mimetype if it is unknown.
+            </summary>
+            <value>
+            The default type of the MIME.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mime.ApacheFileTypeMap">
+            <summary>
+            This reads http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types and builds a list of mimeTypes that can be queried against.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetMimeType(System.IO.FileInfo)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetMimeType(System.String)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetAllMimeTypes">
+            <summary>
+            Gets all MimeTypes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.CheckCache">
+            <summary>
+            Checks the cache to see if it has been retrieved.
+            </summary>
+        </member>
+        <member name="T:Camalot.Common.Mime.ApacheFileTypeMap.ApacheMimeTypesFileReader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.ApacheMimeTypesFileReader.Load">
+            <summary>
+            Loads this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Camalot.Common.Mime.MimeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Mime.MimeType.MediaType">
+            <summary>
+            Gets or sets the type of the media.
+            </summary>
+            <value>
+            The type of the media.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mime.MimeType.Extensions">
+            <summary>
+            Gets or sets the extensions.
+            </summary>
+            <value>
+            The extensions.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mime.RegistryFileTypeMap">
+            <summary>
+            Reads the system registry for information on the mime types of a file.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mime.RegistryFileTypeMap.GetMimeType(System.IO.FileInfo)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.RegistryFileTypeMap.GetMimeType(System.String)">
+            <summary>
+            Gets the mime type of the file.
+            </summary>
+            <param name="fileName">Name of the file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mime.RegistryFileTypeMap.GetAllMimeTypes">
+            <summary>
+            Gets all MimeTypes that are registered.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Camalot.Common.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.AntiForgeryToken_InvalidMethod">
+            <summary>
+              Looks up a localized string similar to Method not allowed..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.AntiForgeryToken_ValidationFailed">
+            <summary>
+              Looks up a localized string similar to A required anti-forgery token was not supplied or was invalid..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Color_UnexpectedFormat">
+            <summary>
+              Looks up a localized string similar to Unexpected html color string format..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Common_NullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Value cannot be null or empty..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Day">
+            <summary>
+              Looks up a localized string similar to a day ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Hour">
+            <summary>
+              Looks up a localized string similar to an hour ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Minute">
+            <summary>
+              Looks up a localized string similar to a minute ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Month">
+            <summary>
+              Looks up a localized string similar to a month ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Week">
+            <summary>
+              Looks up a localized string similar to a week ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_Friendly1Year">
+            <summary>
+              Looks up a localized string similar to a year ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyDay_Short">
+            <summary>
+              Looks up a localized string similar to d.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyDays">
+            <summary>
+              Looks up a localized string similar to {0} days ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyHour_Short">
+            <summary>
+              Looks up a localized string similar to h.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyHours">
+            <summary>
+              Looks up a localized string similar to {0} hours ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyMinute_Short">
+            <summary>
+              Looks up a localized string similar to m.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyMinutes">
+            <summary>
+              Looks up a localized string similar to {0} minutes ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyMonth_Short">
+            <summary>
+              Looks up a localized string similar to M.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyMonths">
+            <summary>
+              Looks up a localized string similar to {0} months ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyNow">
+            <summary>
+              Looks up a localized string similar to just now.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyNow_Short">
+            <summary>
+              Looks up a localized string similar to now.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyWeek_Short">
+            <summary>
+              Looks up a localized string similar to w.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyWeeks">
+            <summary>
+              Looks up a localized string similar to {0} weeks ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyYear_Short">
+            <summary>
+              Looks up a localized string similar to y.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Date_FriendlyYears">
+            <summary>
+              Looks up a localized string similar to {0} years ago.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.JsonP_InvalidIdentifier">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not valid for a jsonp callback identifier..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Require_Between">
+            <summary>
+              Looks up a localized string similar to Value &apos;{2}&apos; must be a value between {0} and {1}..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Require_Zero">
+            <summary>
+              Looks up a localized string similar to Value &apos;{0}&apos; must zero..
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.XmlNode_UnknownNodeType">
+            <summary>
+              Looks up a localized string similar to Unknown Xml Node Type.
+            </summary>
+        </member>
+        <member name="T:Camalot.Common.Serialization.Converters.GuidConverter">
+            <summary>
+            Converts Guids when Reading/Writing JSON
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.GuidConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.GuidConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+            <exception cref="T:System.Exception">Expected guid object value.</exception>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.GuidConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+              <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.HtmlColorConverter.CanConvert(System.Type)">
+            <summary>
+            Determines whether this instance can convert the specified object type.
+            </summary>
+            <param name="objectType">Type of the object.</param>
+            <returns>
+              <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.HtmlColorConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+            <exception cref="T:System.ArgumentException">Unexpected token parsing color. Expected string, got {0}. {1}.With (
+            						reader.TokenType )</exception>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.HtmlColorConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+            <exception cref="T:System.ArgumentException">Expected token parsing color, expected Color, got {0}..With ( value.GetType ( ).Name )</exception>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.UnixDateTimeConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Reads the JSON representation of the object.
+            </summary>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="existingValue">The existing value of object being read.</param>
+            <param name="serializer">The calling serializer.</param>
+            <returns>
+            The object value.
+            </returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Camalot.Common.Serialization.Converters.UnixDateTimeConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <summary>
+            Writes the JSON representation of the object.
+            </summary>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="value">The value.</param>
+            <param name="serializer">The calling serializer.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+            <exception cref="T:System.Exception">Expected date object value.</exception>
+        </member>
+        <member name="T:Camalot.Common.Serialization.JsonSerializationBuilder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Settings``1(System.Linq.Expressions.Expression{System.Func{Newtonsoft.Json.JsonSerializerSettings,``0}},``0)">
+            <summary>
+            Sets the setting to the specified value
+            </summary>
+            <typeparam name="V"></typeparam>
+            <param name="xpression">The expression.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Build">
+            <summary>
+            Builds this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Camalot.Common.Serialization.XmlSerializationBuilder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Camalot.Common.Serialization.XmlSerializationBuilder"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.Build``1">
+            <summary>
+            Start the building of the Xml Serializer
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.AddType``1">
+            <summary>
+            Adds the type.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.SetDefaultNamespace(System.String)">
+            <summary>
+            Sets the default namespace.
+            </summary>
+            <param name="ns">The ns.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.Create">
+            <summary>
+            Creates this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Camalot.Common.Serialization.XmlSerializationBuilder.DefaultNamespace">
+            <summary>
+            Gets or sets the default namespace.
+            </summary>
+            <value>
+            The default namespace.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Serialization.XmlSerializationBuilder.BaseType">
+            <summary>
+            Gets or sets the type of the base.
+            </summary>
+            <value>
+            The type of the base.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Serialization.XmlSerializationBuilder.Types">
+            <summary>
+            Gets or sets the types.
+            </summary>
+            <value>
+            The types.
+            </value>
+        </member>
+    </members>
+</doc>

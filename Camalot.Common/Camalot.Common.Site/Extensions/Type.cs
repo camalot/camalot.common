@@ -22,5 +22,11 @@ namespace Camalot.Common.Site.Extensions {
 				return type.Name;
 			}
 		}
+
+		public static string ToSafeFullName(this Type type) {
+				return "{1}.{0}".With(ToSafeName(type), type.Namespace);
+		}
+
+		
 	}
 }

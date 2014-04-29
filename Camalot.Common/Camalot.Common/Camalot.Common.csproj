@@ -63,6 +63,7 @@
     <Compile Include="Extensions\Enum.cs" />
     <Compile Include="Extensions\FieldInfo.cs" />
     <Compile Include="Extensions\FileInfo.cs" />
+    <Compile Include="Extensions\Guid.cs" />
     <Compile Include="Extensions\Match.cs" />
     <Compile Include="Extensions\MemberInfo.cs" />
     <Compile Include="Extensions\MethodInfo.cs" />

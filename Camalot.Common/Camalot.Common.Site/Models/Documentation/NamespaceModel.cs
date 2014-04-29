@@ -12,5 +12,7 @@ namespace Camalot.Common.Site.Models.Documentation {
 		public string Name { get; set; }
 		public IList<NamespaceModel> Namespaces { get; set; }
 		public IList<ClassModel> Classes { get; set; }
+
+		public String AssemblyVersion { get; set; }
 	}
 }

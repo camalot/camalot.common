@@ -5,6 +5,10 @@
   in to my projects every time I created them. </p>
 </blockquote>
 
+<h1>Documentation</h1>
+
+<p><a href="http://camalotcommon.bit13.com/">Documentation Site</a></p>
+
 <h2>Where do I get it?</h2>
 
 <h3>Source</h3>
@@ -17,82 +21,10 @@
 
 <blockquote>
   <p>PS> Install-Package Camalot.Common</p>
-</blockquote>
-
-<h2>What does it have?</h2>
-
-<h3>Extensions (Camalot.Common.Extensions)</h3>
-
-<ul>
-<li>There are way too many to list here. Go check out the source.</li>
-</ul>
-
-<h3>Serialization (Camalot.Common.Serialization)</h3>
-
-<ul>
-<li>JsonSerializationBuilder : This creates a Newtonsoft.Json Serializer</li>
-<li>XmlSerializationBuilder : This creates an XmlSerializer</li>
-</ul>
-
-<h2>Camalot.Common.Mvc</h2>
-
-<blockquote>
-  <p>There are additional libraries that are specifically built for ASPNET MVC. Support for versions MVC3, MVC4, MVC5. </p>
-</blockquote>
-
-<h2>Where do I get it?</h2>
-
-<h3>Source</h3>
-
-<p>Well, I think you found that one already...</p>
-
-<h3>Binaries</h3>
-
-<p>Available on nuget</p>
-
-<blockquote>
+  
   <p>PS> Install-Package Camalot.Common.Mvc</p>
   
   <p>PS> Install-Package Camalot.Common.Mvc4</p>
   
   <p>PS> Install-Package Camalot.Common.Mvc5</p>
 </blockquote>
-
-<h2>What does it have?</h2>
-
-<h3>Attributes (Camalot.Common.Mvc.Attributes)</h3>
-
-<ul>
-<li>AjaxOnly : The Action is only to be called via ajax.</li>
-<li>NoCache : The Action will not be cached. This is good to use with AjaxOnly.</li>
-<li>Compress : If the browsers supports it, the response will be gzipped or compressed using DEFLATE.</li>
-<li>AjaxValidateAntiForgeryToken : This allows you to post JSON via ajax, and pass an Anti-Forgery Token along in the request headers. 
-This can be used if you are posting normally with a Form as well. </li>
-</ul>
-
-<h3>Results (Camalot.Common.Mvc.Results)</h3>
-
-<ul>
-<li>JsonResult&lt;T&gt; : Like the default JsonResult, except it uses Newtonsoft JSON.NET</li>
-<li>JsonpResult&lt;T&gt; : Support JSONP responses</li>
-<li>XmlResult&lt;T&gt; : Xml Serialization Result</li>
-<li>BsonResult&lt;T&gt; : BSON Serialization Result</li>
-</ul>
-
-<h3>Extensions (Camalot.Common.Mvc.Extensions)</h3>
-
-<ul>
-<li>BundleCollection
-<ul>
-<li>LoadFromWebConfiguration : This loads Script/Style bundles from the web.config. 
-See the &lt;camalot.common/bundles&gt; section in the web.config for samples. In the BundleConfig you can delete it all and just call
-this method and be done. </li>
-</ul></li>
-<li>Controller 
-<ul>
-<li>JSON&lt;T&gt;(T data) : A clean serialization of an object to JSON</li>
-<li>BSON&lt;T&gt;(T data) : A clean serialization of an object to BSON</li>
-<li>JSONP&lt;T&gt;(T data [, callback]) : Support for JSONP Action Result.</li>
-<li>XML&lt;T&gt;(T data) : A clean serialization of an object to XML</li>
-</ul></li>
-</ul>

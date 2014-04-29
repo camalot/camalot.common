@@ -13,5 +13,11 @@ namespace Camalot.Common.Site.Controllers {
 			var model = builder.Build(id);
 			return View(model);
 		}
+
+		public PartialViewResult Navigation(string id) {
+			var builder = new DocumentationService();
+			var model = builder.Build(id);
+			return this.PartialView (model);
+		}
 	}
 }

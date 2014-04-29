@@ -7,6 +7,10 @@ using Camalot.Common.Site.Models.Documentation;
 using MoreLinq;
 using Camalot.Common.Extensions;
 using Camalot.Common.Site.Extensions;
+using System.Xml;
+using System.Web.Hosting;
+using System.IO;
+using System.Security.AccessControl;
 
 namespace Camalot.Common.Site.Services {
 	public class DocumentationService {
@@ -16,50 +20,77 @@ namespace Camalot.Common.Site.Services {
 				Name = assemblyName,
 			};
 			var exclude = this.GetType().Assembly;
+
+			var xml = LoadXml(assemblyName);
+
 			AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic && a != exclude && a.GetName().Name.Equals(assemblyName, StringComparison.InvariantCultureIgnoreCase)).ForEach(a => {
 				a.GetTypes()
 					.Where(t => t.IsInChildNamespace(assemblyName))
 					.Select(t => t.Namespace)
 					.Distinct()
 					.ForEach(ns => {
-						nm.Namespaces.Add(ProcessNamespace(ns));
+						if(string.IsNullOrWhiteSpace(nm.AssemblyVersion)) {
+							nm.AssemblyVersion = a.GetName().Version.ToString();
+						}
+						nm.Namespaces.Add(ProcessNamespace(ns, xml));
 					});
 			});
 			return nm;
 		}
 
+		private XmlDocument LoadXml(string assemblyName) {
+			var fn = "{0}.xml".With(assemblyName);
+			var dir = HostingEnvironment.MapPath("~/app_data/");
+			var file = new FileInfo(Path.Combine(dir, fn));
+			if(file.Exists) {
+				var doc = new XmlDocument();
+				using(var fs = new FileStream(file.FullName, FileMode.Open, FileSystemRights.Read, FileShare.Read, 2048, FileOptions.None)) {
+					doc.Load(fs);
+				}
+				return doc;
+			} else {
+				throw new FileNotFoundException();
+			}
+		}
 
-		private NamespaceModel ProcessNamespace(string @namespace) {
+
+		private NamespaceModel ProcessNamespace(string @namespace, XmlDocument xml) {
 			var nm = new NamespaceModel {
 				Name = @namespace
 			};
+
+
+
 			AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic).ForEach(a => {
 				a.GetTypes().Where(t => t.IsPublic && t.IsClass && t.IsInNamespace(@namespace)).ForEach(t => {
-					nm.Classes.Add(ProcessType(t));
+					nm.Classes.Add(ProcessType(t, xml));
 				});
 			});
 			return nm;
 		}
 
-		private ClassModel ProcessType(Type type) {
+		private ClassModel ProcessType(Type type, XmlDocument xml) {
 			return new ClassModel {
 				Name = type.ToSafeName(),
 				Namespace = type.Namespace,
 				Assembly = type.Assembly.GetName().Name,
 				Description = type.GetCustomAttributeValue<DescriptionAttribute, String>(x => x.Description).Or(""),
-				Methods = ProcessMethods(type)
+				Methods = ProcessMethods(type, xml)
 			};
 		}
 
-		private IList<MethodModel> ProcessMethods(Type type) {
+		private IList<MethodModel> ProcessMethods(Type type, XmlDocument xml) {
+
 			return type.GetMethods(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.DeclaredOnly).Where(m =>
 				!m.IsConstructor &&
 				!m.Name.StartsWith("get_", StringComparison.CurrentCulture) &&
 				!m.Name.StartsWith("set_", StringComparison.CurrentCulture)
 				).Select(m => new MethodModel {
 					Name = m.Name,
+					Documentation = xml.GetDocumenation(m),
 					GenericParameters = ProcessMethodGenericParameters(m),
-					Parameters = ProcessParams(m)
+					Parameters = ProcessParams(m),
+					ExtensionOf = m.ExtensionOf()
 				}).ToList();
 		}
 

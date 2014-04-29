@@ -16,6 +16,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="obj">The object.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
+		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
 		public static Object Require ( this Object obj ) {
 			if ( obj == null ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
@@ -30,21 +31,14 @@ namespace Camalot.Common.Extensions {
 		/// <param name="message">The message.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static Object Require ( this Object obj, String message ) {
+		/// <gist id="abd4a899b9fe766184de" />
+		public static Object Require(this Object obj, String message) {
 			if ( obj == null ) {
 				throw new ArgumentException ( message );
 			}
 			return obj;
 		}
 
-		/// <summary>
-		/// Determines whether the specified unique identifier is empty.
-		/// </summary>
-		/// <param name="guid">The unique identifier.</param>
-		/// <returns></returns>
-		public static bool IsEmpty ( this Guid guid ) {
-			return guid == Guid.Empty;
-		}
 
 		/// <summary>
 		/// Requires the specified object to have a value.
@@ -52,7 +46,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="guid">The unique identifier.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static Guid Require ( this Guid guid ) {
+		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
+		public static Guid Require(this Guid guid) {
 			if ( guid == Guid.Empty ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
@@ -65,7 +60,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="guid">The unique identifier.</param>
 		/// <param name="message">The message.</param>
 		/// <returns></returns>
-		public static Guid Require ( this Guid guid, String message ) {
+		/// <gist id="abd4a899b9fe766184de" />
+		public static Guid Require(this Guid guid, String message) {
 			if ( guid == null ) {
 				throw new ArgumentException ( message );
 			}
@@ -80,7 +76,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="message">The message.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static T Require<T> ( this T t, String message ) {
+		/// <gist id="abd4a899b9fe766184de" />
+		public static T Require<T>(this T t, String message) {
 			if ( t.Equals ( default ( T ) ) ) {
 				throw new ArgumentException ( message );
 			}
@@ -94,7 +91,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="t">The object.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static T Require<T> ( this T t ) {
+		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
+		public static T Require<T>(this T t) {
 			if ( t.Equals ( default ( T ) ) ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
@@ -108,7 +106,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="message">The message.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static String Require ( this String s, String message ) {
+		/// <gist id="abd4a899b9fe766184de" />
+		public static String Require(this String s, String message) {
 			if ( String.IsNullOrWhiteSpace ( s ) ) {
 				throw new ArgumentException ( message );
 			}
@@ -120,7 +119,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="s">The string.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static String Require ( this String s ) {
+		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
+		public static String Require(this String s) {
 			if ( String.IsNullOrWhiteSpace ( s ) ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
@@ -135,7 +135,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="message">The message.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static T? Require<T> ( this T? t, String message ) where T : struct, IComparable {
+		/// <gist id="abd4a899b9fe766184de" />
+		public static T? Require<T>(this T? t, String message) where T : struct, IComparable {
 			if ( !t.HasValue ) {
 				throw new ArgumentException ( message );
 			}
@@ -148,7 +149,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="t">The object.</param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static T? Require<T> ( this T? t ) where T : struct, IComparable {
+		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
+		public static T? Require<T>(this T? t) where T : struct, IComparable {
 			if ( !t.HasValue ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}

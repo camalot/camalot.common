@@ -1,0 +1,35 @@
+﻿@model Camalot.Common.Site.Models.Documentation.NamespaceModel
+@{
+	var scrollTopOffset = -50;
+	var id = ViewContext.ParentActionViewContext.RouteData.Values["id"] == null ? "" : ViewContext.RouteData.Values["id"].ToString();
+	var fullNav = Model.Name.Equals(id, StringComparison.InvariantCultureIgnoreCase);
+
+}
+<li>
+	<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))" class="track"><i class="mrs fa fa-code"></i><span>@Model.Name</span></a>
+	@if(fullNav) { 
+	<ul class="nav nested mlm">
+		@foreach(var ns in Model.Namespaces) {
+			<li>
+				<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))" class="track"><i class="mrs fa fa-code"></i><span>@ns.Name.Substring(Model.Name.Length + 1)</span></a>
+				@if(ns.Classes.Count > 0) {
+					<ul class="nav nested">
+						@foreach(var c in ns.Classes) {
+							<li>
+								<a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@(c.Namespace).@(c.Name)" title="@c.ToString()" class="track"><i class="mll mrs fa fa-bolt"></i><span>@c.Name</span></a>
+								@if(c.Methods.Count > 0) {
+									<ul class="nav nested mll">
+										@foreach(var m in c.Methods) {
+											<li><a data-epm-scroll="click" data-epm-scroll-offset="@(scrollTopOffset)" href="@(Url.Action("Index", "Documentation", new { id = Model.Name }))#@(ns.Name).@(c.Name).@(m.Name)" title="@m.ToString()" class="track"><i class="mll mrs fa fa-bolt"></i><span>@m.Name</span></a></li>
+										}
+									</ul>
+								}
+							</li>
+						}
+					</ul>
+				}
+			</li>
+		}
+	</ul>
+	}
+</li>

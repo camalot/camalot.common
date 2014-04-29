@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Camalot.Common.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Camalot.Common.Mvc.Attributes.AjaxValidateAntiForgeryTokenAttribute">
+            <summary>
+            This checks the request headers for the request verification token if the request is an ajax request.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.AjaxValidateAntiForgeryTokenAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            Called when authorization is required.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+            <exception cref="T:System.ArgumentNullException">filterContext</exception>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler.System#Configuration#IConfigurationSectionHandler#Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Creates a configuration section handler.
+            </summary>
+            <param name="parent"></param>
+            <param name="configContext">Configuration context object.</param>
+            <param name="section"></param>
+            <returns>The created section handler object.</returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.LoadFromWebConfiguration(System.Web.Optimization.BundleCollection)">
+            <summary>
+            Loads bundle configuration from web configuration in &lt;camalot.common&gt; section
+            </summary>
+            <param name="bundles">The bundles.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSON``1(System.Web.Mvc.Controller,``0)">
+            <summary>
+            Serializes the data to json and returns a JsonResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSONP``1(System.Web.Mvc.Controller,``0)">
+            <summary>
+            Serializes the data to json and returns a JsonPResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSONP``1(System.Web.Mvc.Controller,``0,System.String)">
+            <summary>
+            Serializes the data to json and returns a JsonPResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <param name="callback">The callback.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.BSON``1(System.Web.Mvc.Controller,``0)">
+            <summary>
+            Serializes the data to bson and returns a BsonPResult
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.XML``1(System.Web.Mvc.Controller,``0)">
+            <summary>
+            returns the content as XML
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String)">
+            <summary>
+            URL encodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String,System.Text.Encoding)">
+            <summary>
+            URL encodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlDecode(System.String)">
+            <summary>
+            URL decodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlDecode(System.String,System.Text.Encoding)">
+            <summary>
+            URL decodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.HtmlEncode(System.String)">
+            <summary>
+            HTML encodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.HtmlDecode(System.String)">
+            <summary>
+            HTML decodes a string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.BsonResult">
+            <summary>
+            Represents a response as BSON.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.BsonResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.BsonResult"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.BsonResult.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.BsonResult"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.BsonResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+            </summary>
+            <param name="context">The context in which the result is executed. The context information includes the controller, HTTP content, request context, and route data.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.BsonResult.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.BsonResult`1">
+            <summary>
+            Represents a response as BSON.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.BsonResult`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.BsonResult`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.BsonResult`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.BsonResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.JsonpResult`1">
+            <summary>
+            Represents a response as JSONP.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.JsonResult`1">
+            <summary>
+            Represents a response as JSON.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonResult`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonResult`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonResult`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonResult`1.#ctor(`0,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonResult`1.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+            </summary>
+            <param name="context">The context within which the result is executed.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.JsonResult`1.Encoding">
+            <summary>
+            Gets or sets the encoding.
+            </summary>
+            <value>
+            The encoding.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.JsonResult`1.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <returns>The data.</returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonpResult`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonpResult`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonpResult`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonpResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonpResult`1.#ctor(`0,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonpResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="callback">The callback.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.JsonpResult`1.#ctor(`0,System.String,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.JsonpResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="callback">The callback.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Camalot.Common.Mvc.Results.JsonpResult`1.ExecuteResult(System.Web.Mvc.ControllerContext)" -->
+        <member name="M:Camalot.Common.Mvc.Results.JsonpResult`1.IsValidJsonPIdentifier(System.String)">
+            <summary>
+            Determines whether the specified identifier is valid jsonp identifier.
+            </summary>
+            <param name="identifier">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.JsonpResult`1.Callback">
+            <summary>
+            Gets or sets the callback.
+            </summary>
+            <value>
+            The callback.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.XmlResult`1">
+            <summary>
+            Represents a response as XML.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Results.XmlResult">
+            <summary>
+            Represents a response as XML.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult.#ctor(System.Object,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+            </summary>
+            <param name="context">The context in which the result is executed. The context information includes the controller, HTTP content, request context, and route data.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.XmlResult.Encoding">
+            <summary>
+            Gets or sets the encoding.
+            </summary>
+            <value>
+            The encoding.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.XmlResult.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <returns>The data.</returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult`1.#ctor(`0,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.XmlResult`1"/> class.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="encoding">The encoding.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.XmlResult`1.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+            </summary>
+            <param name="context">The context in which the result is executed. The context information includes the controller, HTTP content, request context, and route data.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.XmlResult`1.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <returns>The data.</returns>
+        </member>
+    </members>
+</doc>

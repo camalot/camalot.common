@@ -11,7 +11,7 @@
 			<div class="title">
 				<i class="logo pull-left"></i>
 				<h1>@ViewBag.Title.</h1>
-				<h2 class="muted">@Model.Namespaces.Count()</h2>
+				<h2 class="muted">Version @Model.AssemblyVersion</h2>
 			</div>
 		</div>
 	</section>
@@ -35,6 +35,9 @@
 								<div class="page-header">
 									<h5 class="zero">@m.ToString()</h5>
 								</div>
+								@if(m.Documentation != null) { 
+									@Html.DisplayFor(x => m.Documentation)
+								}
 							</div>
 						}
 					</div>
