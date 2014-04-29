@@ -13,6 +13,7 @@ namespace Camalot.Common.Mime {
 	/// <summary>
 	/// This reads http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types and builds a list of mimeTypes that can be queried against.
 	/// </summary>
+	/// <see cref="http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types"/>
 	public class ApacheFileTypeMap : FileTypeMap {
 		private static ICollection<MimeType> MimeTypeCache;
 		/// <summary>

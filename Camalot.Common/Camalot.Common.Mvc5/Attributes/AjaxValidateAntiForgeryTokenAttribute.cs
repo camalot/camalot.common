@@ -14,6 +14,9 @@ namespace Camalot.Common.Mvc.Attributes {
 	/// <summary>
 	/// This checks the request headers for the request verification token if the request is an ajax request.
 	/// </summary>
+	/// <gist id="8ae9de7976766ccaf7f3">Decorate your method with the validation attribute</gist>
+	/// <gist id="45d0e35baa2d2fcd8bc3">In your ajax call to post the data, you will want to do something like the following:</gist>
+	/// <remarks>This attribute will work in place of ValidateAntiForgeryTokenAttribute.</remarks>
 	[AttributeUsage ( AttributeTargets.Class | AttributeTargets.Method )]
 	[AspNetHostingPermission ( SecurityAction.Demand, Level = AspNetHostingPermissionLevel.Minimal )]
 	public class AjaxValidateAntiForgeryTokenAttribute : FilterAttribute, IAuthorizationFilter {
@@ -27,6 +30,7 @@ namespace Camalot.Common.Mvc.Attributes {
 		/// </summary>
 		/// <param name="filterContext">The filter context.</param>
 		/// <exception cref="System.ArgumentNullException">filterContext</exception>
+		/// <ignore>true</ignore>
 		public void OnAuthorization ( AuthorizationContext filterContext ) {
 			if ( filterContext == null ) {
 				throw new ArgumentNullException ( "filterContext" );

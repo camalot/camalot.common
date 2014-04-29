@@ -4,13 +4,12 @@
 	@if(Model.Summary.Count > 0) {
 		<div class="callout callout-success">
 			@foreach(var s in Model.Summary) {
-				if(!string.IsNullOrWhiteSpace(s.Value)) { 
-					<p class="man mbs pan">@s</p>
+				if(!string.IsNullOrWhiteSpace(s.Value)) {
+					<p class="man mbs pan">@Html.Raw(s)</p>
 				}
 			}
 		</div>
 	}
-	
 
 	@if(Model.Remarks.Count > 0) {
 		<div class="callout callout-primary">
@@ -21,31 +20,45 @@
 			}
 		</div>
 	}
-	
+
 	@if(Model.Gists.Count > 0) {
 		<div class="gist-host">
 			@foreach(var s in Model.Gists) {
-				if(!string.IsNullOrWhiteSpace(s.Description)) { 
+				if(!string.IsNullOrWhiteSpace(s.Description)) {
 					<div class="callout">@s.Description</div>
 				}
 				<text>@Html.Action("Gist", new { controller = "Assets", id = s.Id })</text>
 			}
 		</div>
 	}
-	
+
 	@if(Model.Params.Count > 0) {
-			<h4 class="zero">Parameters</h4>
-			<div class="callout">
+		<h4 class="zero">Parameters</h4>
+		<div class="callout">
+			<dl>
 				@foreach(var s in Model.Params) {
-					<dl>
-						@if(!string.IsNullOrWhiteSpace(s.Value)) {
-							<dd>@s.Name</dd>
-							<dt>@s.Value</dt>
-						}
-					</dl>
+					if(!string.IsNullOrWhiteSpace(s.Name)) {
+						<dt>@s.Name</dt>
+						<dd>@s.Value</dd>
+					}
 				}
-			</div>
+			</dl>
+		</div>
 	}
 
+	@if(Model.SeeAlsos.Count > 0) {
+		<h4>References</h4>
+		<div class="callout">
+			<ul>
+				@foreach(var s in Model.SeeAlsos) {
+					if(!string.IsNullOrWhiteSpace(s.Link)) {
+						var text = string.IsNullOrWhiteSpace(s.Description) ? s.Link : s.Description;
+						// process the link to internals.
+						<li><a href="@s.Link" target="_blank">@text</a></li>
+					}
+				}
+			</ul>
 
+		</div>
+	}
 </div>

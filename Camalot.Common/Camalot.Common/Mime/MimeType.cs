@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Camalot.Common.Mime {
 	/// <summary>
-	/// 
+	/// Represents a Mime Type
 	/// </summary>
 	public class MimeType {
 		/// <summary>

@@ -11,7 +11,7 @@ namespace Camalot.Common.Extensions {
 		/// Enumerate through each match. Automatically calls NextMatch for you.
 		/// </summary>
 		/// <param name="m"></param>
-		/// <param name="action"></param>
+		/// <param name="action">The action to execute on each match</param>
 		public static void ForEach ( this Match m, Action<Match> action ) {
 			while ( m.Success ) {
 				action ( m );

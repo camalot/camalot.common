@@ -32,7 +32,10 @@ namespace Camalot.Common.Site.Services {
 						if(string.IsNullOrWhiteSpace(nm.AssemblyVersion)) {
 							nm.AssemblyVersion = a.GetName().Version.ToString();
 						}
-						nm.Namespaces.Add(ProcessNamespace(ns, xml));
+						var processedNS = ProcessNamespace(ns, xml);
+						if(processedNS != null && processedNS.Classes.Count > 0) {
+							nm.Namespaces.Add(processedNS);
+						}
 					});
 			});
 			return nm;
@@ -58,14 +61,14 @@ namespace Camalot.Common.Site.Services {
 			var nm = new NamespaceModel {
 				Name = @namespace
 			};
-
-
-
 			AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.IsDynamic).ForEach(a => {
+				var classes = new List<ClassModel>();
 				a.GetTypes().Where(t => t.IsPublic && t.IsClass && t.IsInNamespace(@namespace)).ForEach(t => {
-					nm.Classes.Add(ProcessType(t, xml));
+					var pclass = ProcessType(t, xml);
+					nm.Classes.Add(pclass);
 				});
 			});
+			
 			return nm;
 		}
 
@@ -75,6 +78,8 @@ namespace Camalot.Common.Site.Services {
 				Namespace = type.Namespace,
 				Assembly = type.Assembly.GetName().Name,
 				Description = type.GetCustomAttributeValue<DescriptionAttribute, String>(x => x.Description).Or(""),
+				XmlName = type.GetXmlDocumentationName(),
+				Documentation = xml.GetDocumenation(type),
 				Methods = ProcessMethods(type, xml)
 			};
 		}
@@ -84,14 +89,17 @@ namespace Camalot.Common.Site.Services {
 			return type.GetMethods(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.DeclaredOnly).Where(m =>
 				!m.IsConstructor &&
 				!m.Name.StartsWith("get_", StringComparison.CurrentCulture) &&
-				!m.Name.StartsWith("set_", StringComparison.CurrentCulture)
+				!m.Name.StartsWith("set_", StringComparison.CurrentCulture) &&
+				// exclude overrides because I don't care about them.
+				(m.GetBaseDefinition() == null || m.GetBaseDefinition() == m )
 				).Select(m => new MethodModel {
 					Name = m.Name,
 					Documentation = xml.GetDocumenation(m),
+					XmlName = m.GetXmlDocumentationName(),
 					GenericParameters = ProcessMethodGenericParameters(m),
 					Parameters = ProcessParams(m),
 					ExtensionOf = m.ExtensionOf()
-				}).ToList();
+				}).OrderBy(x => x.Name).ThenBy(x => x.ExtensionOf == null ? "" : x.ExtensionOf.ToSafeFullName()).ThenBy(x => x.Parameters.Count).ToList();
 		}
 
 		private IList<TypeModel> ProcessMethodGenericParameters(System.Reflection.MethodInfo m) {

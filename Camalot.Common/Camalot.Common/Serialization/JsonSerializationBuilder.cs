@@ -11,7 +11,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Camalot.Common.Serialization {
 	/// <summary>
-	/// 
+	/// A JSON Serialization Builder
 	/// </summary>
 	public sealed class JsonSerializationBuilder {
 		private JsonSerializationBuilder ( ) {
@@ -49,6 +49,7 @@ namespace Camalot.Common.Serialization {
 		/// <param name="xpression">The expression.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
+		/// <gist id="1bef086cc9057b9f8987"></gist>
 		public JsonSerializationBuilder Settings<V> ( Expression<Func<JsonSerializerSettings, V>> xpression, V value ) {
 			var memberSelectorExpression = xpression.Body as MemberExpression;
 			if ( memberSelectorExpression != null ) {
@@ -64,7 +65,8 @@ namespace Camalot.Common.Serialization {
 		/// Creates this instance.
 		/// </summary>
 		/// <returns></returns>
-		public JsonSerializer Create ( ) {
+		/// <gist id="1bef086cc9057b9f8987"></gist>
+		public JsonSerializer Create() {
 			return JsonSerializer.Create ( InternalSettings );
 		}
 
@@ -72,7 +74,8 @@ namespace Camalot.Common.Serialization {
 		/// Builds this instance.
 		/// </summary>
 		/// <returns></returns>
-		public static JsonSerializationBuilder Build ( ) {
+		/// <gist id="1bef086cc9057b9f8987"></gist>
+		public static JsonSerializationBuilder Build() {
 			return new JsonSerializationBuilder ( );
 		}
 

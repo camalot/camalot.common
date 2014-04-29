@@ -7,8 +7,16 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Camalot.Common.Mvc.Attributes {
+	/// <summary>
+	/// Indicates that the request should never be cached by the browser.
+	/// </summary>
+	/// <gist id="e7a1052b19479b3334e5"></gist>
 	[AttributeUsage ( AttributeTargets.Class | AttributeTargets.Method )]
 	public class NoCacheAttribute : ActionFilterAttribute {
+		/// <summary>
+		/// Called by the ASP.NET MVC framework before the action result executes.
+		/// </summary>
+		/// <param name="filterContext">The filter context.</param>
 		public override void OnResultExecuting ( ResultExecutingContext filterContext ) {
 			var response = filterContext.HttpContext.Response;
 

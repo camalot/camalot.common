@@ -9,9 +9,6 @@ using Camalot.Common.Properties;
 using Camalot.Common.Serialization;
 
 namespace Camalot.Common.Extensions {
-	/// <summary>
-	/// 
-	/// </summary>
 	public static partial class CamalotCommonExtensions {
 		/// <summary>
 		/// Creates a configuration section handler.
@@ -22,6 +19,7 @@ namespace Camalot.Common.Extensions {
 		/// The created section handler object.
 		/// </returns>
 		/// <exception cref="System.ArgumentException">Unknown Xml Node Type</exception>
+		/// <ignore>true</ignore>
 		public static T CreateConfigurationInstanceFromConfigurationNode<T> ( this XmlNode section ) {
 			// the node has to be an xml element.
 			if ( !section.Is<XmlElement> ( ) ) {

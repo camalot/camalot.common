@@ -24,16 +24,23 @@
 
 .gist .gist-syntax .sx,
 .gist .gist-syntax .s,
-.gist .gist-syntax .c1 {
+.gist .gist-syntax .s2 {
 	color: #85fb82;
 }
+
+.gist .gist-syntax .c1 {
+	color: #2E8B57;
+}
+
 .gist .gist-syntax .n,
+.gist .gist-syntax .nx,
 .gist .gist-syntax .p,
 .gist .gist-syntax .o {
 	color: #f3f3f3;
 }
 
 .gist .gist-syntax .kt,
+.gist .gist-syntax .kd,
 .gist .gist-syntax .k {
 	color: #a2c4fd;
 }

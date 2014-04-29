@@ -9,11 +9,12 @@ using MoreLinq;
 namespace Camalot.Common.Extensions {
 	public static partial class CamalotCommonExtensions {
 		/// <summary>
-		/// Withes the attribute.
+		/// Gets all types that have the specified attribute
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
+		/// <typeparam name="T">The attribute.</typeparam>
 		/// <param name="domain">The domain.</param>
 		/// <returns></returns>
+		/// <gist id="41883d902a6ed6bd8da4"></gist>
 		public static IEnumerable<Type> WithAttribute<T> ( this AppDomain domain ) where T : Attribute {
 			var types = new List<Type> ( );
 			domain.GetAssemblies ( ).ForEach ( a => types.AddRange ( a.WithAttribute<T> ( ) ) );
@@ -26,6 +27,7 @@ namespace Camalot.Common.Extensions {
 		/// <typeparam name="TType">The type.</typeparam>
 		/// <param name="domain">The domain.</param>
 		/// <returns></returns>
+		/// <gist id="6e8707f256ad0398cbff"></gist>
 		public static IEnumerable<Type> GetTypesThatAre<TType> ( this AppDomain domain ) where TType : class {
 			var types = new List<Type> ( );
 			domain.GetAssemblies ( ).ForEach ( a => types.AddRange ( a.GetTypesThatAre<TType> ( ) ) );

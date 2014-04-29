@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Camalot.Common.Mime {
 	/// <summary>
-	/// 
+	/// A default file type map handler.
 	/// </summary>
 	public abstract class FileTypeMap {
 		/// <summary>

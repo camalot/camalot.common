@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Xml;
@@ -34,5 +35,8 @@ namespace Camalot.Common.Site.Models.Documentation.Xml {
 		public List<Reference> SeeAlsos { get; set; }
 		[XmlElement("value")]
 		public List<Simple> Values { get; set; }
+		[XmlElement("ignore")]
+		[DefaultValue(false)]
+		public bool Ignore { get; set; }
 	}
 }

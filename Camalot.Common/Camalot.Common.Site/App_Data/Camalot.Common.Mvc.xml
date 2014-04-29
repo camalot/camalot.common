@@ -4,10 +4,30 @@
         <name>Camalot.Common.Mvc</name>
     </assembly>
     <members>
+        <member name="T:Camalot.Common.Mvc.Attributes.AjaxOnlyAttribute">
+            <summary>
+            Indicates that a method can only be called from an Ajax request.
+            </summary>
+            <gist id="8ae9de7976766ccaf7f3">Decorate your method or class with the AjaxOnly attribute and it will only be able to be called via ajax.</gist>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.AjaxOnlyAttribute.IsValidForRequest(System.Web.Mvc.ControllerContext,System.Reflection.MethodInfo)">
+            <summary>
+            Determines whether the action method selection is valid for the specified controller context.
+            </summary>
+            <param name="controllerContext">The controller context.</param>
+            <param name="methodInfo">Information about the action method.</param>
+            <returns>
+            true if the action method selection is valid for the specified controller context; otherwise, false.
+            </returns>
+            <ignore>true</ignore>
+        </member>
         <member name="T:Camalot.Common.Mvc.Attributes.AjaxValidateAntiForgeryTokenAttribute">
             <summary>
             This checks the request headers for the request verification token if the request is an ajax request.
             </summary>
+            <gist id="8ae9de7976766ccaf7f3">Decorate your method with the validation attribute</gist>
+            <gist id="45d0e35baa2d2fcd8bc3">In your ajax call to post the data, you will want to do something like the following:</gist>
+            <remarks>This attribute will work in place of ValidateAntiForgeryTokenAttribute.</remarks>
         </member>
         <member name="M:Camalot.Common.Mvc.Attributes.AjaxValidateAntiForgeryTokenAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
             <summary>
@@ -15,6 +35,190 @@
             </summary>
             <param name="filterContext">The filter context.</param>
             <exception cref="T:System.ArgumentNullException">filterContext</exception>
+            <ignore>true</ignore>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.CompressAttribute">
+            <summary>
+            Indicates that the requests should be compressed using the methods accepted by the clients browser. (GZIP or DEFLATE)
+            </summary>
+            <seealso cref="!:http://www.gzip.org/zlib/rfc-gzip.html">GZIP</seealso>
+            <seealso cref="!:http://www.gzip.org/zlib/rfc-deflate.html">DEFLATE</seealso>
+            <gist id="388e21dd8e2fd378f00f"></gist>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.CompressAttribute.OnResultExecuted(System.Web.Mvc.ResultExecutedContext)">
+            <summary>
+            Called by the ASP.NET MVC framework after the action result executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+            <ignore>true</ignore>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.NoCacheAttribute">
+            <summary>
+            Indicates that the request should never be cached by the browser.
+            </summary>
+            <gist id="e7a1052b19479b3334e5"></gist>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.NoCacheAttribute.OnResultExecuting(System.Web.Mvc.ResultExecutingContext)">
+            <summary>
+            Called by the ASP.NET MVC framework before the action result executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.BundlesConfiguration">
+            <summary>
+            Represents the root bundle element
+            </summary>
+            <ignore>true</ignore>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Configuration.BundlesConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Configuration.BundlesConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundlesConfiguration.Scripts">
+            <summary>
+            Gets or sets the scripts.
+            </summary>
+            <value>
+            The scripts.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundlesConfiguration.Styles">
+            <summary>
+            Gets or sets the styles.
+            </summary>
+            <value>
+            The styles.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundlesConfiguration.IgnoreList">
+            <summary>
+            Gets or sets the ignore list.
+            </summary>
+            <value>
+            The ignore list.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundlesConfiguration.UseCdn">
+            <summary>
+            Gets or sets a value indicating whether [use CDN].
+            </summary>
+            <value>
+              <c>true</c> if [use CDN]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundlesConfiguration.EnableOptimizations">
+            <summary>
+            Gets or sets a value indicating whether [enable optimizations].
+            </summary>
+            <value>
+              <c>true</c> if [enable optimizations]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.BundleGroup">
+            <summary>
+            Represents a bundle group
+            </summary>
+            <ignore>true</ignore>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleGroup.Bundles">
+            <summary>
+            Gets or sets the bundles.
+            </summary>
+            <value>
+            The bundles.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.BundleGroupItem">
+            <summary>
+            Represents a bundle group item
+            </summary>
+            <ignore>true</ignore>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleGroupItem.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleGroupItem.CdnFallbackExpression">
+            <summary>
+            Gets or sets the CDN fallback expression.
+            </summary>
+            <value>
+            The CDN fallback expression.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleGroupItem.CdnPath">
+            <summary>
+            Gets or sets the CDN path.
+            </summary>
+            <value>
+            The CDN path.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleGroupItem.Includes">
+            <summary>
+            Gets or sets the includes.
+            </summary>
+            <value>
+            The includes.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.BundleItemInclude">
+            <summary>
+            Represents an included item in the bundle item
+            </summary>
+            <ignore>true</ignore>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleItemInclude.Path">
+            <summary>
+            Gets or sets the path.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.BundleIgnore">
+            <summary>
+            Represents and ignore pattern in the bundle
+            </summary>
+            <ignore>true</ignore>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleIgnore.Pattern">
+            <summary>
+            Gets or sets the pattern.
+            </summary>
+            <value>
+            The pattern.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Configuration.BundleIgnore.When">
+            <summary>
+            Gets or sets the when.
+            </summary>
+            <value>
+            The when.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler">
+            <summary>
+            The Web.Config handler for the bundles
+            </summary>
+            <gist id="f9dfc0b776191f1a728a"></gist>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Creates the bundle configuration from the configContext.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="configContext">The configuration context.</param>
+            <param name="section">The section.</param>
+            <returns></returns>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler.System#Configuration#IConfigurationSectionHandler#Create(System.Object,System.Object,System.Xml.XmlNode)">
             <summary>
@@ -39,6 +243,7 @@
             <param name="controller">The controller.</param>
             <param name="data">The data.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSONP``1(System.Web.Mvc.Controller,``0)">
             <summary>
@@ -48,6 +253,7 @@
             <param name="controller">The controller.</param>
             <param name="data">The data.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSONP``1(System.Web.Mvc.Controller,``0,System.String)">
             <summary>
@@ -58,15 +264,17 @@
             <param name="data">The data.</param>
             <param name="callback">The callback.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.BSON``1(System.Web.Mvc.Controller,``0)">
             <summary>
-            Serializes the data to bson and returns a BsonPResult
+            Serializes the data to bson and returns a BsonResult
             </summary>
             <typeparam name="T"></typeparam>
             <param name="controller">The controller.</param>
             <param name="data">The data.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.XML``1(System.Web.Mvc.Controller,``0)">
             <summary>
@@ -76,6 +284,16 @@
             <param name="controller">The controller.</param>
             <param name="data">The data.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.CompressResponse(System.Web.HttpContextBase)">
+            <summary><![CDATA[
+            Compresses the response using the browsers acceptable content compressions (<a href="http://www.gzip.org/zlib/rfc-gzip.html" target="_blank">GZIP</a> or <a href="http://www.gzip.org/zlib/rfc-deflate.html" target="_blank">DEFLATE</a>).
+            ]]>
+            </summary>
+            <param name="context">The context.</param>
+            <seealso cref="!:http://www.gzip.org/zlib/rfc-gzip.html">GZIP</seealso>
+            <seealso cref="!:http://www.gzip.org/zlib/rfc-deflate.html">DEFLATE</seealso>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String)">
             <summary>
@@ -125,6 +343,8 @@
             <summary>
             Represents a response as BSON.
             </summary>
+            <remarks>Content-Type: application/bson</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Results.BsonResult.#ctor">
             <summary>
@@ -156,6 +376,8 @@
             Represents a response as BSON.
             </summary>
             <typeparam name="T"></typeparam>
+            <remarks>Content-Type: application/bson</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Results.BsonResult`1.#ctor">
             <summary>
@@ -173,11 +395,15 @@
             Represents a response as JSONP.
             </summary>
             <typeparam name="T"></typeparam>
+            <remarks>Content-Type: application/javascript</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="T:Camalot.Common.Mvc.Results.JsonResult`1">
             <summary>
             Represents a response as JSON.
             </summary>
+            <remarks>Content-Type: application/json</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Results.JsonResult`1.#ctor">
             <summary>
@@ -264,12 +490,16 @@
             Represents a response as XML.
             </summary>
             <typeparam name="T"></typeparam>
+            <remarks>Content-Type: text/xml</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="T:Camalot.Common.Mvc.Results.XmlResult">
             <summary>
             Represents a response as XML.
             </summary>
             <typeparam name="T"></typeparam>
+            <remarks>Content-Type: text/xml</remarks>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Results.XmlResult.#ctor">
             <summary>

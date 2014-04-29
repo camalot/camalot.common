@@ -33,7 +33,7 @@
 }
 
 .expanded.right .epm-nav-host {
-	right: 234px;
+	right: 310px;
 }
 
 .epm-nav-toggle {
@@ -56,23 +56,23 @@
 }
 
 
-	.epm-nav-toggle .icon-bar {
-		background-color: #666;
-		display: block;
-		width: 22px;
-		height: 3px;
+.epm-nav-toggle .icon-bar {
+	background-color: #666;
+	display: block;
+	width: 22px;
+	height: 3px;
+}
+
+	.epm-nav-toggle .icon-bar + .icon-bar {
+		margin-top: 4px;
 	}
 
-		.epm-nav-toggle .icon-bar + .icon-bar {
-			margin-top: 4px;
-		}
+.epm-nav-toggle:hover .icon-bar {
+	background-color: #999;
+}
 
-	.epm-nav-toggle:hover .icon-bar {
-		background-color: #999;
-	}
-
-	.epm-nav-toggle:hover, .epm-nav-toggle:active, .epm-nav-toggle:focus {
-	}
+.epm-nav-toggle:hover, .epm-nav-toggle:active, .epm-nav-toggle:focus {
+}
 
 
 
@@ -80,29 +80,38 @@
 	z-index: 1035;
 	border: none;
 	background-color: #222;
-	width: 250px;
-	max-width: 250px;
+	width: 325px;
+	max-width: 325px;
 	position: fixed;
 	top: 49px;
 	bottom: 0;
 	overflow-y: auto;
-	overflow-x: auto;
+	overflow-x: hidden;
 	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
+
+	.epm-nav li {
+		-ms-text-overflow: ellipsis;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+	}
 
 	.epm-nav .nav-search {
 		margin: 0 2px 0 0;
 	}
 
-	.epm-nav .nav-search button.clear {
-		border: none;
-		background-color: transparent;
-		font-size: 1.2em;
-		font-weight: bold;
-		margin:0 0 0 -20px;
-		padding: 0;
-		color: #ddd;
-	}
+		.epm-nav .nav-search button.clear {
+			border: none;
+			background-color: transparent;
+			font-size: 1.2em;
+			font-weight: bold;
+			margin: 0 0 0 -20px;
+			padding: 0;
+			color: #ddd;
+		}
 
 		.epm-nav .nav-search input[type="search"] {
 			border: solid 1px #333;
@@ -114,7 +123,7 @@
 			-o-transition: none;
 			-webkit-transition: none;
 			transition: none;
-			margin:0;
+			margin: 0;
 		}
 
 
@@ -136,7 +145,7 @@
 			}
 
 	.epm-nav.left {
-		left: -255px;
+		left: -325px;
 		border-right: solid 1px #000;
 		-moz-transition: left linear 300ms;
 		-o-transition: left linear 300ms;
@@ -145,7 +154,7 @@
 	}
 
 	.epm-nav.right {
-		right: -255px;
+		right: -325px;
 		border-left: solid 1px #000;
 		-moz-transition: right linear 300ms;
 		-o-transition: right linear 300ms;

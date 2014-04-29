@@ -11,6 +11,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// Represents a response as XML.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
+	/// <remarks>Content-Type: text/xml</remarks>
+	/// <ignore>true</ignore>
 	public class XmlResult<T> : XmlResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="XmlResult{T}"/> class.
@@ -57,6 +59,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// Represents a response as XML.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
+	/// <remarks>Content-Type: text/xml</remarks>
+	/// <ignore>true</ignore>
 	public abstract class XmlResult : ActionResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="XmlResult{T}"/> class.

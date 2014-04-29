@@ -12,6 +12,9 @@ namespace Camalot.Common.Site.Models.Documentation {
 		}
 		public string Name { get; set; }
 		public Xml.Member Documentation { get; set; }
+		public string XmlName { get; set; }
+		public bool Ignore { get { return Documentation != null && Documentation.Ignore; } }
+
 		public IList<ParameterModel> Parameters { get; set; }
 		public IList<TypeModel> GenericParameters { get; set; }
 

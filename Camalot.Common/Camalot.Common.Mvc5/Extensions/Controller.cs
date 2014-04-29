@@ -16,7 +16,8 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
-		public static JsonResult JSON<T> ( this Controller controller, T data ) {
+		/// <gist id="bcb354968fff2df127f3"></gist>
+		public static JsonResult JSON<T>(this Controller controller, T data) {
 			return new JsonResult<T> ( data );
 		}
 
@@ -27,7 +28,8 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
-		public static JsonpResult<T> JSONP<T> ( this Controller controller, T data ) {
+		/// <gist id="bcb354968fff2df127f3"></gist>
+		public static JsonpResult<T> JSONP<T>(this Controller controller, T data) {
 			return JSONP<T> ( controller, data, "callback" );
 		}
 
@@ -39,17 +41,19 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="data">The data.</param>
 		/// <param name="callback">The callback.</param>
 		/// <returns></returns>
+		/// <gist id="bcb354968fff2df127f3"></gist>
 		public static JsonpResult<T> JSONP<T> ( this Controller controller, T data, string callback ) {
 			return new JsonpResult<T> ( data, callback );
 		}
 
 		/// <summary>
-		/// Serializes the data to bson and returns a BsonPResult
+		/// Serializes the data to bson and returns a BsonResult
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
+		/// <gist id="bcb354968fff2df127f3"></gist>
 		public static BsonResult BSON<T>(this Controller controller, T data) {
 			return new BsonResult<T>(data);
 		}
@@ -61,7 +65,8 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
-		public static XmlResult XML<T> ( this Controller controller, T data ) {
+		/// <gist id="bcb354968fff2df127f3"></gist>
+		public static XmlResult XML<T>(this Controller controller, T data) {
 			return new XmlResult<T> ( data );
 		}
 	}

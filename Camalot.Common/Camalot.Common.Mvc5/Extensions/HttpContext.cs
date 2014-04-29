@@ -8,6 +8,13 @@ using System.Web;
 
 namespace Camalot.Common.Mvc.Extensions {
 	public static partial class CamalotCommonMvcExtensions {
+		/// <summary><![CDATA[
+		/// Compresses the response using the browsers acceptable content compressions (<a href="http://www.gzip.org/zlib/rfc-gzip.html" target="_blank">GZIP</a> or <a href="http://www.gzip.org/zlib/rfc-deflate.html" target="_blank">DEFLATE</a>).
+		/// ]]>
+		/// </summary>
+		/// <param name="context">The context.</param>
+		/// <seealso cref="http://www.gzip.org/zlib/rfc-gzip.html">GZIP</seealso>
+		/// <seealso cref="http://www.gzip.org/zlib/rfc-deflate.html">DEFLATE</seealso>
 		public static void CompressResponse ( this HttpContextBase context ) {
 			var request = context.Request;
 			var accepts = ( request.Headers["Accept-Encoding"] ?? string.Empty ).ToUpperInvariant ( ).Split ( new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries );

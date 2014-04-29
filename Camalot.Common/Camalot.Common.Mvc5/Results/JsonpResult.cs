@@ -17,6 +17,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// Represents a response as JSONP.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
+	/// <remarks>Content-Type: application/javascript</remarks>
+	/// <ignore>true</ignore>
 	public class JsonpResult<T> : JsonResult<T> {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="JsonpResult{T}"/> class.
@@ -81,7 +83,7 @@ namespace Camalot.Common.Mvc.Results {
 			using ( var sw = new StreamWriter ( response.OutputStream ) ) {
 				using ( var jw = new JsonTextWriter ( sw ) ) {
 					jw.WriteRaw ( callback.Trim() + "(" );
-					JsonSerializationBuilder.Build ( ).Create ( ).Serialize ( jw, this.Data );
+					JsonSerializationBuilder.Build().Create().Serialize(jw, this.Data);
 					jw.WriteRaw ( ");" );
 				}
 			}

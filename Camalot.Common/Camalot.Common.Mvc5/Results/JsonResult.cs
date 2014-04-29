@@ -12,6 +12,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// <summary>
 	/// Represents a response as JSON.
 	/// </summary>
+	/// <remarks>Content-Type: application/json</remarks>
+	/// <ignore>true</ignore>
 	public class JsonResult<T> : JsonResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="JsonResult{T}"/> class.

@@ -6,9 +6,6 @@ using System.Threading.Tasks;
 using Camalot.Common.Properties;
 
 namespace Camalot.Common.Extensions {
-	/// <summary>
-	/// 
-	/// </summary>
 	public static partial class CamalotCommonExtensions {
 		/// <summary>
 		/// Requires the specified object to have a value.

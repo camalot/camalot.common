@@ -29,9 +29,9 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
-		/// Determines whether [is] [the specified attribute].
+		/// Determines whether the Type is the specified type to check for.
 		/// </summary>
-		/// <typeparam name="TType">The type of the type.</typeparam>
+		/// <typeparam name="TType">The type of the type to check for.</typeparam>
 		/// <param name="t">The type.</param>
 		/// <returns></returns>
 		public static bool Is<TType> ( this TType t ) /*where TType : class*/ {
@@ -39,7 +39,7 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
-		/// Determines whether [is] [the specified attribute].
+		/// Determines whether the Type is the specified type to check for.
 		/// </summary>
 		/// <typeparam name="TType">The type of the type.</typeparam>
 		/// <param name="t">The type.</param>
@@ -49,7 +49,7 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
-		/// Determines whether [is] [the specified attribute].
+		/// Determines whether the Type is the specified type to check for.
 		/// </summary>
 		/// <typeparam name="TType">The type of the type.</typeparam>
 		/// <param name="t">The attribute.</param>

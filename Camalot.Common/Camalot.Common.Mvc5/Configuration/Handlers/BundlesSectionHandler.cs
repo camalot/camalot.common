@@ -8,7 +8,19 @@ using System.Xml;
 using Camalot.Common.Extensions;
 
 namespace Camalot.Common.Mvc.Configuration.Handlers {
+	/// <summary>
+	/// The Web.Config handler for the bundles
+	/// </summary>
+	/// <gist id="f9dfc0b776191f1a728a"></gist>
 	public class BundlesSectionHandler : IConfigurationSectionHandler {
+		/// <summary>
+		/// Creates the bundle configuration from the configContext.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="configContext">The configuration context.</param>
+		/// <param name="section">The section.</param>
+		/// <returns></returns>
+		/// <ignore>true</ignore>
 		public BundlesConfiguration Create ( object parent, object configContext, XmlNode section ) {
 			return section.CreateConfigurationInstanceFromConfigurationNode<BundlesConfiguration> ( );
 		}

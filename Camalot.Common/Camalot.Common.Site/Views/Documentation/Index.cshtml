@@ -18,31 +18,42 @@
 }
 
 @foreach(var ns in Model.Namespaces) {
-	@(Html.Partial("_AdPartial"))
-	<div id="@(ns.Name)">
-		<div class="page-header">
-			<h3 class="zero"><i class="fa fa-download mrm"></i>@ns.Name</h3>
-		</div>
-		<div class="mhl">
-			@foreach(var c in ns.Classes) {
-				<div id="@(c.Namespace).@(c.Name)">
-					<div class="page-header">
-						<h4 class="zero">@c.Name</h4>
-					</div>
-					<div class="mhl">
-						@foreach(var m in c.Methods) {
-							<div id="@(c.Namespace).@(c.Name).@(m.Name)">
-								<div class="page-header">
-									<h5 class="zero">@m.ToString()</h5>
-								</div>
-								@if(m.Documentation != null) { 
-									@Html.DisplayFor(x => m.Documentation)
+	if(!ns.Ignore) {
+		@(Html.Partial("_AdPartial"))
+		<div id="@(ns.Name)">
+			<div class="page-header">
+				<h2 class="zero"><i class="fa fa-code mrm"></i>@ns.Name</h2>
+			</div>
+			<div class="mhl">
+				@foreach(var c in ns.Classes) {
+					if(!c.Ignore) {
+						<div id="@(c.Namespace).@(c.Name)" data-xml-name="@c.XmlName">
+							<div class="page-header">
+								<h3 class="zero"><i class="fa fa-bolt mrm"></i>@c.Name</h3>
+								<h5>@c.XmlName</h5>
+							</div>
+							@if(c.Documentation != null) {
+								@Html.DisplayFor(x => c.Documentation)
+							}
+							<div class="mhl">
+								@foreach(var m in c.Methods) {
+									if(!m.Ignore) {
+										<div id="@(c.Namespace).@(c.Name).@(m.Name)" data-xml-name="@m.XmlName">
+											<div class="page-header">
+												<h4 class="zero"><i class="fa fa-gavel mrm"></i>@m.ToString()</h4>
+												<h6>@m.XmlName</h6>
+											</div>
+											@if(m.Documentation != null) {
+												@Html.DisplayFor(x => m.Documentation)
+											}
+										</div>
+									}
 								}
 							</div>
-						}
-					</div>
-				</div>
-			}
+						</div>
+					}
+				}
+			</div>
 		</div>
-	</div>
+	}
 }

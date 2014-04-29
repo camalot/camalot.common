@@ -12,6 +12,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// <summary>
 	/// Represents a response as BSON.
 	/// </summary>
+	/// <remarks>Content-Type: application/bson</remarks>
+	/// <ignore>true</ignore>
 	public class BsonResult : ActionResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BsonResult"/> class.
@@ -53,6 +55,8 @@ namespace Camalot.Common.Mvc.Results {
 	/// Represents a response as BSON.
 	/// </summary>
 	/// <typeparam name="T"></typeparam>
+	/// <remarks>Content-Type: application/bson</remarks>
+	/// <ignore>true</ignore>
 	public class BsonResult<T> : BsonResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BsonResult{T}"/> class.

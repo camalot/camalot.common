@@ -4,21 +4,58 @@
         <name>Camalot.Common</name>
     </assembly>
     <members>
-        <member name="T:Camalot.Common.Extensions.CamalotCommonExtensions">
+        <member name="T:Camalot.Common.Attributes.ConfigurationPathAttribute">
             <summary>
-            
+            A helper attribute for defining configuration elements in the web config.
             </summary>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Attributes.ConfigurationPathAttribute.#ctor(System.String)">
             <summary>
-            
+            Initializes a new instance of the <see cref="T:Camalot.Common.Attributes.ConfigurationPathAttribute"/> class.
             </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="P:Camalot.Common.Attributes.ConfigurationPathAttribute.Path">
+            <summary>
+            Gets or sets the path.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Configuration.ConfigurationReader">
+            <summary>
+            Gets a configuration object from the configuration context.
+            </summary>
+        </member>
+        <member name="T:Camalot.Common.Configuration.IConfigurationReader">
+            <summary>
+            Gets a configuration object from the configuration context.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Configuration.IConfigurationReader.Get``1">
+            <summary>
+            Gets a configuration object from the configuration context.
+            </summary>
+            <typeparam name="T">The configuration object to get from the context.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Configuration.ConfigurationReader.Get``1">
+            <summary>
+            Gets a configuration object from the configuration context.
+            </summary>
+            <typeparam name="T">The configuration object to get from the context.</typeparam>
+            <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Reflection.Assembly)">
             <summary>
-            Withes the attribute.
+            Gets all types that have the specified attribute
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The attribute.</typeparam>
             <param name="assembly">The assembly.</param>
             <returns></returns>
+            <gist id="41883d902a6ed6bd8da4">This sample shows AppDomain, but works the same for assemblies as well.</gist>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetTypesThatAre``1(System.Reflection.Assembly)">
             <summary>
@@ -27,10 +64,88 @@
             <typeparam name="TType">The type of the type.</typeparam>
             <param name="assembly">The assembly.</param>
             <returns></returns>
+            <gist id="6e8707f256ad0398cbff">This sample shows AppDomain, but works the same for assemblies as well.</gist>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Gets the string representation of the array of bytes.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[])">
+            <summary>
+            Gets the string representation of the array of bytes.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.Byte[])">
+            <summary>
+            Converts the byte array to a base64 encoded string.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToHex(System.Byte[])">
+            <summary>
+            Converts the byte array to a hexadecimal string.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToHex(System.Byte)">
+            <summary>
+            Converts the byte array to a hexadecimal string.
+            </summary>
+            <param name="b">The byte array.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsStream(System.Byte[])">
+            <summary>
+            Turns the byte array in to a Stream.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsStream(System.Byte[],System.Boolean)">
+            <summary>
+            Turns the byte array in to a Stream.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="writable">if set to <c>true</c> then the stream is writable.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsStream(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Turns the byte array in to a Stream.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="index">The index.</param>
+            <param name="count">The count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsStream(System.Byte[],System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Turns the byte array in to a Stream.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="index">The index.</param>
+            <param name="count">The count.</param>
+            <param name="writable">if set to <c>true</c> then the stream is writable.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToHtmlHex(System.Drawing.Color)">
+            <summary>
+            Transforms the Color to an HTML hexadecimal string (#FFFFFF).
+            </summary>
+            <param name="color">The color.</param>
+            <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToColor(System.String)">
             <summary>
-            Transforms HTML Color String (#FFFFFF) in to a Color object
+            Transforms HTML hexadecimal string (#FFFFFF) in to a Color object
             </summary>
             <param name="htmlColor">Color of the HTML.</param>
             <returns></returns>
@@ -161,7 +276,7 @@
             Enumerate through each match. Automatically calls NextMatch for you.
             </summary>
             <param name="m"></param>
-            <param name="action"></param>
+            <param name="action">The action to execute on each match</param>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.MemberInfo,System.Func{``0,``1})">
             <summary>
@@ -271,6 +386,48 @@
             <param name="modules">The modules.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or(System.Object,System.Object)">
+            <summary>
+            Returns the object or the specified value object if null (or empty).
+            </summary>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or(System.Guid,System.Guid)">
+            <summary>
+            Returns the guid or the specified value guid if empty.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or``1(``0,``0)">
+            <summary>
+            Returns the object or the specified value object if null (or empty).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="s">The object.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or(System.String,System.String)">
+            <summary>
+            Returns the string or the specified value if null (or empty).
+            </summary>
+            <param name="s">The string.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or``1(System.Nullable{``0},``0)">
+            <summary>
+            Returns the object or the specified value object if null (or empty).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="s">The nullable object.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.ParameterInfo,System.Func{``0,``1})">
             <summary>
             Gets the custom attribute value.
@@ -325,11 +482,12 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.AppDomain)">
             <summary>
-            Withes the attribute.
+            Gets all types that have the specified attribute
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">The attribute.</typeparam>
             <param name="domain">The domain.</param>
             <returns></returns>
+            <gist id="41883d902a6ed6bd8da4"></gist>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetTypesThatAre``1(System.AppDomain)">
             <summary>
@@ -338,6 +496,7 @@
             <typeparam name="TType">The type.</typeparam>
             <param name="domain">The domain.</param>
             <returns></returns>
+            <gist id="6e8707f256ad0398cbff"></gist>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Object)">
             <summary>
@@ -588,11 +747,166 @@
             <param name="args">The arguments.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Match(System.String,System.String)">
+            <summary>
+            Performs a Regular Expression Match.
+            </summary>
+            <param name="s">The string to match.</param>
+            <param name="pattern">The pattern.</param>
+            <returns>The regular expression match.</returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Match(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Performs a Regular Expression Match.
+            </summary>
+            <param name="s">The string to match.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsMatch(System.String,System.String)">
+            <summary>
+            Determines whether the specified string is match to the specified pattern.
+            </summary>
+            <param name="s">The string to match.</param>
+            <param name="pattern">The pattern.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsMatch(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Determines whether the specified string is match to the specified pattern.
+            </summary>
+            <param name="s">The string to match.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Replace(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Does a Regex Replace on the string based on the specified pattern and the specified replacement.
+            </summary>
+            <param name="s">The s.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="replacement">The replacement.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Replace(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Does a Regex Replace on the string based on the specified pattern and the specified evaluator.
+            </summary>
+            <param name="s">The s.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="options">The options.</param>
+            <param name="evaluator">The evaluator.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.REReplace(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Does a Regex Replace on the specified string based on the specified pattern and replacement.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="replacement">The replacement.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.REReplace(System.String,System.String,System.String)">
+            <summary>
+            Does a Regex Replace on the specified string based on the specified pattern and replacement.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="replacement">The replacement.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.REReplace(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Does a Regex Replace on the string based on the specified pattern and the specified evaluator.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="options">The options.</param>
+            <param name="evaluator">The evaluator.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.REReplace(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Does a Regex Replace on the string based on the specified pattern and the specified evaluator.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="evaluator">The evaluator.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetBytes(System.String,System.Text.Encoding)">
+            <summary>
+            Gets the bytes from the specified string.
+            </summary>
+            <param name="s">The string.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetBytes(System.String)">
+            <summary>
+            Gets the bytes from the specified string.
+            </summary>
+            <param name="s">The string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Slug(System.String)">
+            <summary>
+            Converts a string to a URL friendly value
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+            <see cref="!:http://stackoverflow.com/questions/25259/how-do-you-include-a-webpage-title-as-part-of-a-webpage-url"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToCamelCase(System.Object)">
+            <summary>
+            Converts the objects string representation to camelCase.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToCamelCase(System.String)">
+            <summary>
+            Converts the objects string representation to camelCase.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToPascalCase(System.String)">
+            <summary>
+            Converts the objects string representation to PascalCase.
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SplitAndTrim(System.String,System.Char[],System.StringSplitOptions)">
+            <summary>
+            Splits the string based on the specified separator and trims each item.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="separator">The separator.</param>
+            <param name="options">The options.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SplitAndTrim(System.String,System.Char[])">
+            <summary>
+            Splits the string based on the specified separator and trims each item.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="separator">The separator.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToDatabaseHash(System.String)">
             <summary>
-            this is like: CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))
-            in TSQL
+            Converts the string to an SHA1 hash
             </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+            <remarks>This is the equivalent of <code>CAST(HASHBYTES('SHA1', RTRIM(LTRIM(LOWER([COLUMN_NAME])))) AS VARBINARY(20))</code> in TSQL.</remarks>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.String)">
             <summary>
@@ -627,15 +941,15 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(``0)">
             <summary>
-            Determines whether [is] [the specified attribute].
+            Determines whether the Type is the specified type to check for.
             </summary>
-            <typeparam name="TType">The type of the type.</typeparam>
+            <typeparam name="TType">The type of the type to check for.</typeparam>
             <param name="t">The type.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(System.Object)">
             <summary>
-            Determines whether [is] [the specified attribute].
+            Determines whether the Type is the specified type to check for.
             </summary>
             <typeparam name="TType">The type of the type.</typeparam>
             <param name="t">The type.</param>
@@ -643,7 +957,7 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(System.Type)">
             <summary>
-            Determines whether [is] [the specified attribute].
+            Determines whether the Type is the specified type to check for.
             </summary>
             <typeparam name="TType">The type of the type.</typeparam>
             <param name="t">The attribute.</param>
@@ -757,10 +1071,11 @@
             The created section handler object.
             </returns>
             <exception cref="T:System.ArgumentException">Unknown Xml Node Type</exception>
+            <ignore>true</ignore>
         </member>
         <member name="T:Camalot.Common.Mime.FileTypeMap">
             <summary>
-            
+            A default file type map handler.
             </summary>
         </member>
         <member name="M:Camalot.Common.Mime.FileTypeMap.#ctor">
@@ -813,6 +1128,7 @@
             <summary>
             This reads http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types and builds a list of mimeTypes that can be queried against.
             </summary>
+            <see cref="!:http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types"/>
         </member>
         <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetMimeType(System.IO.FileInfo)">
             <summary>
@@ -852,7 +1168,7 @@
         </member>
         <member name="T:Camalot.Common.Mime.MimeType">
             <summary>
-            
+            Represents a Mime Type
             </summary>
         </member>
         <member name="P:Camalot.Common.Mime.MimeType.MediaType">
@@ -1145,7 +1461,7 @@
         </member>
         <member name="T:Camalot.Common.Serialization.JsonSerializationBuilder">
             <summary>
-            
+            A JSON Serialization Builder
             </summary>
         </member>
         <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Settings``1(System.Linq.Expressions.Expression{System.Func{Newtonsoft.Json.JsonSerializerSettings,``0}},``0)">
@@ -1156,18 +1472,21 @@
             <param name="xpression">The expression.</param>
             <param name="value">The value.</param>
             <returns></returns>
+            <gist id="1bef086cc9057b9f8987"></gist>
         </member>
         <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Create">
             <summary>
             Creates this instance.
             </summary>
             <returns></returns>
+            <gist id="1bef086cc9057b9f8987"></gist>
         </member>
         <member name="M:Camalot.Common.Serialization.JsonSerializationBuilder.Build">
             <summary>
             Builds this instance.
             </summary>
             <returns></returns>
+            <gist id="1bef086cc9057b9f8987"></gist>
         </member>
         <member name="T:Camalot.Common.Serialization.XmlSerializationBuilder">
             <summary>
