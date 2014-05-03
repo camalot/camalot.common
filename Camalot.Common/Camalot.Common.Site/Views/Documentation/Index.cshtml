@@ -37,14 +37,7 @@
 							<div class="mhl">
 								@foreach(var m in c.Methods) {
 									if(!m.Ignore) {
-										<div id="@m.Id" data-xml-name="@m.XmlName">
-											<div class="page-header">
-												<h4 class="zero"><i class="fa fa-gavel mrm"></i>@m.ToString()<small class="mll text-muted pull-right"><a href="#@(m.Id)" title="Direct Link to @m.ToString()"><i class="fa fa-anchor"></i></a></small></h4>
-											</div>
-											@if(m.Documentation != null) {
-												@Html.DisplayFor(x => m.Documentation)
-											}
-										</div>
+										@Html.DisplayFor(x => m)
 									}
 								}
 							</div>

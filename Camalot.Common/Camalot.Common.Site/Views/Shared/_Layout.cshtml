@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb#">
 	<meta charset="utf-8" />
 	<title>@(ViewBag.Title)</title>
 
@@ -9,13 +9,18 @@
 	<meta name="msapplication-TileImage" content="~/assets/images/icon-144.png">
 
 	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/assets/images/icon-152.png">
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="~/assets/images/icon-152.png">
 	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/assets/images/icon-144.png">
 	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="~/assets/images/icon-120.png">
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/assets/images/icon-114.png">
 	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/assets/images/icon-72.png">
 	<link rel="apple-touch-icon-precomposed" href="~/assets/images/icon-57.png">
 	<link href="~/assets/images/icon-32.png" sizes="32x32" rel="icon" type="image/png" />
+
+	<meta property="og:title" content="@(ViewBag.Title)" />
+	<meta property="og:image" content="~/assets/images/icon-152.png" />
+	<meta property="og:description" content="Camalot.Common contains extensions, objects and other methods that I found myself rewriting over and over. I made this library so I did not have to duplicate the code.
+				You may find these useful, or you may not." />
+
 	<meta name="viewport" content="width=device-width" />
 	@(Styles.Render("~/assets/css/site"))
 	@(RenderSection("styles", required: false))

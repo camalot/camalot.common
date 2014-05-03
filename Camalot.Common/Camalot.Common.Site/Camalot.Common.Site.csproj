@@ -146,6 +146,8 @@
     <Compile Include="Services\DocumentationService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Camalot.Common.dll" />
+    <Content Include="App_Data\Camalot.Common.Mvc.dll" />
     <Content Include="App_Data\Camalot.Common.Mvc.xml" />
     <Content Include="App_Data\Camalot.Common.xml" />
     <Content Include="assets\fonts\fontawesome-webfont.svg">
@@ -324,6 +326,7 @@
     <Content Include="Views\Documentation\DisplayTemplates\Member.cshtml" />
     <Content Include="Views\Documentation\Navigation.cshtml" />
     <Content Include="Views\Home\_DocumentationPartial.cshtml" />
+    <Content Include="Views\Documentation\DisplayTemplates\MethodModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Camalot.Common.Mvc5\Camalot.Common.Mvc5.csproj">
@@ -374,7 +377,10 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy $(ProjectDir)$(OutDir)Camalot.Common*.xml $(ProjectDir)App_Data /h /i /c /k /y</PostBuildEvent>
+    <PostBuildEvent>xcopy $(ProjectDir)$(OutDir)Camalot.Common.xml $(ProjectDir)App_Data /h /i /c /k /y
+xcopy $(ProjectDir)$(OutDir)Camalot.Common.Mvc.xml $(ProjectDir)App_Data /h /i /c /k /y
+xcopy $(ProjectDir)$(OutDir)Camalot.Common.dll $(ProjectDir)App_Data /h /i /c /k /y
+xcopy $(ProjectDir)$(OutDir)Camalot.Common.Mvc.dll $(ProjectDir)App_Data /h /i /c /k /y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

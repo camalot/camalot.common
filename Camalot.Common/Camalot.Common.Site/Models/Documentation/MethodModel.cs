@@ -30,13 +30,20 @@ namespace Camalot.Common.Site.Models.Documentation {
 			if(ExtensionOf == null) {
 				return "{0}{2} ( {1} )".With(Name, String.Join(", ", Parameters.Select(p => p.ToString())), GenericParameters != null && GenericParameters.Count > 0 ? "<{0}>".With(String.Join(", ", GenericParameters.Select(g => g.ToString()))) : "");
 			} else {
-				return "{0}.{1}{3} ( {2} )".With(
-					ExtensionOf.ToSafeFullName(),
-					Name, 
-					String.Join(", ", Parameters.Skip(1).Select(p => p.ToString())), 
+				return "{0}{2} ( {1} )".With(
+					Name,
+					String.Join(", ", Parameters.Skip(1).Select(p => p.ToString())),
 					GenericParameters != null && GenericParameters.Count > 0 ? "<{0}>".With(String.Join(", ", GenericParameters.Select(g => g.ToString()))) : ""
 				);
 			}
+			//} else {
+			//	return "{0}.{1}{3} ( {2} )".With(
+			//		ExtensionOf.ToSafeFullName(),
+			//		Name, 
+			//		String.Join(", ", Parameters.Skip(1).Select(p => p.ToString())), 
+			//		GenericParameters != null && GenericParameters.Count > 0 ? "<{0}>".With(String.Join(", ", GenericParameters.Select(g => g.ToString()))) : ""
+			//	);
+			//}
 		}
 	}
 }

@@ -14,6 +14,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="enumeration">The enumeration.</param>
 		/// <param name="expression">The expression.</param>
 		/// <returns></returns>
+		/// <gist id="55ff82073abe0b2ba0fd"></gist>
 		public static Expected GetCustomAttributeValue<T, Expected> ( this Enum enumeration, Func<T, Expected> expression ) where T : Attribute {
 			T attribute = enumeration.GetType ( ).GetMember ( enumeration.ToString ( ) ).First ( ).GetCustomAttributes ( typeof ( T ), false ).Cast<T> ( ).FirstOrDefault ( );
 			if ( attribute == null )

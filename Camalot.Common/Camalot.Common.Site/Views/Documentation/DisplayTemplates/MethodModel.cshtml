@@ -1,0 +1,22 @@
+﻿@using Camalot.Common.Extensions;
+@using Camalot.Common.Mvc.Extensions;
+@using Camalot.Common.Site.Extensions;
+
+@model Camalot.Common.Site.Models.Documentation.MethodModel
+
+<div id="@Model.Id" data-xml-name="@Model.XmlName">
+	<div class="page-header">
+		<h4 class="zero">
+			<i class="fa fa-gavel mrm"></i>
+			<span>
+				@if(Model.ExtensionOf != null) { <text><abbr class="extension-base" title="@(Model.ExtensionOf.ToSafeFullName())">@(Model.ExtensionOf.ToSafeName()).</abbr></text>}
+<span>@Model.ToString()</span>
+				</span>
+				<small class="mll text-muted pull-right"><a href="#@(Model.Id)" title="Direct Link to @Model.ToString()"><i class="fa fa-anchor"></i></a></small>
+			</h4>
+
+	</div>
+	@if(Model.Documentation != null) {
+		@Html.DisplayFor(x => Model.Documentation)
+	}
+</div>

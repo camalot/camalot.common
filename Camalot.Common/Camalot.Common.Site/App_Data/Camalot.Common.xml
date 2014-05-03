@@ -206,6 +206,7 @@
             <param name="enumeration">The enumeration.</param>
             <param name="expression">The expression.</param>
             <returns></returns>
+            <gist id="55ff82073abe0b2ba0fd"></gist>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttribute``1(System.Enum)">
             <summary>
