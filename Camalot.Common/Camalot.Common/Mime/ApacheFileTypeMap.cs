@@ -21,6 +21,7 @@ namespace Camalot.Common.Mime {
 		/// </summary>
 		/// <param name="file">The file.</param>
 		/// <returns></returns>
+		/// <seealso cref="M:Camalot.Common.Mime.FileTypeMap.GetMimeType"/>
 		public override MimeType GetMimeType ( System.IO.FileInfo file ) {
 			return GetMimeType ( file.Name );
 		}
@@ -30,6 +31,7 @@ namespace Camalot.Common.Mime {
 		/// </summary>
 		/// <param name="fileName">Name of the file.</param>
 		/// <returns></returns>
+		/// <seealso cref="M:Camalot.Common.Mime.FileTypeMap.GetAllMimeTypes"/>
 		public override MimeType GetMimeType ( string fileName ) {
 			var ext = new String ( fileName.Skip ( fileName.LastIndexOf ( '.' ) + 1 ).ToArray ( ) );
 			if ( string.IsNullOrWhiteSpace ( ext ) ) {

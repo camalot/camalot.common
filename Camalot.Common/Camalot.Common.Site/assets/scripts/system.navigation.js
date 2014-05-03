@@ -58,7 +58,7 @@
 		$("body").scrollspy({ target: ".epm-nav .nav", offset: 100 });
 
 		// smooth scrolling if the jquery scrollTo plugin exists.
-		$(".epm-nav .nav li a[data-epm-scroll]").each(function() {
+		$(".epm-nav .nav li a[data-epm-scroll], a[data-epm-scroll]").each(function() {
 			var self = $(this);
 			if (self.data("epm-scroll-setup")) { return; }
 			self.data("epm-scroll-setup", true);

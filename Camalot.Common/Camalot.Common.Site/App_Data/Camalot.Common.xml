@@ -1146,6 +1146,7 @@
             </summary>
             <param name="file">The file.</param>
             <returns></returns>
+            <seealso cref="M:Camalot.Common.Mime.FileTypeMap.GetMimeType"/>
         </member>
         <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetMimeType(System.String)">
             <summary>
@@ -1153,6 +1154,7 @@
             </summary>
             <param name="fileName">Name of the file.</param>
             <returns></returns>
+            <seealso cref="M:Camalot.Common.Mime.FileTypeMap.GetAllMimeTypes"/>
         </member>
         <member name="M:Camalot.Common.Mime.ApacheFileTypeMap.GetAllMimeTypes">
             <summary>

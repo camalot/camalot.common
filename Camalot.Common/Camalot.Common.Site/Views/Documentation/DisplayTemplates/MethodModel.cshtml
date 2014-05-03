@@ -8,8 +8,9 @@
 	<div class="page-header">
 		<h4 class="zero">
 			<i class="fa fa-gavel mrm"></i>
+			<code class="method-returntype"><abbr title="@Model.ReturnType.ToSafeFullName()">@Model.ReturnType.ToSafeName()</abbr></code>
 			<span>
-				@if(Model.ExtensionOf != null) { <text><abbr class="extension-base" title="@(Model.ExtensionOf.ToSafeFullName())">@(Model.ExtensionOf.ToSafeName()).</abbr></text>}
+				@if(Model.ExtensionOf != null) { <text><abbr class="extension-base" title="@(Model.ExtensionOf.ToSafeFullName())">@(Model.ExtensionOf.ToSafeName())</abbr>.</text>}
 <span>@Model.ToString()</span>
 				</span>
 				<small class="mll text-muted pull-right"><a href="#@(Model.Id)" title="Direct Link to @Model.ToString()"><i class="fa fa-anchor"></i></a></small>

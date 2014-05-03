@@ -14,6 +14,8 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// Loads bundle configuration from web configuration in &lt;camalot.common&gt; section
 		/// </summary>
 		/// <param name="bundles">The bundles.</param>
+		/// <gist id="f56e2102e1a9993bc984"></gist>
+		/// <seealso cref="T:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler"/>
 		public static void LoadFromWebConfiguration ( this BundleCollection bundles ) {
 			var cr = new ConfigurationReader ( );
 			var bConfig = cr.Get<BundlesConfiguration> ( );

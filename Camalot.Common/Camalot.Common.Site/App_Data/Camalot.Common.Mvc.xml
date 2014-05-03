@@ -209,6 +209,7 @@
             The Web.Config handler for the bundles
             </summary>
             <gist id="f9dfc0b776191f1a728a"></gist>
+            <seealso cref="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.LoadFromWebConfiguration"/>
         </member>
         <member name="M:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler.Create(System.Object,System.Object,System.Xml.XmlNode)">
             <summary>
@@ -234,6 +235,8 @@
             Loads bundle configuration from web configuration in &lt;camalot.common&gt; section
             </summary>
             <param name="bundles">The bundles.</param>
+            <gist id="f56e2102e1a9993bc984"></gist>
+            <seealso cref="T:Camalot.Common.Mvc.Configuration.Handlers.BundlesSectionHandler"/>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.JSON``1(System.Web.Mvc.Controller,``0)">
             <summary>
@@ -286,9 +289,16 @@
             <returns></returns>
             <gist id="bcb354968fff2df127f3"></gist>
         </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.Url(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Gets a UrlHelper for the Controller Context.
+            </summary>
+            <param name="context">The context.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.CompressResponse(System.Web.HttpContextBase)">
             <summary><![CDATA[
-            Compresses the response using the browsers acceptable content compressions (<a href="http://www.gzip.org/zlib/rfc-gzip.html" target="_blank">GZIP</a> or <a href="http://www.gzip.org/zlib/rfc-deflate.html" target="_blank">DEFLATE</a>).
+            Compresses the response using the browsers acceptable content compressions (GZIP or DEFLATE).
             ]]>
             </summary>
             <param name="context">The context.</param>
@@ -297,18 +307,22 @@
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String)">
             <summary>
-            URL encodes a string.
+            Encodes a URL string.
             </summary>
             <param name="s">The string.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String,System.Text.Encoding)">
             <summary>
-            URL encodes a string.
+            Encodes a URL string using the specified encoding object.
             </summary>
             <param name="s">The string.</param>
-            <param name="encoding">The encoding.</param>
+            <param name="encoding">The Encoding object that specifies the encoding scheme.</param>
             <returns></returns>
+            <remarks>This method can be used to encode the entire URL, including query-string values. If characters such as blanks and punctuation are passed in an HTTP stream, 
+            they might be misinterpreted at the receiving end. URL encoding converts characters that are not allowed in a URL into character-entity equivalents; URL decoding 
+            reverses the encoding. For example, when the characters &lt; and &gt; are embedded in a block of text to be transmitted in a URL, they are encoded as %3c and %3e.</remarks>
+            <seealso cref="!:http://msdn.microsoft.com/en-us/library/h10z5byc.aspx">HttpUtility.UrlEncode</seealso>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlDecode(System.String)">
             <summary>

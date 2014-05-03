@@ -14,6 +14,7 @@ namespace Camalot.Common.Site.Models.Documentation {
 		public Xml.Member Documentation { get; set; }
 		public string XmlName { get; set; }
 		public bool Ignore { get { return Documentation != null && Documentation.Ignore; } }
+		public Type ReturnType { get; set; }
 		public Type Parent { get; set; }
 		public IList<ParameterModel> Parameters { get; set; }
 		public IList<TypeModel> GenericParameters { get; set; }

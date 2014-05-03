@@ -160,7 +160,8 @@ namespace Camalot.Common.Site.Services {
 					GenericParameters = ProcessMethodGenericParameters(m),
 					Parameters = ProcessParams(m),
 					ExtensionOf = m.ExtensionOf(),
-					Parent = type
+					Parent = type,
+					ReturnType = m.ReturnType
 				}).OrderBy(x => x.Name).ThenBy(x => x.ExtensionOf == null ? "" : x.ExtensionOf.ToSafeFullName()).ThenBy(x => x.Parameters.Count).ToList();
 		}
 

@@ -12,6 +12,7 @@ namespace Camalot.Common.Mvc.Configuration.Handlers {
 	/// The Web.Config handler for the bundles
 	/// </summary>
 	/// <gist id="f9dfc0b776191f1a728a"></gist>
+	/// <seealso cref="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.LoadFromWebConfiguration"/>
 	public class BundlesSectionHandler : IConfigurationSectionHandler {
 		/// <summary>
 		/// Creates the bundle configuration from the configContext.

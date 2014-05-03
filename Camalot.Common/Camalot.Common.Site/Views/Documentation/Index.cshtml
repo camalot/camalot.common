@@ -20,31 +20,6 @@
 @foreach(var ns in Model.Namespaces) {
 	if(!ns.Ignore) {
 		@(Html.Partial("_AdPartial"))
-		<div id="@(ns.Id)">
-			<div class="page-header">
-				<h2 class="zero"><i class="fa fa-code mrm"></i>@ns.Name<small class="mll text-muted pull-right"><a href="#@(ns.Id)" title="Direct Link to @ns.Name"><i class="fa fa-anchor"></i></a></small></h2>
-			</div>
-			<div class="mhl">
-				@foreach(var c in ns.Classes) {
-					if(!c.Ignore) {
-						<div id="@c.Id" data-xml-name="@c.XmlName">
-							<div class="page-header">
-								<h3 class="zero"><i class="fa fa-bolt mrm"></i>@c.Name<small class="mll text-muted pull-right"><a href="#@(c.Id)" title="Direct Link to @c.Name"><i class="fa fa-anchor"></i></a></small></h3>
-							</div>
-							@if(c.Documentation != null) {
-								@Html.DisplayFor(x => c.Documentation)
-							}
-							<div class="mhl">
-								@foreach(var m in c.Methods) {
-									if(!m.Ignore) {
-										@Html.DisplayFor(x => m)
-									}
-								}
-							</div>
-						</div>
-					}
-				}
-			</div>
-		</div>
+			@Html.DisplayFor(d => ns)
 	}
 }

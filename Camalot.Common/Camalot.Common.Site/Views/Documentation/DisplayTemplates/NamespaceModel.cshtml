@@ -1,0 +1,14 @@
+﻿@model Camalot.Common.Site.Models.Documentation.NamespaceModel
+
+<div id="@(Model.Id)">
+	<div class="page-header">
+		<h2 class="zero"><i class="fa fa-code mrm"></i>@Model.Name<small class="mll text-muted pull-right"><a href="#@(Model.Id)" title="Direct Link to @Model.Name"><i class="fa fa-anchor"></i></a></small></h2>
+	</div>
+	<div class="mhl">
+		@foreach(var c in Model.Classes) {
+			if(!c.Ignore) {
+				@Html.DisplayFor(d => c)
+			}
+		}
+	</div>
+</div>

@@ -34,31 +34,43 @@
 
 	@if(Model.Params.Count > 0) {
 		<h4 class="zero">Parameters</h4>
-		<div class="callout">
-			<dl>
-				@foreach(var s in Model.Params) {
-					if(!string.IsNullOrWhiteSpace(s.Name)) {
-						<dt>@s.Name</dt>
-						<dd>@s.Value</dd>
-					}
+	<div class="callout">
+		<table class="table table-bordered table-condensed table-striped">
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			@foreach(var s in Model.Params) {
+				if(!string.IsNullOrWhiteSpace(s.Name)) {
+					<tr>
+						<td>@s.Name</td>
+						<td>@s.Value</td>
+					</tr>
 				}
-			</dl>
-		</div>
+			}
+		</table>
+	</div>
 	}
 
-	@if(Model.SeeAlsos.Count > 0) {
+	@if(Model.SeeAlsos.Any() || Model.Sees.Any()) {
 		<h4>References</h4>
-		<div class="callout">
+		<div class="blockquote">
 			<ul>
-				@foreach(var s in Model.SeeAlsos) {
+				@foreach(var s in Model.SeeAlsos.Concat(Model.Sees)) {
 					if(!string.IsNullOrWhiteSpace(s.Link)) {
-						var text = string.IsNullOrWhiteSpace(s.Description) ? s.Link : s.Description;
+						var text = Url.ParseReferenceAsText(string.IsNullOrWhiteSpace(s.Description) ? s.Link : s.Description);
 						// process the link to internals.
-						<li><a href="@s.Link" target="_blank">@text</a></li>
+						var link = Url.ParseReferenceUrl(s.Link);
+						<li>
+							@if(link.StartsWith("#")) {
+								<a href="@link" data-epm-scroll="click" data-epm-scroll-offset="-50">@text</a>
+							} else {
+								<a href="@link" target="_blank">@text</a>
+							}
+						</li>
 					}
 				}
 			</ul>
-
 		</div>
 	}
 </div>

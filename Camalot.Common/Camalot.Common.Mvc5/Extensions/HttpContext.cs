@@ -9,7 +9,7 @@ using System.Web;
 namespace Camalot.Common.Mvc.Extensions {
 	public static partial class CamalotCommonMvcExtensions {
 		/// <summary><![CDATA[
-		/// Compresses the response using the browsers acceptable content compressions (<a href="http://www.gzip.org/zlib/rfc-gzip.html" target="_blank">GZIP</a> or <a href="http://www.gzip.org/zlib/rfc-deflate.html" target="_blank">DEFLATE</a>).
+		/// Compresses the response using the browsers acceptable content compressions (GZIP or DEFLATE).
 		/// ]]>
 		/// </summary>
 		/// <param name="context">The context.</param>

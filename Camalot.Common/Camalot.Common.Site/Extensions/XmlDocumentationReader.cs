@@ -48,7 +48,7 @@ namespace Camalot.Common.Site.Extensions {
 				if(gparams.Length > 1) {
 					s.Append("``{0},".With(i));
 				} else {
-					s.Append(gparams[i].ToSafeFullName());
+					s.Append(gparams[i].GetXmlParameterTypeSaveName(i));
 				}
 			}
 			if(s.Length > 1 && s[s.Length - 1] == ',') {
@@ -59,8 +59,16 @@ namespace Camalot.Common.Site.Extensions {
 				return "{1}.{0}{2}".With(type.Name.Substring(0, type.Name.LastIndexOf("`")), type.Namespace, s);
 			} else if(type.IsGenericParameter) {
 				return "``{0}".With(index);
-				//} else if ( type.IsGenericTypeDefinition ) {
-				//	return "GTD";
+			} else if(type.IsGenericTypeDefinition) {
+				return "GTD";
+			} else {
+				return "{1}.{0}".With(type.Name, type.Namespace);
+			}
+		}
+
+		private static string GetXmlParameterTypeSaveName(this Type type, int index) {
+			if(type.IsGenericParameter) {
+				return "``{0}".With(index);
 			} else {
 				return "{1}.{0}".With(type.Name, type.Namespace);
 			}
