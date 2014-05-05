@@ -65,6 +65,9 @@ namespace Camalot.Common.Extensions {
 		/// <param name="type">The type.</param>
 		/// <returns></returns>
 		public static T GetCustomAttribute<T> ( this Type type ) where T : Attribute {
+			if(type == null) {
+				return default(T);
+			}
 			var attr = type.GetCustomAttributes<T> ( ).FirstOrDefault ( );
 			return attr;
 		}
@@ -92,7 +95,10 @@ namespace Camalot.Common.Extensions {
 		/// <param name="types">The types.</param>
 		/// <returns></returns>
 		public static IEnumerable<Type> WithAttribute<T> ( this IEnumerable<Type> types ) where T : Attribute {
-			return types.Where ( m => !( m.GetCustomAttribute<T> ( ).Equals ( default ( T ) ) ) );
+			if(types == null) {
+				return default(IEnumerable<Type>);
+			}
+			return types.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 
 		/// <summary>

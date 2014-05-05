@@ -61,7 +61,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="InExtensions\ForRequire.cs" />
+    <Compile Include="InExtensions\InAppDomain\ForGetTypesThatAre.cs" />
+    <Compile Include="InExtensions\InAppDomain\ForWithAttribute.cs" />
+    <Compile Include="InExtensions\InAssembly\ForGetTypesThatAre.cs" />
+    <Compile Include="InExtensions\InAssembly\ForWithAttribute.cs" />
+    <Compile Include="InExtensions\InByte\ForAsStream.cs" />
+    <Compile Include="InExtensions\InByte\ForCompress.cs" />
+    <Compile Include="InExtensions\InByte\ForDecompress.cs" />
+    <Compile Include="InExtensions\InByte\ForGetString.cs" />
+    <Compile Include="InExtensions\InByte\ForToBase64String.cs" />
+    <Compile Include="InExtensions\InByte\ForToHex.cs" />
+    <Compile Include="InExtensions\InRequire\ForRequire.cs" />
+    <Compile Include="InExtensions\InRequire\ForRequireNegative.cs" />
+    <Compile Include="InExtensions\InRequire\ForRequirePositive.cs" />
+    <Compile Include="InExtensions\InRequire\ForRequireZero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

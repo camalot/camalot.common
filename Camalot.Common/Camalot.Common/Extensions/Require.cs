@@ -45,7 +45,7 @@ namespace Camalot.Common.Extensions {
 		/// <exception cref="System.ArgumentException"></exception>
 		/// <gist id="bf5ce83be2f8b47d03e8"></gist>
 		public static Guid Require(this Guid guid) {
-			if ( guid == Guid.Empty ) {
+			if ( guid == default(Guid) ) {
 				throw new ArgumentException ( Resources.Common_NullOrEmpty );
 			}
 			return guid;
@@ -59,7 +59,7 @@ namespace Camalot.Common.Extensions {
 		/// <returns></returns>
 		/// <gist id="abd4a899b9fe766184de" />
 		public static Guid Require(this Guid guid, String message) {
-			if ( guid == null ) {
+			if ( guid == default(Guid) ) {
 				throw new ArgumentException ( message );
 			}
 			return guid;
@@ -154,7 +154,7 @@ namespace Camalot.Common.Extensions {
 			return t;
 		}
 
-
+		#region Integer
 		/// <summary>
 		/// Requires the specified number to be zero.
 		/// </summary>
@@ -249,7 +249,9 @@ namespace Camalot.Common.Extensions {
 			}
 			return i;
 		}
+#endregion
 
+		#region Short
 		/// <summary>
 		/// Requires the specified number to be zero.
 		/// </summary>
@@ -344,5 +346,394 @@ namespace Camalot.Common.Extensions {
 			}
 			return i;
 		}
+		#endregion
+
+		#region Long
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static long RequireZero(this long i) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i));
+			}
+			return i;
+		}
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static long RequireZero(this long i, String param) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static long RequirePositive(this long i, String param) {
+			return RequireBetween(i, (long)0, long.MaxValue, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static long RequirePositive(this long i) {
+			return RequireBetween(i, (long)0, long.MaxValue);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static long RequireNegative(this long i, String param) {
+			return RequireBetween(i, long.MinValue, (long)0, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static long RequireNegative(this long i) {
+			return RequireBetween(i, long.MinValue, (long)0);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static long RequireBetween(this long i, long low, long high, String param) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static long RequireBetween(this long i, long low, long high) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i));
+			}
+			return i;
+		}
+		#endregion
+
+		#region Decimal
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static decimal RequireZero(this decimal i) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i));
+			}
+			return i;
+		}
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static decimal RequireZero(this decimal i, String param) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static decimal RequirePositive(this decimal i, String param) {
+			return RequireBetween(i, (decimal)0, decimal.MaxValue, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static decimal RequirePositive(this decimal i) {
+			return RequireBetween(i, (decimal)0, decimal.MaxValue);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static decimal RequireNegative(this decimal i, String param) {
+			return RequireBetween(i, decimal.MinValue, (decimal)0, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static decimal RequireNegative(this decimal i) {
+			return RequireBetween(i, decimal.MinValue, (decimal)0);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static decimal RequireBetween(this decimal i, decimal low, decimal high, String param) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static decimal RequireBetween(this decimal i, decimal low, decimal high) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i));
+			}
+			return i;
+		}
+		#endregion
+
+		#region Double
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static double RequireZero(this double i) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i));
+			}
+			return i;
+		}
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static double RequireZero(this double i, String param) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static double RequirePositive(this double i, String param) {
+			return RequireBetween(i, (double)0, double.MaxValue, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static double RequirePositive(this double i) {
+			return RequireBetween(i, (double)0, double.MaxValue);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static double RequireNegative(this double i, String param) {
+			return RequireBetween(i, double.MinValue, (double)0, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static double RequireNegative(this double i) {
+			return RequireBetween(i, double.MinValue, (double)0);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static double RequireBetween(this double i, double low, double high, String param) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static double RequireBetween(this double i, double low, double high) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i));
+			}
+			return i;
+		}
+		#endregion
+
+		#region Float
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static float RequireZero(this float i) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i));
+			}
+			return i;
+		}
+		/// <summary>
+		/// Requires the specified number to be zero.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{0}' must zero..With ( i )</exception>
+		public static float RequireZero(this float i, String param) {
+			if(i != 0) {
+				throw new ArgumentException(Resources.Require_Zero.With(i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static float RequirePositive(this float i, String param) {
+			return RequireBetween(i, (float)0, float.MaxValue, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a positive value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static float RequirePositive(this float i) {
+			return RequireBetween(i, (float)0, float.MaxValue);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		public static float RequireNegative(this float i, String param) {
+			return RequireBetween(i, float.MinValue, (float)0, param);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be a negative value.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <returns></returns>
+		public static float RequireNegative(this float i) {
+			return RequireBetween(i, float.MinValue, (float)0);
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <param name="param">The parameter.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static float RequireBetween(this float i, float low, float high, String param) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i), param);
+			}
+			return i;
+		}
+
+		/// <summary>
+		/// Requires the specified number to be between the high and low.
+		/// </summary>
+		/// <param name="i">The i.</param>
+		/// <param name="low">The low.</param>
+		/// <param name="high">The high.</param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
+		public static float RequireBetween(this float i, float low, float high) {
+			if(i <= low || i >= high) {
+				throw new ArgumentException(Resources.Require_Between.With(low, high, i));
+			}
+			return i;
+		}
+		#endregion
 	}
 }
