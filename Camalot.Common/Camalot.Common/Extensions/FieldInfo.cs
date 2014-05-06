@@ -49,7 +49,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="fields">The fields.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this IEnumerable<FieldInfo> fields ) where T : Attribute {
-			return  fields.Any ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
+			return fields.All (m => m.GetCustomAttribute<T>() != default(T));
 		}
 	}
 }

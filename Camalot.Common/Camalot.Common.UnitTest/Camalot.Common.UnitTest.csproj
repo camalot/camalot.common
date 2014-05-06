@@ -47,6 +47,7 @@
       <HintPath>..\packages\AutoFixture.3.16.3\lib\net40\Ploeh.AutoFixture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -71,6 +72,18 @@
     <Compile Include="InExtensions\InByte\ForGetString.cs" />
     <Compile Include="InExtensions\InByte\ForToBase64String.cs" />
     <Compile Include="InExtensions\InByte\ForToHex.cs" />
+    <Compile Include="InExtensions\InColor\ForToHtmlHex.cs" />
+    <Compile Include="InExtensions\InDateTime\ForEpoch.cs" />
+    <Compile Include="InExtensions\InDateTime\ForRoundDown.cs" />
+    <Compile Include="InExtensions\InDateTime\ForRoundUp.cs" />
+    <Compile Include="InExtensions\InDateTime\ForToShortFriendlyString.cs" />
+    <Compile Include="InExtensions\InDateTime\ForToFriendlyString.cs" />
+    <Compile Include="InExtensions\InDateTime\ForToKind.cs" />
+    <Compile Include="InExtensions\InEnum\ForGetCustomAttribute.cs" />
+    <Compile Include="InExtensions\InEnum\ForGetCustomAttributeValue.cs" />
+    <Compile Include="InExtensions\InFieldInfo\ForGetCustomAttributeValue.cs" />
+    <Compile Include="InExtensions\InFieldInfo\ForHasAttribute.cs" />
+    <Compile Include="InExtensions\InFieldInfo\ForWithAttribute.cs" />
     <Compile Include="InExtensions\InRequire\ForRequire.cs" />
     <Compile Include="InExtensions\InRequire\ForRequireNegative.cs" />
     <Compile Include="InExtensions\InRequire\ForRequirePositive.cs" />

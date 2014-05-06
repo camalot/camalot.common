@@ -32,7 +32,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="dt">The datetime.</param>
 		/// <returns></returns>
 		public static String ToFriendlyString ( this DateTime dt ) {
-			TimeSpan ts = DateTime.UtcNow - dt;
+			TimeSpan ts = DateTime.UtcNow - dt.ToKind(DateTimeKind.Utc);
 			if ( ts.TotalMinutes < 1 )//seconds ago
 				return Resources.Date_FriendlyNow;
 			if ( ts.TotalHours < 1 )//min ago
@@ -55,7 +55,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="dt">The datetime.</param>
 		/// <returns></returns>
 		public static String ToShortFriendlyString ( this DateTime dt ) {
-			TimeSpan ts = DateTime.UtcNow - dt;
+			TimeSpan ts = DateTime.UtcNow - dt.ToKind(DateTimeKind.Utc);
 			if ( ts.TotalMinutes < 1 )//seconds ago
 				return Resources.Date_FriendlyNow_Short;
 			if ( ts.TotalHours < 1 )//min ago
