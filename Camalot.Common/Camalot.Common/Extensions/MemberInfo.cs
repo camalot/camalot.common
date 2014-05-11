@@ -49,7 +49,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="members">The members.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T> ( this IEnumerable<MemberInfo> members ) where T : Attribute {
-			return members.Any ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
+			return members.Count() > 0 && members.Any ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
 	}
 }

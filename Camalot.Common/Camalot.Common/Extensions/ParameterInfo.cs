@@ -32,5 +32,25 @@ namespace Camalot.Common.Extensions {
 		public static IEnumerable<ParameterInfo> WithAttribute<T> ( this IEnumerable<ParameterInfo> parameters ) where T : Attribute {
 			return parameters.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
 		}
+
+		/// <summary>
+		/// Determines whether the parameter has the specified attribute.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="parameter">The parameter.</param>
+		/// <returns></returns>
+		public static bool HasAttribute<T>(this ParameterInfo parameter) where T : Attribute {
+			return parameter.GetCustomAttribute<T>() != default(T);
+		}
+
+		/// <summary>
+		/// Determines whether the all parameters in the enumeration have the specified attribute.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="parameters">The parameters.</param>
+		/// <returns></returns>
+		public static bool HasAttribute<T>(this IEnumerable<ParameterInfo> parameters) where T : Attribute {
+			return parameters.Count() > 0 && parameters.All(m => m.GetCustomAttribute<T>() != default(T));
+		}
 	}
 }

@@ -25,17 +25,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="type">The type.</param>
 		/// <returns></returns>
 		public static bool IsPrimitive ( this Type type ) {
-			return type.IsPrimitive || type.Is<String> ( ) || type == typeof ( Decimal ) || type == typeof ( DateTime ) || type == typeof ( TimeSpan ) || type.Is<Object> ( );
-		}
-
-		/// <summary>
-		/// Determines whether the Type is the specified type to check for.
-		/// </summary>
-		/// <typeparam name="TType">The type of the type to check for.</typeparam>
-		/// <param name="t">The type.</param>
-		/// <returns></returns>
-		public static bool Is<TType> ( this TType t ) /*where TType : class*/ {
-			return t.GetType ( ).Is<TType> ( );
+			return type.IsPrimitive || type.Is<String> ( ) || type == typeof ( Decimal ) || type == typeof ( DateTime ) || type == typeof ( TimeSpan ) || type == typeof(object);
 		}
 
 		/// <summary>
@@ -83,7 +73,7 @@ namespace Camalot.Common.Extensions {
 		/// <returns></returns>
 		public static Expected GetCustomAttributeValue<T, Expected> ( this Type type, Func<T, Expected> expression ) where T : Attribute {
 			var attribute = type.GetCustomAttribute<T> ( );
-			if ( attribute == null )
+			if(attribute == default(T))
 				return default ( Expected );
 			return expression ( attribute );
 		}
@@ -95,7 +85,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="types">The types.</param>
 		/// <returns></returns>
 		public static IEnumerable<Type> WithAttribute<T> ( this IEnumerable<Type> types ) where T : Attribute {
-			if(types == null) {
+			if(types == default(T)) {
 				return default(IEnumerable<Type>);
 			}
 			return types.Where ( m => m.GetCustomAttribute<T> ( ) != default ( T ) );
@@ -108,7 +98,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="type">The type.</param>
 		/// <returns></returns>
 		public static IEnumerable<MethodInfo> GetMethodsOfReturnType<T> ( this Type type ) {
-			return GetMethodsOfReturnType<T> ( type, BindingFlags.Instance | BindingFlags.Public );
+			return GetMethodsOfReturnType<T> ( type, BindingFlags.Default );
 		}
 
 

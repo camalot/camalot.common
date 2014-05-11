@@ -361,7 +361,7 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.MethodInfo)">
             <summary>
-            Determines whether the specified method has attribute.
+            Determines whether the method has the specified attribute.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="method">The method.</param>
@@ -369,7 +369,7 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.MethodInfo})">
             <summary>
-            Determines whether the specified methods has attribute.
+            Determines whether all the methods in the enumeration have the specified attribute.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="methods">The methods.</param>
@@ -470,6 +470,22 @@
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.ParameterInfo})">
             <summary>
             Gets parameter info that have the specified attribute
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Reflection.ParameterInfo)">
+            <summary>
+            Determines whether the parameter has the specified attribute.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter">The parameter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HasAttribute``1(System.Collections.Generic.IEnumerable{System.Reflection.ParameterInfo})">
+            <summary>
+            Determines whether the all parameters in the enumeration have the specified attribute.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="parameters">The parameters.</param>
@@ -1282,14 +1298,6 @@
             Determines whether the specified type is primitive.
             </summary>
             <param name="type">The type.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(``0)">
-            <summary>
-            Determines whether the Type is the specified type to check for.
-            </summary>
-            <typeparam name="TType">The type of the type to check for.</typeparam>
-            <param name="t">The type.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Is``1(System.Object)">

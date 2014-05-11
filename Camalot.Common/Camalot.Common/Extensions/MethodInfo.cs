@@ -33,7 +33,7 @@ namespace Camalot.Common.Extensions {
 			return methods.Where(m => m.GetCustomAttribute<T>() != default(T));
 		}
 		/// <summary>
-		/// Determines whether the specified method has attribute.
+		/// Determines whether the method has the specified attribute.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="method">The method.</param>
@@ -43,13 +43,13 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
-		/// Determines whether the specified methods has attribute.
+		/// Determines whether all the methods in the enumeration have the specified attribute.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="methods">The methods.</param>
 		/// <returns></returns>
 		public static bool HasAttribute<T>(this IEnumerable<MethodInfo> methods) where T : Attribute {
-			return methods.Any(m => m.GetCustomAttribute<T>() != default(T));
+			return methods.Count() > 0 && methods.All(m => m.GetCustomAttribute<T>() != default(T));
 		}
 
 		/// <summary>
@@ -67,7 +67,7 @@ namespace Camalot.Common.Extensions {
 		/// <typeparam name="T">The type that it checks if it is an extension of.</typeparam>
 		/// <param name="method">The method.</param>
 		/// <returns></returns>
-		public static bool IsExtensionOf<T>(this MethodInfo method) where T : new() {
+		public static bool IsExtensionOf<T>(this MethodInfo method) {
 			if(!IsExtension(method)) {
 				return false;
 			} else {

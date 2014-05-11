@@ -34,9 +34,9 @@ namespace Camalot.Common.Extensions {
 		/// <param name="s">The object.</param>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static T Or<T> ( this T s, T value ) {
-			return s.Equals ( default ( T ) ) ? value : s;
-		}
+		public static T Or<T> ( this T s, T value ) where T : class {
+			return s == default(T) ? value : s;
+		}		
 
 		/// <summary>
 		/// Returns the string or the specified value if null (or empty).
