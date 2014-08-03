@@ -52,6 +52,21 @@
             <param name="filterContext">The filter context.</param>
             <ignore>true</ignore>
         </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.EnumDisplayAttribute">
+            <summary>
+            An attribute to give an enum a display value
+            </summary>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.EnumIgnoreAttribute">
+            <summary>
+            An attribute to specify that an enum should be ignored when looking at the enums via reflection. 
+            </summary>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.EnumValueAttribute">
+            <summary>
+            An attribute that gives an enum a string value to use.
+            </summary>
+        </member>
         <member name="T:Camalot.Common.Mvc.Attributes.NoCacheAttribute">
             <summary>
             Indicates that the request should never be cached by the browser.
@@ -289,11 +304,100 @@
             <returns></returns>
             <gist id="bcb354968fff2df127f3"></gist>
         </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.API``1(System.Web.Mvc.Controller,``0)">
+            <summary>
+            Returns content based on the accept types passed in as headers.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="controller">The controller.</param>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.Url(System.Web.Mvc.ControllerContext)">
             <summary>
             Gets a UrlHelper for the Controller Context.
             </summary>
             <param name="context">The context.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="name">The name of the select field.</param>
+            <param name="optionLabel">The option label.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,System.String,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="name">The name of the select field.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="name">The name of the select field.</param>
+            <param name="selected">The selected value.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,``0,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="selected">The selected value.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,``0,System.String,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="selected">The selected value.</param>
+            <param name="optionLabel">The option label.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
+            <returns></returns>
+            <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.EnumDropDownList``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.String,System.Object)">
+            <summary>
+            Returns an HTML select element for each field by the specified enum items and HTML attributes.
+            </summary>
+            <typeparam name="TEnum">The type of the enum.</typeparam>
+            <param name="helper">The HTML helper instance that this method extends.</param>
+            <param name="name">The name of the select field.</param>
+            <param name="selected">The selected value.</param>
+            <param name="optionLabel">The option label.</param>
+            <param name="htmlAttributes">An object containing a list of html sttributes to apply to the select element.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.CompressResponse(System.Web.HttpContextBase)">
@@ -304,13 +408,6 @@
             <param name="context">The context.</param>
             <seealso cref="!:http://www.gzip.org/zlib/rfc-gzip.html">GZIP</seealso>
             <seealso cref="!:http://www.gzip.org/zlib/rfc-deflate.html">DEFLATE</seealso>
-        </member>
-        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String)">
-            <summary>
-            Encodes a URL string.
-            </summary>
-            <param name="s">The string.</param>
-            <returns></returns>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String,System.Text.Encoding)">
             <summary>
@@ -324,13 +421,6 @@
             reverses the encoding. For example, when the characters &lt; and &gt; are embedded in a block of text to be transmitted in a URL, they are encoded as %3c and %3e.</remarks>
             <seealso cref="!:http://msdn.microsoft.com/en-us/library/h10z5byc.aspx">HttpUtility.UrlEncode</seealso>
         </member>
-        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlDecode(System.String)">
-            <summary>
-            URL decodes a string.
-            </summary>
-            <param name="s">The string.</param>
-            <returns></returns>
-        </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlDecode(System.String,System.Text.Encoding)">
             <summary>
             URL decodes a string.
@@ -339,19 +429,31 @@
             <param name="encoding">The encoding.</param>
             <returns></returns>
         </member>
-        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.HtmlEncode(System.String)">
+        <member name="T:Camalot.Common.Mvc.Results.ApiResult">
             <summary>
-            HTML encodes a string.
+            Creates a smart api result that returns data based on the accept header.
             </summary>
-            <param name="s">The string.</param>
-            <returns></returns>
+            <ignore>true</ignore>
         </member>
-        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.HtmlDecode(System.String)">
+        <member name="M:Camalot.Common.Mvc.Results.ApiResult.#ctor(System.Object)">
             <summary>
-            HTML decodes a string.
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.ApiResult"/> class.
             </summary>
-            <param name="s">The string.</param>
-            <returns></returns>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Results.ApiResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
+            </summary>
+            <param name="context">The context in which the result is executed. The context information includes the controller, HTTP content, request context, and route data.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.ApiResult.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
         </member>
         <member name="T:Camalot.Common.Mvc.Results.BsonResult">
             <summary>

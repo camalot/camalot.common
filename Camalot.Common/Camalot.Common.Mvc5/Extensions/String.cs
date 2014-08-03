@@ -8,15 +8,6 @@ using System.Web;
 namespace Camalot.Common.Mvc.Extensions {
 	public static partial class CamalotCommonMvcExtensions {
 		/// <summary>
-		/// Encodes a URL string.
-		/// </summary>
-		/// <param name="s">The string.</param>
-		/// <returns></returns>
-		public static string UrlEncode ( this string s ) {
-			return HttpUtility.UrlEncode ( s );
-		}
-
-		/// <summary>
 		/// Encodes a URL string using the specified encoding object.
 		/// </summary>
 		/// <param name="s">The string.</param>
@@ -26,17 +17,8 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// they might be misinterpreted at the receiving end. URL encoding converts characters that are not allowed in a URL into character-entity equivalents; URL decoding 
 		/// reverses the encoding. For example, when the characters &lt; and &gt; are embedded in a block of text to be transmitted in a URL, they are encoded as %3c and %3e.</remarks>
 		/// <seealso cref="http://msdn.microsoft.com/en-us/library/h10z5byc.aspx">HttpUtility.UrlEncode</seealso>
-		public static string UrlEncode ( this string s, Encoding encoding ) {
+		public static string UrlEncode(this string s, Encoding encoding) {
 			return HttpUtility.UrlEncode ( s, encoding );
-		}
-
-		/// <summary>
-		/// URL decodes a string.
-		/// </summary>
-		/// <param name="s">The string.</param>
-		/// <returns></returns>
-		public static string UrlDecode ( this string s ) {
-			return HttpUtility.UrlDecode ( s );
 		}
 
 		/// <summary>
@@ -48,24 +30,5 @@ namespace Camalot.Common.Mvc.Extensions {
 		public static string UrlDecode ( this string s, Encoding encoding ) {
 			return HttpUtility.UrlDecode ( s, encoding );
 		}
-
-		/// <summary>
-		/// HTML encodes a string.
-		/// </summary>
-		/// <param name="s">The string.</param>
-		/// <returns></returns>
-		public static string HtmlEncode ( this string s ) {
-			return HttpUtility.HtmlEncode ( s );
-		}
-
-		/// <summary>
-		/// HTML decodes a string.
-		/// </summary>
-		/// <param name="s">The string.</param>
-		/// <returns></returns>
-		public static string HtmlDecode ( this string s ) {
-			return HttpUtility.HtmlDecode ( s );
-		}
-
 	}
 }

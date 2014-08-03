@@ -201,4 +201,7 @@
   <data name="JsonP_InvalidIdentifier" xml:space="preserve">
     <value>'{0}' is not valid for a jsonp callback identifier.</value>
   </data>
+  <data name="Sequence_Empty" xml:space="preserve">
+    <value>Sequence contains no elements</value>
+  </data>
 </root>

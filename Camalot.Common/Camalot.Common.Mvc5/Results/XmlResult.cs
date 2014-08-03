@@ -61,7 +61,7 @@ namespace Camalot.Common.Mvc.Results {
 	/// <typeparam name="T"></typeparam>
 	/// <remarks>Content-Type: text/xml</remarks>
 	/// <ignore>true</ignore>
-	public abstract class XmlResult : ActionResult {
+	public class XmlResult : ActionResult {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="XmlResult{T}"/> class.
 		/// </summary>
@@ -104,6 +104,14 @@ namespace Camalot.Common.Mvc.Results {
 		/// Enables processing of the result of an action method by a custom type that inherits from the <see cref="T:System.Web.Mvc.ActionResult" /> class.
 		/// </summary>
 		/// <param name="context">The context in which the result is executed. The context information includes the controller, HTTP content, request context, and route data.</param>
-		public abstract override void ExecuteResult(ControllerContext context);
+		public override void ExecuteResult(ControllerContext context) {
+			var response = context.HttpContext.Response;
+
+			response.ContentType = "text/xml";
+			response.ContentEncoding = this.Encoding;
+
+			var ser = XmlSerializationBuilder.Build(this.Data.GetType()).Create();
+			ser.Serialize(context.HttpContext.Response.OutputStream, this.Data);
+		}
 	}
 }

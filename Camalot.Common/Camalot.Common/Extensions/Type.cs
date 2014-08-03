@@ -98,7 +98,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="type">The type.</param>
 		/// <returns></returns>
 		public static IEnumerable<MethodInfo> GetMethodsOfReturnType<T> ( this Type type ) {
-			return GetMethodsOfReturnType<T> ( type, BindingFlags.Default );
+			return GetMethodsOfReturnType<T> ( type, BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static );
 		}
 
 

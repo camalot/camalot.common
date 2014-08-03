@@ -307,6 +307,38 @@
             <param name="m"></param>
             <param name="action">The action to execute on each match</param>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.Match)">
+            <summary>
+            Gets the first match group value.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">
+            </exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.Match)">
+            <summary>
+            Gets the first match group value.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.Match)">
+            <summary>
+            Gets a single match group.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException">
+            </exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.Match)">
+            <summary>
+            Gets a single match group or a default if no match.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.MemberInfo,System.Func{``0,``1})">
             <summary>
             Gets the custom attribute value.
@@ -1284,6 +1316,48 @@
             <param name="encoding">The encoding.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HtmlEncode(System.String)">
+            <summary>
+            HTML encodes the input string
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HtmlEncode(System.String,System.IO.TextWriter)">
+            <summary>
+            HTML encodes the input string
+            </summary>
+            <param name="input">The input.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.UrlEncode(System.String)">
+            <summary>
+            Url encodes the input string
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HtmlDecode(System.String)">
+            <summary>
+            Decodes the HTML encoded input string
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.HtmlDecode(System.String,System.IO.TextWriter)">
+            <summary>
+            Decodes the HTML encoded input string
+            </summary>
+            <param name="input">The input.</param>
+            <param name="output">The output.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.UrlDecode(System.String)">
+            <summary>
+            Decodes a url encoded input string
+            </summary>
+            <param name="input">The input.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsNullable(System.Type)">
             <summary>
             Determines whether the specified type is nullable.
@@ -1718,6 +1792,11 @@
               Looks up a localized string similar to Value &apos;{0}&apos; must zero..
             </summary>
         </member>
+        <member name="P:Camalot.Common.Properties.Resources.Sequence_Empty">
+            <summary>
+              Looks up a localized string similar to Sequence contains no elements.
+            </summary>
+        </member>
         <member name="P:Camalot.Common.Properties.Resources.XmlNode_UnknownNodeType">
             <summary>
               Looks up a localized string similar to Unknown Xml Node Type.
@@ -1870,11 +1949,25 @@
             <typeparam name="T"></typeparam>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.Build(System.Type)">
+            <summary>
+            Start the building of the Xml Serializer
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.AddType``1">
             <summary>
             Adds the type to the builder for a supported serialization type.
             </summary>
             <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.AddType(System.Type)">
+            <summary>
+            Adds the type to the builder for a supported serialization type.
+            </summary>
+            <param name="type">The type.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Serialization.XmlSerializationBuilder.SetDefaultNamespace(System.String)">

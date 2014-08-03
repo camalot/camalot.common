@@ -16,8 +16,8 @@
 		<copyright>Copyright 2013 - 2014</copyright>
 		<tags>extensions tools common helpers</tags>
 		<dependencies>
-			<dependency id="morelinq" version="1.0" />
-			<dependency id="Newtonsoft.Json" version="[6.0,6.9]" />
+			<dependency id="morelinq" version="" />
+			<dependency id="Newtonsoft.Json" version="[5.0,6.9]" />
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />

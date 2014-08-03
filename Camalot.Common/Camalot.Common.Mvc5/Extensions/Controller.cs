@@ -69,5 +69,16 @@ namespace Camalot.Common.Mvc.Extensions {
 		public static XmlResult XML<T>(this Controller controller, T data) {
 			return new XmlResult<T> ( data );
 		}
+
+		/// <summary>
+		/// Returns content based on the accept types passed in as headers.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="controller">The controller.</param>
+		/// <param name="data">The data.</param>
+		/// <returns></returns>
+		public static ApiResult API<T>(this Controller controller, T data) {
+			return new ApiResult(data);
+		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -20,6 +21,19 @@ namespace Camalot.Common.Extensions {
 		public static String With(this String s, params object[] args) {
 			return String.Format(s, args);
 		}
+
+		/// <summary>
+		/// Sets the source string format with the values passed as arguments 
+		/// </summary>
+		/// <param name="s">The source string format.</param>
+		/// <param name="culture">The culture info
+		/// .</param>
+		/// <param name="args">The arguments.</param>
+		/// <returns></returns>
+		public static String With(this String s, CultureInfo culture, params object[] args) {
+			return String.Format(culture, s, args);
+		}
+
 
 		/// <summary>
 		/// Performs a Regular Expression Match.
@@ -268,5 +282,58 @@ namespace Camalot.Common.Extensions {
 			return Encoding.UTF8.GetBytes(input.Require()).ToBase64String();
 		}
 
+		/// <summary>
+		/// HTML encodes the input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <returns></returns>
+		public static string HtmlEncode(this string input) {
+			return System.Net.WebUtility.HtmlEncode(input);
+		}
+
+		/// <summary>
+		/// HTML encodes the input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <param name="output">The output.</param>
+		public static void HtmlEncode(this string input, TextWriter output) {
+			System.Net.WebUtility.HtmlEncode(input, output);
+		}
+
+		/// <summary>
+		/// Url encodes the input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <returns></returns>
+		public static string UrlEncode(this string input) {
+			return System.Net.WebUtility.UrlEncode(input);
+		}
+
+		/// <summary>
+		/// Decodes the HTML encoded input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <returns></returns>
+		public static string HtmlDecode(this string input) {
+			return System.Net.WebUtility.HtmlDecode(input);
+		}
+
+		/// <summary>
+		/// Decodes the HTML encoded input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <param name="output">The output.</param>
+		public static void HtmlDecode(this string input, TextWriter output) {
+			System.Net.WebUtility.HtmlDecode(input, output);
+		}
+
+		/// <summary>
+		/// Decodes a url encoded input string
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <returns></returns>
+		public static string UrlDecode(this string input) {
+			return System.Net.WebUtility.UrlDecode(input);
+		}
 	}
 }

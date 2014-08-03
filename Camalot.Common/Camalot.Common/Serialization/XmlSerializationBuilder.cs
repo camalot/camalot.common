@@ -25,8 +25,17 @@ namespace Camalot.Common.Serialization {
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
 		public static XmlSerializationBuilder Build<T> ( ) {
+			return Build(typeof(T));
+		}
+
+		/// <summary>
+		/// Start the building of the Xml Serializer
+		/// </summary>
+		/// <param name="type">The type.</param>
+		/// <returns></returns>
+		public static XmlSerializationBuilder Build(Type type) {
 			return new XmlSerializationBuilder {
-				BaseType = typeof ( T )
+				BaseType = type
 			};
 		}
 
@@ -36,7 +45,16 @@ namespace Camalot.Common.Serialization {
 		/// <typeparam name="T"></typeparam>
 		/// <returns></returns>
 		public XmlSerializationBuilder AddType<T> ( ) {
-			Types.Add ( typeof ( T ) );
+			return AddType(typeof(T));
+		}
+
+		/// <summary>
+		/// Adds the type to the builder for a supported serialization type.
+		/// </summary>
+		/// <param name="type">The type.</param>
+		/// <returns></returns>
+		public XmlSerializationBuilder AddType(Type type) {
+			Types.Add(type);
 			return this;
 		}
 
