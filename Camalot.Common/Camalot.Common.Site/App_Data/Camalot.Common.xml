@@ -66,6 +66,14 @@
             <returns></returns>
             <gist id="6e8707f256ad0398cbff">This sample shows AppDomain, but works the same for assemblies as well.</gist>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetLoadableTypes(System.Reflection.Assembly)">
+            <summary>
+            Gets the loadable types.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <returns>Returns an IEnumerable of Types that can be loaded.</returns>
+            
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[],System.Text.Encoding)">
             <summary>
             Gets the string representation of the array of bytes.
@@ -194,6 +202,13 @@
             <param name="kind">The kind.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToTimeString(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Returns a string representation of the time
+            </summary>
+            <param name="date">The date.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToFriendlyString(System.DateTime)">
             <summary>
             To the friendly string.
@@ -224,6 +239,58 @@
             <param name="d">The timespan.</param>
             <returns></returns>
             <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsDayOfWeek(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Determines whether the specified date falls on the specified day of the week.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="dow">The day of the week.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEndOfAccountingPeriod(System.DateTime)">
+            <summary>
+            Determines whether the specified date is the end of the accounting period (the last friday of the month).
+            </summary>
+            <param name="date">The date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsWeekDay(System.DateTime)">
+            <summary>
+            Determines whether the specified date is a week day.
+            </summary>
+            <param name="date">The date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsToday(System.DateTime)">
+            <summary>
+            Determines whether the specified date is today.
+            </summary>
+            <param name="date">The date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsSameDate(System.DateTime,System.DateTime)">
+            <summary>
+            Determines whether the specified date is the same day as the utc date.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="utcDate">The UTC date.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FromUnixEpoch(System.Int64)">
+            <summary>
+            Converts the ticks since Epoch to a date.
+            </summary>
+            <param name="ticks">The ticks.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToUnixEpoch(System.DateTime)">
+            <summary>
+            Returns the ticks since Epoch
+            </summary>
+            <param name="date">The date.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Enum,System.Func{``0,``1})">
             <summary>
@@ -289,6 +356,44 @@
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetMimeType(System.IO.FileInfo)">
             <summary>
             Gets the mime type of the specified file using the Default FileTypeMap.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Rename(System.IO.FileInfo,System.String)">
+            <summary>
+            Renames the specified file.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="fileName">Name of the file. If it does not contain an extension, it will use the old extension.</param>
+            <returns>The file info for the newly renamed file.</returns>
+            <gist id="6d30bb5587fb13855204" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetBytes(System.IO.FileInfo)">
+            <summary>
+            Reads the bytes of a file and returns the bytes.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetBytes(System.IO.FileInfo,System.Int32)">
+            <summary>
+            Reads the bytes of a file and returns the bytes.
+            </summary>
+            <param name="file">The file.</param>
+            <param name="maxLength">The maximum length of bytes to read.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Extension(System.IO.FileInfo)">
+            <summary>
+            Gets the extension of the specified file.
+            </summary>
+            <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.NameWithoutExtension(System.IO.FileInfo)">
+            <summary>
+            Gets the file name without extension.
             </summary>
             <param name="file">The file.</param>
             <returns></returns>
@@ -1128,6 +1233,16 @@
             Sets the source string format with the values passed as arguments 
             </summary>
             <param name="s">The source string format.</param>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.With(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Sets the source string format with the values passed as arguments 
+            </summary>
+            <param name="s">The source string format.</param>
+            <param name="culture">The culture info
+            .</param>
             <param name="args">The arguments.</param>
             <returns></returns>
         </member>

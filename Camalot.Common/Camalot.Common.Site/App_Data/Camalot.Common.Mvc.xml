@@ -4,6 +4,17 @@
         <name>Camalot.Common.Mvc</name>
     </assembly>
     <members>
+        <member name="T:Camalot.Common.Mvc.Attributes.AjaxNoCacheFilterAttribute">
+            <summary>
+            Causes all ajax request to not be cached by the browser.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.AjaxNoCacheFilterAttribute.OnResultExecuting(System.Web.Mvc.ResultExecutingContext)">
+            <summary>
+            Called by the ASP.NET MVC framework before the action result executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+        </member>
         <member name="T:Camalot.Common.Mvc.Attributes.AjaxOnlyAttribute">
             <summary>
             Indicates that a method can only be called from an Ajax request.
@@ -79,6 +90,48 @@
             </summary>
             <param name="filterContext">The filter context.</param>
         </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute"/> class.
+            </summary>
+            <param name="hostNames">Name of the hosts to allow.</param>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            Called by the ASP.NET MVC framework before the action method executes.
+            </summary>
+            <param name="filterContext">The filter context.</param>
+            <exception cref="T:System.Web.HttpException">404;File not found.</exception>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute.AllowedHostNames">
+            <summary>
+            Gets or sets the name of the host.
+            </summary>
+            <value>
+            The name of the host.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute">
+            <summary>
+            Describes that the controller, area, or action should be not visited by a web crawler robot.
+            </summary>
+            <gist id="5eb2b71f8c503312ea8d">Disallow an entire Area Registration</gist>
+            <gist id="dc6bff55bf8e3545cdd3">Disallow an entire Controller</gist>
+            <gist id="67b52bc676b3f036d980">Disallow a specific Action within a Controller</gist>
+            <gist id="56cfb749d29235fb61e1">Setup the web.config for handling the robots.txt requests.</gist>
+            <gist id="20c736abe3a6ec0016cb">Global.asax setup.</gist>
+            <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/>
+            <see cref="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute.Area">
+            <summary>
+            Gets or sets the area.
+            </summary>
+            <value>
+            This helps get the area information when building the robots.txt.
+            </value>
+            <remarks>This can be left empty if the attribute is on an AreaRegistration.</remarks>
+        </member>
         <member name="T:Camalot.Common.Mvc.Configuration.BundlesConfiguration">
             <summary>
             Represents the root bundle element
@@ -150,6 +203,11 @@
             Represents a bundle group item
             </summary>
             <ignore>true</ignore>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Configuration.BundleGroupItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Configuration.BundleGroupItem"/> class.
+            </summary>
         </member>
         <member name="P:Camalot.Common.Mvc.Configuration.BundleGroupItem.Name">
             <summary>
@@ -244,6 +302,46 @@
             <param name="configContext">Configuration context object.</param>
             <param name="section"></param>
             <returns>The created section handler object.</returns>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration">
+            <summary>
+            Registers the /robots.txt route
+            </summary>
+            <gist id="20c736abe3a6ec0016cb">Global.asax setup.</gist>
+            <see cref="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
+            <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            Registers the routes.
+            </summary>
+            <param name="routes">The routes.</param>
+        </member>
+        <member name="T:Camalot.Common.Mvc.Controllers.RobotsController">
+            <summary>
+            Serves up the route /robots.txt
+            </summary>
+            <gist id="5eb2b71f8c503312ea8d">Disallow an entire Area Registration</gist>
+            <gist id="dc6bff55bf8e3545cdd3">Disallow an entire Controller</gist>
+            <gist id="67b52bc676b3f036d980">Disallow a specific Action within a Controller</gist>
+            <gist id="56cfb749d29235fb61e1">Setup the web.config for handling the robots.txt requests.</gist>
+            <gist id="20c736abe3a6ec0016cb">Global.asax setup.</gist>
+            <see cref="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
+            <see cref="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Controllers.RobotsController.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Controllers.RobotsController.Index">
+            <summary>
+            Dynamically generates /robots.txt based on the RobotsDisallowAttribute
+            </summary>
+            <returns></returns>
+            <see cref="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
+            <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/>
+            <see cref="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.LoadFromWebConfiguration(System.Web.Optimization.BundleCollection)">
             <summary>
@@ -408,6 +506,17 @@
             <param name="context">The context.</param>
             <seealso cref="!:http://www.gzip.org/zlib/rfc-gzip.html">GZIP</seealso>
             <seealso cref="!:http://www.gzip.org/zlib/rfc-deflate.html">DEFLATE</seealso>
+        </member>
+        <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.RegisterRobotsTxt(System.Web.Routing.RouteCollection)">
+            <summary>
+            Registers the robots.txt route.
+            </summary>
+            <param name="rc">The rc.</param>
+            <returns></returns>
+            <gist id="20c736abe3a6ec0016cb">Global.asax setup.</gist>
+            <see cref="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
+            <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/>
+            <see cref="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.UrlEncode(System.String,System.Text.Encoding)">
             <summary>

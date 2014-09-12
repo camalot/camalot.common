@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\AjaxNoCacheFilterAttribute.cs" />
     <Compile Include="Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Attributes\AjaxValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Attributes\CompressAttribute.cs" />
@@ -108,13 +109,18 @@
     <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
     <Compile Include="Attributes\EnumValueAttribute.cs" />
     <Compile Include="Attributes\NoCacheAttribute.cs" />
+    <Compile Include="Attributes\RequireSourceHostAttribute.cs" />
+    <Compile Include="Attributes\RobotsDisallowAttribute.cs" />
     <Compile Include="Configuration\BundlesConfiguration.cs" />
     <Compile Include="Configuration\Handlers\BundlesSectionHandler.cs" />
+    <Compile Include="Configuration\RobotsRouteConfiguration.cs" />
+    <Compile Include="Controllers\RobotsController.cs" />
     <Compile Include="Extensions\BundleCollection.cs" />
     <Compile Include="Extensions\Controller.cs" />
     <Compile Include="Extensions\ControllerContext.cs" />
     <Compile Include="Extensions\HtmlHelper.cs" />
     <Compile Include="Extensions\HttpContext.cs" />
+    <Compile Include="Extensions\RouteCollection.cs" />
     <Compile Include="Extensions\String.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ApiResult.cs" />

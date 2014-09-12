@@ -87,6 +87,9 @@ namespace Camalot.Common.Mvc.Configuration {
 	/// </summary>
 	/// <ignore>true</ignore>
 	public class BundleGroupItem {
+		/// <summary>
+		/// Initializes a new instance of the <see cref="BundleGroupItem"/> class.
+		/// </summary>
 		public BundleGroupItem ( ) {
 			Includes = new List<BundleItemInclude> ( );
 		}

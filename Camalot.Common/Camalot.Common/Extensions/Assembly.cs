@@ -15,7 +15,7 @@ namespace Camalot.Common.Extensions {
 		/// <returns></returns>
 		/// <gist id="41883d902a6ed6bd8da4">This sample shows AppDomain, but works the same for assemblies as well.</gist>
 		public static IEnumerable<Type> WithAttribute<T>(this Assembly assembly) where T : Attribute {
-			return assembly.GetTypes ( ).WithAttribute<T> ( );
+			return assembly.GetLoadableTypes().WithAttribute<T>();
 		}
 
 		/// <summary>
@@ -26,9 +26,21 @@ namespace Camalot.Common.Extensions {
 		/// <returns></returns>
 		/// <gist id="6e8707f256ad0398cbff">This sample shows AppDomain, but works the same for assemblies as well.</gist>
 		public static IEnumerable<Type> GetTypesThatAre<TType>(this Assembly assembly) where TType : class {
-			return assembly.GetTypes ( ).Where ( t => typeof ( TType ).IsAssignableFrom ( t ) && !t.IsAbstract && !t.IsGenericType && !t.IsInterface && !t.IsEquivalentTo ( typeof ( TType ) ) );
+			return assembly.GetLoadableTypes().Where(t => typeof(TType).IsAssignableFrom(t) && !t.IsAbstract && !t.IsGenericType && !t.IsInterface && !t.IsEquivalentTo(typeof(TType)));
 		}
 
-
+		/// <summary>
+		/// Gets the loadable types.
+		/// </summary>
+		/// <param name="assembly">The assembly.</param>
+		/// <returns>Returns an IEnumerable of Types that can be loaded.</returns>
+		/// 
+		public static IEnumerable<Type> GetLoadableTypes(this Assembly assembly) {
+			try {
+				return assembly.GetTypes();
+			} catch(ReflectionTypeLoadException e) {
+				return e.Types.Where(t => t != null);
+			}
+		}
 	}
 }

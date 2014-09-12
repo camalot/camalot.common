@@ -31,6 +31,24 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
+		/// Renames the specified file.
+		/// </summary>
+		/// <param name="file">The file.</param>
+		/// <param name="fileName">Name of the file. If it does not contain an extension, it will use the old extension.</param>
+		/// <returns>The file info for the newly renamed file.</returns>
+		/// <gist id="6d30bb5587fb13855204" />
+		public static FileInfo Rename(this FileInfo file, string fileName) {
+			var oldPath = file.Directory;
+			var oldExt = file.Extension;
+			var hasNewExtension = fileName.IndexOf('.') >= 0;
+			var newPath = Path.Combine(oldPath.FullName,"{0}{1}".With(fileName,hasNewExtension ? "" : oldExt));
+			file.MoveTo(newPath);
+			return new FileInfo(newPath);
+		}
+
+
+
+		/// <summary>
 		/// Reads the bytes of a file and returns the bytes.
 		/// </summary>
 		/// <param name="file">The file.</param>
@@ -84,6 +102,15 @@ namespace Camalot.Common.Extensions {
 			var ext = Path.GetExtension(file.Name);
 			ext = ext.REReplace(@"^\.", String.Empty);
 			return ext;
+		}
+
+		/// <summary>
+		/// Gets the file name without extension.
+		/// </summary>
+		/// <param name="file">The file.</param>
+		/// <returns></returns>
+		public static string NameWithoutExtension(this FileInfo file) {
+			return Path.GetFileNameWithoutExtension(file.Name);
 		}
 
 	}
