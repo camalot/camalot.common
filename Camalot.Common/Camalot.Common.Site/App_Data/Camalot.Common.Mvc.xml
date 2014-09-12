@@ -90,6 +90,11 @@
             </summary>
             <param name="filterContext">The filter context.</param>
         </member>
+        <member name="T:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute">
+            <summary>
+            Requires an action/controller to be called only from the specified host
+            </summary>
+        </member>
         <member name="M:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute.#ctor(System.String[])">
             <summary>
             Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute"/> class.

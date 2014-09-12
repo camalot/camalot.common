@@ -91,6 +91,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\AjaxNoCacheFilterAttribute.cs">
+      <Link>Attributes\AjaxNoCacheFilterAttribute.cs</Link>
+    </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\AjaxOnlyAttribute.cs">
       <Link>Attributes\AjaxOnlyAttribute.cs</Link>
     </Compile>
@@ -112,11 +115,20 @@
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\NoCacheAttribute.cs">
       <Link>Attributes\NoCacheAttribute.cs</Link>
     </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\RequireSourceHostAttribute.cs">
+      <Link>Attributes\RequireSourceHostAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Attributes\RobotsDisallowAttribute.cs">
+      <Link>Attributes\RobotsDisallowAttribute.cs</Link>
+    </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Configuration\BundlesConfiguration.cs">
       <Link>Configuration\BundlesConfiguration.cs</Link>
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Configuration\Handlers\BundlesSectionHandler.cs">
       <Link>Configuration\Handlers\BundlesSectionHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Configuration\RobotsRouteConfiguration.cs">
+      <Link>Configuration\RobotsRouteConfiguration.cs</Link>
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Extensions\BundleCollection.cs">
       <Link>Extensions\BundleCollection.cs</Link>
@@ -132,6 +144,9 @@
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Extensions\HttpContext.cs">
       <Link>Extensions\HttpContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Camalot.Common.Mvc5\Extensions\RouteCollection.cs">
+      <Link>Extensions\RouteCollection.cs</Link>
     </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Extensions\String.cs">
       <Link>Extensions\String.cs</Link>
