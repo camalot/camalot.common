@@ -275,33 +275,81 @@
     <Content Include="assets\scripts\system.sidebar.js" />
     <Content Include="assets\scripts\system.toastr.js" />
     <Content Include="assets\styles\bootstrap.css" />
-    <Content Include="assets\styles\bootstrap.min.css" />
-    <Content Include="assets\styles\bootswatch-paper.css" />
-    <Content Include="assets\styles\bootswatch-paper.min.css" />
-    <Content Include="assets\styles\bootswatch-variables.css" />
-    <Content Include="assets\styles\bootswatch-variables.min.css" />
-    <Content Include="assets\styles\documentation.css" />
-    <Content Include="assets\styles\documentation.min.css" />
+    <Content Include="assets\styles\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\bootswatch-paper.css">
+      <DependentUpon>bootswatch-paper.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\bootswatch-paper.min.css">
+      <DependentUpon>bootswatch-paper.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\bootswatch-variables.css">
+      <DependentUpon>bootswatch-variables.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\bootswatch-variables.min.css">
+      <DependentUpon>bootswatch-variables.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\documentation.css">
+      <DependentUpon>documentation.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\documentation.min.css">
+      <DependentUpon>documentation.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\font-awesome.css" />
-    <Content Include="assets\styles\font-awesome.min.css" />
-    <Content Include="assets\styles\gist.css" />
-    <Content Include="assets\styles\gist.min.css" />
+    <Content Include="assets\styles\font-awesome.min.css">
+      <DependentUpon>font-awesome.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\gist.css">
+      <DependentUpon>gist.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\gist.min.css">
+      <DependentUpon>gist.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\google.adsense.css" />
-    <Content Include="assets\styles\google.adsense.min.css" />
-    <Content Include="assets\styles\main.css" />
-    <Content Include="assets\styles\main.min.css" />
-    <Content Include="assets\styles\nuget.css" />
-    <Content Include="assets\styles\nuget.min.css" />
-    <Content Include="assets\styles\razzle-variables.css" />
-    <Content Include="assets\styles\razzle-variables.min.css" />
-    <Content Include="assets\styles\razzle.css" />
-    <Content Include="assets\styles\razzle.min.css" />
-    <Content Include="assets\styles\spacing.css" />
-    <Content Include="assets\styles\spacing.min.css" />
-    <Content Include="assets\styles\toastr.css" />
-    <Content Include="assets\styles\toastr.min.css" />
+    <Content Include="assets\styles\google.adsense.min.css">
+      <DependentUpon>google.adsense.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\nuget.css">
+      <DependentUpon>nuget.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\nuget.min.css">
+      <DependentUpon>nuget.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\razzle-variables.css">
+      <DependentUpon>razzle-variables.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\razzle-variables.min.css">
+      <DependentUpon>razzle-variables.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\razzle.css">
+      <DependentUpon>razzle.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\razzle.min.css">
+      <DependentUpon>razzle.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\spacing.css">
+      <DependentUpon>spacing.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\spacing.min.css">
+      <DependentUpon>spacing.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\toastr.css">
+      <DependentUpon>toastr.less</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\toastr.min.css">
+      <DependentUpon>toastr.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\typography.css" />
-    <Content Include="assets\styles\typography.min.css" />
+    <Content Include="assets\styles\typography.min.css">
+      <DependentUpon>typography.css</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
     <Content Include="Views\Documentation\_NugetPartial.cshtml" />
@@ -342,26 +390,48 @@
     <Content Include="Views\Assets\Adsense.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="assets\styles\toastr.less" />
-    <Content Include="assets\styles\toastr.css.map" />
+    <Content Include="assets\styles\toastr.css.map">
+      <DependentUpon>toastr.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\spacing.less" />
-    <Content Include="assets\styles\spacing.css.map" />
+    <Content Include="assets\styles\spacing.css.map">
+      <DependentUpon>spacing.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\razzle-variables.less" />
-    <Content Include="assets\styles\razzle-variables.css.map" />
+    <Content Include="assets\styles\razzle-variables.css.map">
+      <DependentUpon>razzle-variables.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\razzle.less" />
-    <Content Include="assets\styles\razzle.css.map" />
+    <Content Include="assets\styles\razzle.css.map">
+      <DependentUpon>razzle.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\nuget.less" />
-    <Content Include="assets\styles\nuget.css.map" />
+    <Content Include="assets\styles\nuget.css.map">
+      <DependentUpon>nuget.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\main.less" />
-    <Content Include="assets\styles\main.css.map" />
+    <Content Include="assets\styles\main.css.map">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\gist.less" />
-    <Content Include="assets\styles\gist.css.map" />
+    <Content Include="assets\styles\gist.css.map">
+      <DependentUpon>gist.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\documentation.less" />
-    <Content Include="assets\styles\documentation.css.map" />
+    <Content Include="assets\styles\documentation.css.map">
+      <DependentUpon>documentation.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\bootswatch-variables.less" />
-    <Content Include="assets\styles\bootswatch-variables.css.map" />
+    <Content Include="assets\styles\bootswatch-variables.css.map">
+      <DependentUpon>bootswatch-variables.css</DependentUpon>
+    </Content>
     <Content Include="assets\styles\bootswatch-paper.less" />
-    <Content Include="assets\styles\bootswatch-paper.css.map" />
-    <Content Include="assets\styles\bootstrap.css.map" />
+    <Content Include="assets\styles\bootswatch-paper.css.map">
+      <DependentUpon>bootswatch-paper.css</DependentUpon>
+    </Content>
+    <Content Include="assets\styles\bootstrap.css.map">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="assets\scripts\libs\toastr.min.js.map">
       <DependentUpon>toastr.js</DependentUpon>
     </Content>

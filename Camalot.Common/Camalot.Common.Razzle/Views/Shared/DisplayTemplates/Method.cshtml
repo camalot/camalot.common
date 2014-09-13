@@ -6,10 +6,10 @@
 			<i class="fa fa-gavel mrm"></i>
 			<span class="method">
 				<span class="method-returntype">@Html.DisplayFor(m => Model.ReturnType)</span>
-				@if(Model.ExtensionOf != null) {<span class="method-extension">@Html.DisplayFor(m => Model.ExtensionOf)</span><text>.</text>}<!--
+				@if(Model.IsExtension) {<span class="method-extension">@Html.DisplayFor(m => Model.ExtensionOf)</span><text>.</text>}<!--
 		 --><span class="method-name">@Model.Name</span>
 				<span class="method-arguments"><!--
-					-->@for(var x = 0; x < Model.Parameters.Count; ++x) {<!--
+					-->@for(var x = Model.IsExtension ? 1 : 0; x < Model.Parameters.Count; ++x) {<!--
 						-->var param = Model.Parameters[x];<!--
 						-->@Html.DisplayFor(m => param)<!--
 						-->if(x < Model.Parameters.Count - 1) {<!--
