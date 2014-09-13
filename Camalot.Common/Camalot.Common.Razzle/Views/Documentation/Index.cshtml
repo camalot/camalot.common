@@ -1,0 +1,44 @@
+﻿@using Razzle.Contracts.DataContracts
+@model Namespace
+
+@*
+	
+	This is your "home page" you can either have it display the documentation and everything, or
+	it can be different and you then create a view in ~/views/documentation/assemblies/{assemblyName}.cshtml (minus any dots/dashes/etc.). 
+	
+	Then call @(this.RenderDocumentation(Mode)) in that view.
+
+	This allows for multiple "projects" with just the one site.
+
+*@
+
+@{
+	ViewBag.Title = Model != null ? Model.Name : "";
+}
+
+@section featured {
+	<div class="featured jumbotron jumbotron-warning mbl">
+		<div class="container">
+			<div class="title">
+				<i class="logo pull-left"></i>
+				<h1>@(Html.SiteName()).</h1>
+				<h2 class="muted">@(Html.SiteDescription())</h2>
+				<hr />
+				<p class="text-center">
+					<a href="https://github.com/camalot/camalot.common" target="_blank" class="btn btn-lg"><i class="fa fa-external-link-square mrs" title="Project"></i><span class="">Project</span></a>
+					<a href="https://github.com/camalot/camalot.common/fork" target="_blank" class="btn btn- btn-lg"><i class="fa fa-code-fork mrs" title="Source"></i><span class="">Fork</span></a>
+					<a href="https://github.com/camalot/camalot.common/issues" target="_blank" class="btn btn-lg"><i class="fa fa-bug mrs" title="Issues"></i><span class="">Issues</span></a>
+				</p>
+			</div>
+		</div>
+	</div>
+}
+
+@(Html.Partial("_AboutPartial"))
+
+@(Html.Partial("_NugetPartial"))
+
+@(Html.Partial("_LicensePartial"))
+
+
+@(this.RenderDocumentation(Model))

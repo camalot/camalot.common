@@ -1,0 +1,347 @@
+﻿body {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  cursor: default;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.navbar-brand {
+  padding: 1px 0 1px 0;
+  height: auto;
+}
+.nav a:hover .caret.white,
+.nav a .caret.white {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+.root.container {
+  width: auto;
+  padding-right: 60px;
+  padding-left: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  -moz-transition: margin linear 300ms;
+  -o-transition: margin linear 300ms;
+  -webkit-transition: margin linear 300ms;
+  transition: margin linear 300ms;
+}
+@media (min-width: 992px) {
+  .root.container.razzle-nav-expanded.right {
+    margin-right: 310px;
+  }
+  .root.container.razzle-nav-expanded.left {
+    margin-left: 310px;
+  }
+}
+@media (min-width: 1200px) {
+  .root.container.razzle-nav-expanded.right {
+    margin-right: 310px;
+  }
+  .root.container.razzle-nav-expanded.left {
+    margin-left: 310px;
+  }
+}
+.razzle-content {
+  background-color: #fff;
+}
+.razzle-nav-host {
+  position: fixed;
+  top: 49px;
+  width: 50px;
+  z-index: 1036;
+}
+.razzle-nav-host.expanded.left {
+  left: 299px;
+}
+.razzle-nav-host.expanded.right {
+  right: 299px;
+}
+.razzle-nav-host.left {
+  left: 0;
+  -moz-transition: left linear 300ms;
+  -o-transition: left linear 300ms;
+  -webkit-transition: left linear 300ms;
+  transition: left linear 300ms;
+}
+.razzle-nav-host.left .razzle-nav-toggle {
+  border-right: solid 1px #2371f2;
+  margin-right: 5px;
+}
+.razzle-nav-host.right {
+  right: 0;
+  -moz-transition: right linear 300ms;
+  -o-transition: right linear 300ms;
+  -webkit-transition: right linear 300ms;
+  transition: right linear 300ms;
+}
+.razzle-nav-host.right .razzle-nav-toggle {
+  border-left: solid 1px #2371f2;
+  margin-left: 5px;
+}
+.razzle-nav-host .razzle-nav-toggle {
+  box-shadow: 0 0.5em 1em -3px rgba(0, 0, 0, 0.258824);
+  display: block;
+  border: none;
+  background-color: #4285f4;
+  border-bottom: solid 1px #2371f2;
+  border-radius: 0;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1030;
+}
+.razzle-nav-host .razzle-nav-toggle > .icon-bar {
+  background-color: #dddddd;
+  display: block;
+  width: 22px;
+  height: 3px;
+}
+.razzle-nav-host .razzle-nav-toggle > .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+.razzle-nav-host .razzle-nav-toggle > .icon-bar:hover > .icon-bar {
+  background-color: #e5e5e5;
+}
+.razzle-nav {
+  box-shadow: 0 0.3em 1em 0 rgba(0, 0, 0, 0.258824);
+  z-index: 1035;
+  border: none;
+  background-color: #4285f4;
+  width: 300px;
+  max-width: 300px;
+  position: fixed;
+  top: 49px;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.razzle-nav::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.razzle-nav::-webkit-scrollbar-track {
+  background-color: transparent;
+  -webkit-border-radius: 5px;
+}
+.razzle-nav::-webkit-scrollbar-thumb:vertical {
+  background-color: #2371f2;
+  -webkit-border-radius: 6px;
+}
+.razzle-nav::-webkit-scrollbar-thumb:vertical:hover,
+.razzle-nav::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: #669cf6;
+}
+.razzle-nav::-webkit-scrollbar-thumb:horizontal {
+  background-color: #2371f2;
+  -webkit-border-radius: 6px;
+}
+.razzle-nav .nav.nested {
+  height: 0;
+  overflow: hidden;
+}
+.razzle-nav .nav.nested.nav-always-expanded,
+.razzle-nav .nav.nested.nav-expanded {
+  height: auto;
+}
+.razzle-nav.left {
+  left: -305px;
+  border-right: solid 1px #2371f2;
+  -moz-transition: left linear 300ms;
+  -o-transition: left linear 300ms;
+  -webkit-transition: left linear 300ms;
+  transition: left linear 300ms;
+}
+.razzle-nav.left li > a {
+  border-right: 2px solid #4285f4;
+}
+.razzle-nav.left li.active > a {
+  border-right-color: #ffffff;
+}
+.razzle-nav.left.razzle-nav-primary li.active > a {
+  border-right-color: #9c27b0;
+}
+.razzle-nav.left.razzle-nav-success li.active > a {
+  border-right-color: #259b24;
+}
+.razzle-nav.left.razzle-nav-danger li.active > a {
+  border-right-color: #e51c23;
+}
+.razzle-nav.left.razzle-nav-warning li.active > a {
+  border-right-color: #ff5722;
+}
+.razzle-nav.left.razzle-nav-info li.active > a {
+  border-right-color: #00bcd4;
+}
+.razzle-nav.right {
+  right: -305px;
+  border-left: solid 1px #2371f2;
+  -moz-transition: right linear 300ms;
+  -o-transition: right linear 300ms;
+  -webkit-transition: right linear 300ms;
+  transition: right linear 300ms;
+}
+.razzle-nav.right li > a {
+  border-left: 2px solid #4285f4;
+}
+.razzle-nav.right li.active > a {
+  border-left-color: #ffffff;
+}
+.razzle-nav.right.razzle-nav-primary li.active > a {
+  border-left-color: #9c27b0;
+}
+.razzle-nav.right.razzle-nav-success li.active > a {
+  border-left-color: #259b24;
+}
+.razzle-nav.right.razzle-nav-danger li.active > a {
+  border-left-color: #e51c23;
+}
+.razzle-nav.right.razzle-nav-warning li.active > a {
+  border-left-color: #ff5722;
+}
+.razzle-nav.right.razzle-nav-info li.active > a {
+  border-left-color: #00bcd4;
+}
+.razzle-nav.expanded.left {
+  left: 0;
+}
+.razzle-nav.expanded.left > .razzle-nav-host {
+  left: 257px;
+}
+.razzle-nav.expanded.right {
+  right: 0;
+}
+.razzle-nav.expanded.right > .razzle-nav-host {
+  right: 234px;
+}
+.razzle-nav .nav-search {
+  margin: 0 2px 0 0;
+}
+.razzle-nav .nav-search button.clear {
+  border: none;
+  background-color: transparent;
+  margin: 0 0 0 -25px;
+  padding: 0;
+  color: #ddd;
+}
+.razzle-nav .nav-search input[type="search"] {
+  border: solid 1px #2371f2;
+  background-color: #4285f4;
+  width: 100%;
+  color: #ffffff;
+  padding: 2px 15px 2px 4px;
+  -moz-transition: none linear 300ms;
+  -o-transition: none linear 300ms;
+  -webkit-transition: none linear 300ms;
+  transition: none linear 300ms;
+  margin: 0;
+}
+.razzle-nav .nav-search input[type="search"]::-moz-placeholder {
+  color: #c0c0c0;
+}
+.razzle-nav .nav-search input[type="search"]:-ms-input-placeholder {
+  color: #c0c0c0;
+}
+.razzle-nav .nav-search input[type="search"]::-webkit-input-placeholder {
+  color: #c0c0c0;
+}
+.razzle-nav .nav-search input[type="search"]::-moz-placeholder {
+  color: #dddddd;
+}
+.razzle-nav .nav-search input[type="search"]:-ms-input-placeholder {
+  color: #dddddd;
+}
+.razzle-nav .nav-search input[type="search"]::-webkit-input-placeholder {
+  color: #dddddd;
+}
+.razzle-nav .nav-search input[type="search"]:hover,
+.razzle-nav .nav-search input[type="search"]:focus,
+.razzle-nav .nav-search input[type="search"]:focus:valid,
+.razzle-nav .nav-search input[type="search"]:focus:invalid {
+  border-color: #669cf6;
+  -webkit-box-shadow: none 0 1px #000000;
+  -moz-box-shadow: none 0 1px #000000;
+  box-shadow: none 0 1px #000000;
+}
+.razzle-nav li {
+  -moz-transition: height linear 300ms;
+  -o-transition: height linear 300ms;
+  -webkit-transition: height linear 300ms;
+  transition: height linear 300ms;
+}
+.razzle-nav li > a {
+  padding: 5px;
+  white-space: nowrap;
+  color: #ddd;
+}
+.razzle-nav li > a:focus,
+.razzle-nav li > a:hover,
+.razzle-nav li > a:active {
+  background-color: #669cf6;
+  border-left-color: #669cf6;
+  border-right-color: #669cf6;
+  color: #fff;
+}
+.razzle-top-navbar li.divider {
+  width: 1px;
+  border: none;
+  border-left: solid 1px #2371f2;
+  height: 42px;
+  margin: 3px;
+}
+.razzle-top-navbar li.razzle-top-navbar-hidden {
+  display: none;
+}
+.razzle-top-navbar li.expandable-label {
+  position: relative;
+  white-space: nowrap;
+  display: inline-block;
+  -moz-transition: all ease-in-out 300ms;
+  -o-transition: all ease-in-out 300ms;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+}
+.razzle-top-navbar li.expandable-label:hover span {
+  width: 100%;
+  margin-left: 5px;
+}
+.razzle-top-navbar li.expandable-label span {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+  font-weight: normal;
+  color: inherit;
+  font-size: 1em;
+  border-radius: 0;
+  text-align: left;
+  width: 0;
+  padding: 0;
+  -moz-transition: all ease-in-out 300ms;
+  -o-transition: all ease-in-out 300ms;
+  -webkit-transition: all ease-in-out 300ms;
+  transition: all ease-in-out 300ms;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+.razzle-side-navbar li.divider {
+  height: 1px;
+  line-height: 1px;
+  font-size: 0;
+  border-top: solid 1px #2371f2;
+  margin: 2px 0 2px 0;
+}
+.razzle-side-navbar li.razzle-side-navbar-hidden {
+  display: none;
+}
+.go-to-top {
+  position: fixed;
+  left: 30px;
+  bottom: 60px;
+  z-index: 9999;
+}
+.go-to-top a.btn-round {
+  box-shadow: 0 0.2em 0.5em 0 rgba(0, 0, 0, 0.258824);
+}
+/*# sourceMappingURL=razzle.css.map */

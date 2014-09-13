@@ -1,0 +1,394 @@
+﻿@import "bootswatch-variables";
+@import "razzle-variables";
+
+body {
+	padding-bottom: @body-vertical-padding;
+	padding-top: @body-vertical-padding;
+	cursor: default;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+.navbar-brand {
+	padding: 1px 0 1px 0;
+	height: auto;
+}
+
+.nav a:hover .caret.white,
+.nav a .caret.white {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+
+
+.root.container {
+	width: auto;
+	padding-right: @root-container-horizontal-padding;
+	padding-left: @root-container-horizontal-padding;
+	margin-right: auto;
+	margin-left: auto;
+	.transition(margin);
+}
+
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+	.root.container.razzle-nav-expanded {
+		.root-margin()
+	}
+}
+
+@media (min-width: 1200px) {
+	.root.container.razzle-nav-expanded {
+		.root-margin()
+	}
+}
+
+.razzle-content {
+	background-color: #fff;
+}
+
+.razzle-nav-host {
+	position: fixed;
+	top: 49px;
+	width: @razzle-nav-button-width;
+	z-index: 1036;
+
+	&.expanded {
+		&.left {
+			left: @razzle-nav-width - 1;
+		}
+
+		&.right {
+			right: @razzle-nav-width - 1;
+		}
+	}
+
+	&.left {
+		left: 0;
+		.transition(left);
+
+		.razzle-nav-toggle {
+			border-right: solid 1px @razzle-nav-toggle-border;
+			margin-right: 5px;
+		}
+	}
+
+	&.right {
+		right: 0;
+		.transition(right);
+
+		.razzle-nav-toggle {
+			border-left: solid 1px @razzle-nav-toggle-border;
+			margin-left: 5px;
+		}
+	}
+
+	.razzle-nav-toggle {
+		box-shadow: 0 0.5em 1.0em -3px rgba(0, 0, 0, 0.258824);
+		display: block;
+		border: none;
+		background-color: @razzle-nav-toggle-bg;
+		border-bottom: solid 1px @razzle-nav-toggle-border;
+		border-radius: 0;
+		cursor: pointer;
+		padding: 10px;
+		z-index: 1030;
+
+		> .icon-bar {
+			background-color: @razzle-nav-toggle-icon-bar-bg;
+			display: block;
+			width: 22px;
+			height: 3px;
+
+			+ .icon-bar {
+				margin-top: 4px;
+			}
+
+			&:hover > .icon-bar {
+				background-color: @razzle-nav-toggle-icon-bar-hover-bg;
+			}
+		}
+	}
+}
+
+.razzle-nav {
+	.z-depth-3();
+	z-index: 1035;
+	border: none;
+	background-color: @navbar-default-bg;
+	width: @razzle-nav-width;
+	max-width: @razzle-nav-width;
+	position: fixed;
+	top: 49px;
+	bottom: 0;
+	overflow-y: auto;
+	overflow-x: auto;
+	white-space: nowrap;
+
+	&::-webkit-scrollbar {
+		width: 6px;
+		height: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+		-webkit-border-radius: 5px;
+	}
+
+	&::-webkit-scrollbar-thumb:vertical {
+		background-color: @razzle-nav-border;
+		-webkit-border-radius: 6px;
+	}
+
+	&::-webkit-scrollbar-thumb:vertical:hover,
+	&::-webkit-scrollbar-thumb:horizontal:hover {
+		background-color: @nav-search-input-hover-border;
+	}
+
+	&::-webkit-scrollbar-thumb:horizontal {
+		background-color: @razzle-nav-border;
+		-webkit-border-radius: 6px;
+	}
+
+	& .nav.nested {
+		height: 0;
+		overflow: hidden;
+
+		&.nav-always-expanded,
+		&.nav-expanded {
+			height: auto;
+		}
+	}
+
+	&.left {
+		left: -(@razzle-nav-width + 5);
+		border-right: solid 1px @razzle-nav-border;
+		.transition(left);
+
+		li {
+			> a {
+				border-right: 2px solid @navbar-default-bg;
+			}
+
+			&.active {
+				> a {
+					border-right-color: lighten(@razzle-nav-border,60%);
+				}
+			}
+		}
+
+		&.razzle-nav-primary li.active > a {
+			border-right-color: @color-primary;
+		}
+
+		&.razzle-nav-success li.active > a {
+			border-right-color: @color-success;
+		}
+
+		&.razzle-nav-danger li.active > a {
+			border-right-color: @color-danger;
+		}
+
+		&.razzle-nav-warning li.active > a {
+			border-right-color: @color-warning;
+		}
+
+		&.razzle-nav-info li.active > a {
+			border-right-color: @color-info;
+		}
+	}
+
+	&.right {
+		right: -(@razzle-nav-width + 5);
+		border-left: solid 1px @razzle-nav-border;
+		.transition(right);
+
+		li {
+			> a {
+				border-left: 2px solid @navbar-default-bg;
+			}
+
+			&.active {
+				> a {
+					border-left-color: lighten(@razzle-nav-border,60%);
+				}
+			}
+		}
+
+		&.razzle-nav-primary li.active > a {
+			border-left-color: @color-primary;
+		}
+
+		&.razzle-nav-success li.active > a {
+			border-left-color: @color-success;
+		}
+
+		&.razzle-nav-danger li.active > a {
+			border-left-color: @color-danger;
+		}
+
+		&.razzle-nav-warning li.active > a {
+			border-left-color: @color-warning;
+		}
+
+		&.razzle-nav-info li.active > a {
+			border-left-color: @color-info;
+		}
+	}
+
+	&.expanded {
+		&.left {
+			left: 0;
+
+			> .razzle-nav-host {
+				left: 257px;
+			}
+		}
+
+		&.right {
+			right: 0;
+
+			> .razzle-nav-host {
+				right: 234px;
+			}
+		}
+	}
+
+	.nav-search {
+		margin: 0 2px 0 0;
+
+		button.clear {
+			border: none;
+			background-color: transparent;
+			margin: 0 0 0 -25px;
+			padding: 0;
+			color: #ddd;
+
+			&:hover {
+			}
+		}
+
+		input[type="search"] {
+			border: solid 1px @nav-search-input-border;
+			background-color: @nav-search-input-bg;
+			width: 100%;
+			color: @nav-search-input-color;
+			padding: 2px 15px 2px 4px;
+			.transition(none);
+			margin: 0;
+			.placeholder();
+
+			&:hover,
+			&:focus,
+			&:focus:valid,
+			&:focus:invalid {
+				border-color: @nav-search-input-hover-border;
+				.box-shadow(none);
+			}
+		}
+	}
+
+	li {
+		.transition(height, linear);
+
+		> a {
+			padding: 5px;
+			white-space: nowrap;
+			color: #ddd;
+
+			&:focus, &:hover, &:active {
+				background-color: @razzle-nav-link-hover-bg;
+				border-left-color: @razzle-nav-link-hover-bg;
+				border-right-color: @razzle-nav-link-hover-bg;
+				color: #fff;
+			}
+		}
+	}
+}
+
+.razzle-top-navbar {
+	li {
+		&.divider {
+			width: 1px;
+			border: none;
+			border-left: solid 1px @navbar-default-border;
+			height: 42px;
+			margin: 3px;
+		}
+
+		&.razzle-top-navbar-hidden {
+			display: none;
+		}
+
+		&.expandable-label {
+			position: relative;
+			white-space: nowrap;
+			display: inline-block;
+			-moz-transition: all ease-in-out 300ms;
+			-o-transition: all ease-in-out 300ms;
+			-webkit-transition: all ease-in-out 300ms;
+			transition: all ease-in-out 300ms;
+
+			&:hover {
+				& span {
+					width: 100%;
+					margin-left: 5px;
+				}
+			}
+
+			& span {
+				position: relative;
+				display: inline-block;
+				overflow: hidden;
+				margin: 0;
+				font-weight: normal;
+				color: inherit;
+				font-size: 1em;
+				border-radius: 0;
+				text-align: left;
+				width: 0;
+				padding: 0;
+				-moz-transition: all ease-in-out 300ms;
+				-o-transition: all ease-in-out 300ms;
+				-webkit-transition: all ease-in-out 300ms;
+				transition: all ease-in-out 300ms;
+				line-height: 1;
+				white-space: nowrap;
+				vertical-align: baseline;
+			}
+		}
+	}
+}
+
+.razzle-side-navbar {
+	li {
+		&.divider {
+			height: 1px;
+			line-height: 1px;
+			font-size: 0;
+			border-top: solid 1px @razzle-nav-border;
+			margin: 2px 0 2px 0;
+		}
+
+		&.razzle-side-navbar-hidden {
+			display: none;
+		}
+	}
+}
+
+
+.go-to-top {
+	position: fixed;
+	left: 30px;
+	bottom: 60px;
+	z-index: 9999;
+
+	a.btn-round {
+		.z-depth-2();
+	}
+}

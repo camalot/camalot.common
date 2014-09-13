@@ -3,7 +3,7 @@
 
 	<PropertyGroup>
 		<VisualStudioVersion>12.0</VisualStudioVersion>
-		<ProjectName Condition="'$(ProjectName)' == ''">Camalot.Common.Site</ProjectName>
+		<ProjectName Condition="'$(ProjectName)' == ''">Camalot.Common.Razzle</ProjectName>
 
 		<SourcePath>$(MSBuildProjectDirectory)\..\$(ProjectName)</SourcePath>
 		<DestinationPath>S:\deploy\$(ProjectName)</DestinationPath>

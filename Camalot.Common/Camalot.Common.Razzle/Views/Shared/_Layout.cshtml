@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb#">
+	<title>@(Html.SiteName()):@(ViewBag.Title)</title>
+	@Html.Partial("_MetaPartial")
+	@(Styles.Render("~/css/site"))
+	@(RenderSection("styles", required: false))
+</head>
+
+<body>
+	<a name="home" id="home"></a>
+	<header>
+		@(this.RenderTopNavigation())
+	</header>
+	<div class="container root razzle-nav-expanded" data-spy="scroll" data-target=".razzle-nav > .nav">
+		@(RenderSection("featured", required: false))
+		@(RenderBody())
+	</div>
+	<div class="clear-fix"></div>
+	<footer class="navbar-fixed-bottom navbar navbar-default">
+		<div class="container">
+			<div class="center mts text-white">
+				<p>Copyright &copy; @(Html.SiteSetting("Copyright")) @DateTime.Now.Year. All Rights Reserved.</p>
+				@(this.RenderPoweredBy())
+			</div>
+		</div>
+	</footer>
+
+	@(Scripts.Render("~/js/jquery"))
+	@(Scripts.Render("~/js/bootstrap"))
+	@(Scripts.Render("~/js/mousetrap"))
+	@(Scripts.Render("~/js/system"))
+	@(this.RenderSideNavigation())
+	@(RenderSection("scripts", required: false))
+	@(Html.Partial("Analytics"))
+
+	<div class="go-to-top fade" data-scroll-show-low="265" data-scroll-toggle="fade">
+		<a href="#home" data-scroll="click" class="btn btn-round btn-success btn-lg"><i class="fa fa-arrow-up"></i></a>
+	</div>
+</body>
+</html>

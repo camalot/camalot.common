@@ -1,0 +1,16 @@
+﻿@if(Model != null) {
+	<div id="documentation">
+		@(Html.Action("Adsense", new { controller = "assets", area = "" }))
+		<div class="panel panel-success pan">
+			<div class="panel-heading"><h1 class="zero lowercase"><i class="fa fa-book mrm"></i>Documentation</h1></div>
+			<div class="panel-body">
+				@foreach(var ns in Model.Namespaces) {
+					if(!ns.Ignore) {
+						@(Html.Action("Adsense", new { controller = "assets", area = "" }))
+						@Html.DisplayFor(d => ns)
+					}
+				}
+			</div>
+		</div>
+	</div>
+}

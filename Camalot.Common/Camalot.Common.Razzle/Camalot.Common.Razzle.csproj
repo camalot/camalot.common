@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{811515AB-5FAB-4283-92B3-1884151F9EB8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Camalot.Common.Razzle</RootNamespace>
+    <AssemblyName>Razzle.Camalot.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MoreLinq">
+      <HintPath>..\packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle.Contracts">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle.Extensions">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle.Mvc">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle.Mvc.Castle">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.Mvc.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="Razzle.Services">
+      <HintPath>..\packages\Razzle.1.0.5368.38275\lib\net45\Razzle.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\images\camalot-common-114.png" />
+    <Content Include="assets\images\camalot-common-120.png" />
+    <Content Include="assets\images\camalot-common-144.png" />
+    <Content Include="assets\images\camalot-common-152.png" />
+    <Content Include="assets\images\camalot-common-16.png" />
+    <Content Include="assets\images\camalot-common-256.png" />
+    <Content Include="assets\images\camalot-common-32.png" />
+    <Content Include="assets\images\camalot-common-57.png" />
+    <Content Include="assets\images\camalot-common-72.png" />
+    <Content Include="assets\scripts\system.copy.min.js">
+      <DependentUpon>system.copy.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.expandable.min.js">
+      <DependentUpon>system.expandable.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.floating-label.min.js">
+      <DependentUpon>system.floating-label.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.github-data.js" />
+    <Content Include="assets\scripts\libs\bootstrap.js" />
+    <Content Include="assets\scripts\libs\bootstrap.min.js">
+      <DependentUpon>bootstrap.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\jquery.scrollto.js" />
+    <Content Include="assets\scripts\libs\jquery.scrollto.min.js">
+      <DependentUpon>jquery.scrollto.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\jquery.validate.js" />
+    <Content Include="assets\scripts\libs\jquery.validate.min.js">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\jquery.validate.unobtrusive.js" />
+    <Content Include="assets\scripts\libs\jquery.validate.unobtrusive.min.js">
+      <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\jquery.scrollto.min.js.map">
+      <DependentUpon>jquery.scrollto.js</DependentUpon>
+    </Content>
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\scripts\system.copy.min.js.map">
+      <DependentUpon>system.copy.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.expandable.min.js.map">
+      <DependentUpon>system.expandable.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.floating-label.min.js.map">
+      <DependentUpon>system.floating-label.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.github-data.min.js">
+      <DependentUpon>system.github-data.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.github-data.min.js.map">
+      <DependentUpon>system.github-data.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.scroll-show.min.js">
+      <DependentUpon>system.scroll-show.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.scroll-show.min.js.map">
+      <DependentUpon>system.scroll-show.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.scroll.min.js">
+      <DependentUpon>system.scroll.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.scroll.min.js.map">
+      <DependentUpon>system.scroll.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.sidebar.min.js">
+      <DependentUpon>system.sidebar.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.sidebar.min.js.map">
+      <DependentUpon>system.sidebar.min.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.toastr.min.js">
+      <DependentUpon>system.toastr.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.toastr.min.js.map">
+      <DependentUpon>system.toastr.min.js</DependentUpon>
+    </Content>
+    <None Include="assets\scripts\_references.js" />
+    <None Include="assets\scripts\libs\jquery.validate-vsdoc.js">
+      <DependentUpon>jquery.validate.js</DependentUpon>
+    </None>
+    <None Include="assets\scripts\libs\jquery-2.1.1.intellisense.js">
+      <DependentUpon>jquery-2.1.1.js</DependentUpon>
+    </None>
+    <Content Include="assets\scripts\libs\jquery-2.1.1.js" />
+    <Content Include="assets\scripts\libs\jquery-2.1.1.min.js">
+      <DependentUpon>jquery-2.1.1.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\modernizr-2.8.3.js" />
+    <Content Include="assets\scripts\libs\mousetrap.js" />
+    <Content Include="assets\scripts\libs\mousetrap.min.js">
+      <DependentUpon>mousetrap.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\respond.js" />
+    <Content Include="assets\scripts\libs\respond.matchmedia.addListener.js">
+      <DependentUpon>respond.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\respond.matchmedia.addListener.min.js">
+      <DependentUpon>respond.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\respond.min.js">
+      <DependentUpon>respond.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\toastr.js" />
+    <Content Include="assets\scripts\libs\toastr.min.js">
+      <DependentUpon>toastr.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\system.copy.js" />
+    <Content Include="assets\scripts\system.expandable.js" />
+    <Content Include="assets\scripts\system.floating-label.js" />
+    <Content Include="assets\scripts\system.scroll-show.js" />
+    <Content Include="assets\scripts\system.scroll.js" />
+    <Content Include="assets\scripts\system.sidebar.js" />
+    <Content Include="assets\scripts\system.toastr.js" />
+    <Content Include="assets\styles\bootstrap.css" />
+    <Content Include="assets\styles\bootstrap.min.css" />
+    <Content Include="assets\styles\bootswatch-paper.css" />
+    <Content Include="assets\styles\bootswatch-paper.min.css" />
+    <Content Include="assets\styles\bootswatch-variables.css" />
+    <Content Include="assets\styles\bootswatch-variables.min.css" />
+    <Content Include="assets\styles\documentation.css" />
+    <Content Include="assets\styles\documentation.min.css" />
+    <Content Include="assets\styles\font-awesome.css" />
+    <Content Include="assets\styles\font-awesome.min.css" />
+    <Content Include="assets\styles\gist.css" />
+    <Content Include="assets\styles\gist.min.css" />
+    <Content Include="assets\styles\google.adsense.css" />
+    <Content Include="assets\styles\google.adsense.min.css" />
+    <Content Include="assets\styles\main.css" />
+    <Content Include="assets\styles\main.min.css" />
+    <Content Include="assets\styles\nuget.css" />
+    <Content Include="assets\styles\nuget.min.css" />
+    <Content Include="assets\styles\razzle-variables.css" />
+    <Content Include="assets\styles\razzle-variables.min.css" />
+    <Content Include="assets\styles\razzle.css" />
+    <Content Include="assets\styles\razzle.min.css" />
+    <Content Include="assets\styles\spacing.css" />
+    <Content Include="assets\styles\spacing.min.css" />
+    <Content Include="assets\styles\toastr.css" />
+    <Content Include="assets\styles\toastr.min.css" />
+    <Content Include="assets\styles\typography.css" />
+    <Content Include="assets\styles\typography.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Documentation\_NugetPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Documentation\Assemblies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\RazzleTemplates\Documentation\Index.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\Documentation\_AssemblyNavigationPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_SideNavPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_PoweredByPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_PaypalPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_NavBarPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_IconPartial.cshtml" />
+    <Content Include="Views\Shared\RazzleTemplates\_DirectLink.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Type.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Property.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Parameter.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Namespace.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Method.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Member.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\GistModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Class.cshtml" />
+    <Content Include="Views\Shared\Analytics.cshtml" />
+    <Content Include="Views\Shared\_NavigationPartial.cshtml" />
+    <Content Include="Views\Shared\_MetaPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Documentation\Navigation.cshtml" />
+    <Content Include="Views\Documentation\Index.cshtml" />
+    <Content Include="Views\Documentation\_LicensePartial.cshtml" />
+    <Content Include="Views\Documentation\_AboutPartial.cshtml" />
+    <Content Include="Views\Assets\Gist.cshtml" />
+    <Content Include="Views\Assets\Adsense.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="assets\styles\toastr.less" />
+    <Content Include="assets\styles\toastr.css.map" />
+    <Content Include="assets\styles\spacing.less" />
+    <Content Include="assets\styles\spacing.css.map" />
+    <Content Include="assets\styles\razzle-variables.less" />
+    <Content Include="assets\styles\razzle-variables.css.map" />
+    <Content Include="assets\styles\razzle.less" />
+    <Content Include="assets\styles\razzle.css.map" />
+    <Content Include="assets\styles\nuget.less" />
+    <Content Include="assets\styles\nuget.css.map" />
+    <Content Include="assets\styles\main.less" />
+    <Content Include="assets\styles\main.css.map" />
+    <Content Include="assets\styles\gist.less" />
+    <Content Include="assets\styles\gist.css.map" />
+    <Content Include="assets\styles\documentation.less" />
+    <Content Include="assets\styles\documentation.css.map" />
+    <Content Include="assets\styles\bootswatch-variables.less" />
+    <Content Include="assets\styles\bootswatch-variables.css.map" />
+    <Content Include="assets\styles\bootswatch-paper.less" />
+    <Content Include="assets\styles\bootswatch-paper.css.map" />
+    <Content Include="assets\styles\bootstrap.css.map" />
+    <Content Include="assets\scripts\libs\toastr.min.js.map">
+      <DependentUpon>toastr.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\mousetrap.min.js.map">
+      <DependentUpon>mousetrap.js</DependentUpon>
+    </Content>
+    <Content Include="assets\scripts\libs\jquery-2.1.1.min.map">
+      <DependentUpon>jquery-2.1.1.js</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Camalot.Common.Mvc5\Camalot.Common.Mvc5.csproj">
+      <Project>{a4f6da8c-180f-4adc-a127-bd6e10854058}</Project>
+      <Name>Camalot.Common.Mvc5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Camalot.Common\Camalot.Common.csproj">
+      <Project>{df6fe85f-0cf4-4f29-8a38-878d570e8f4d}</Project>
+      <Name>Camalot.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>37229</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:36334/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Import Project="..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.0\tools\AutoMapper.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy $(ProjectDir)\bin\Camalot.Common.* $(ProjectDir)\app_data\ /h /i /c /k /y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

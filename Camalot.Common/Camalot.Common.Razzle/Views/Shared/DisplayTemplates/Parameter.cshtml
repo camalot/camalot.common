@@ -1,0 +1,8 @@
+﻿@model Razzle.Contracts.DataContracts.Parameter
+<!--
+--><span class="parameter @(Model.IsOptional ? "parameter-optional" : "")">
+	@Html.DisplayFor(m => Model.Type.BaseType)
+	@Html.Icon("fa-forward", Model.IsIn, "In")
+	@Html.Icon("fa-reply", Model.IsIn, "Out")
+	<span class="parameter-name">@Model.Name</span>
+</span>
