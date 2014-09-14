@@ -1,12 +1,15 @@
 ﻿@model Razzle.Mvc.Models.GistModel
+@{
+	var instanceId = Guid.NewGuid().ToString("N");
+}
 <div class="gist-container">
 	<div class="gist-data-host">
 		@if(Model.AllowCopy) {
 			<div class="button-controls">
-				<a title="copy" href="#" data-copy="click" data-copy-target="[data-id='@Model'] .file-data .line-data pre" class="btn btn-round btn-info z-depth-1 mtml mrs"><i class="fa fa-copy"></i></a>
+				<a title="copy" href="#" data-copy="click" data-copy-target="[data-id='@instanceId'] .file-data .line-data pre" class="btn btn-round btn-info z-depth-1 mtml mrs"><i class="fa fa-copy"></i></a>
 			</div>
 		}
-		<div data-id="@Model.Id">
+		<div data-id="@instanceId">
 			<script src="https://gist.github.com/@(Model.Id).js"></script>
 		</div>
 	</div>

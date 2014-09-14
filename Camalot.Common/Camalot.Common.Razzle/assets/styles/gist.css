@@ -26,22 +26,26 @@
   border-bottom-color: #303030 !important;
 }
 .gist-container .gist .gist-syntax .sx,
-.gist-container .gist .gist-syntax .s {
+.gist-container .gist .gist-syntax .s,
+.gist-container .gist .gist-syntax .s2 {
   color: #85fb82;
 }
+.gist-container .gist .gist-syntax .c,
 .gist-container .gist .gist-syntax .c1 {
-  color: #85fb82;
+  color: #c0c0c0;
 }
 .gist-container .gist .gist-syntax .n,
 .gist-container .gist .gist-syntax .p,
-.gist-container .gist .gist-syntax .o {
+.gist-container .gist .gist-syntax .o,
+.gist-container .gist .gist-syntax .nx {
   color: #f3f3f3;
 }
 .gist-container .gist .gist-syntax .na {
-  color: #686868;
+  color: #89b4fc;
 }
 .gist-container .gist .gist-syntax .kt,
-.gist-container .gist .gist-syntax .k {
+.gist-container .gist .gist-syntax .k,
+.gist-container .gist .gist-syntax .kd {
   color: #a2c4fd;
 }
 .gist-container .gist .gist-syntax .nn,

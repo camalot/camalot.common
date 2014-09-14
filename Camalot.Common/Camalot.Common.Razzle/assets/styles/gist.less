@@ -1,13 +1,13 @@
 ﻿
 @string: #85fb82;
-@comment: @string;
 @text: #f3f3f3;
+@comment: darken(@text,20);
 @background: #282424;
 @border: #303030;
 @line-numbers: #2b91af;
-@attributes: #686868;
-@keywords: #a2c4fd;
 @functions: #fdf8b9;
+@keywords: #a2c4fd;
+@attributes: darken(@keywords,5);
 
 .gist-container {
 	.gist-data-host {
@@ -42,15 +42,15 @@
 			color: @text !important;
 			border-bottom-color: @border !important;
 
-			.sx, .s {
+			.sx, .s, .s2 {
 				color: @string;
 			}
 
-			.c1 {
+			.c, .c1 {
 				color: @comment;
 			}
 
-			.n, .p, .o {
+			.n, .p, .o, .nx {
 				color: @text;
 			}
 
@@ -58,7 +58,7 @@
 				color: @attributes;
 			}
 
-			.kt, .k {
+			.kt, .k, .kd {
 				color: @keywords;
 			}
 
