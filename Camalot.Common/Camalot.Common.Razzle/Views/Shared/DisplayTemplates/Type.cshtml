@@ -3,8 +3,7 @@
 	var typeUrl = Url.UrlForType(Model);
 	var isExternal = !typeUrl.StartsWith("#");
 	var scrollOffset = -70;
-}
-<!--
+}<!--
 -->@if(isExternal) {<!--
 	--><a href="@typeUrl" target="_blank" title="@(Model.ToSafeFullName())">@Model.ToSafeName()</a><!--
 -->} else {<!--

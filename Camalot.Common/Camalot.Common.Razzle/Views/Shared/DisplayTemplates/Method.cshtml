@@ -1,23 +1,28 @@
 ﻿@model Razzle.Contracts.DataContracts.Method
-
+@{
+	var generics = Model.GenericParameters ?? new List<Razzle.Contracts.DataContracts.Type>();
+}
 <div id="@Model.Id" data-xml-name="@Model.XmlName">
 	<div class="page-header">
 		<h4 class="zero">
 			<i class="fa fa-gavel mrm"></i>
 			<span class="method">
-				<span class="method-returntype">@Html.DisplayFor(m => Model.ReturnType)</span>
-				@if(Model.IsExtension) {<span class="method-extension">@Html.DisplayFor(m => Model.ExtensionOf)</span><text>.</text>}<!--
-		 --><span class="method-name">@Model.Name</span>
-				<span class="method-arguments"><!--
+				<span class="method-returntype ">@Html.DisplayFor(m => Model.ReturnType)</span>
+				@if(Model.IsExtension) {<span class="method-extension">@Html.DisplayFor(m => Model.ExtensionOf).</span>}<span class="method-name">@Model.Name</span><!--
+				-->@if(generics.Count() > 0) {<span class="method-generic-parameters"><!--
+						-->@for(var x = 0; x < generics.Count(); ++x) {<!--
+							-->var gparam = generics[x];<!--
+							--><span class="method-generic-parameter">@Html.DisplayFor(m => gparam.BaseType)</span><!--
+							-->if(x < generics.Count() - 1) {<span class="method-param-separator"></span>}
+						}</span><!--
+				-->}<!--
+				--><span class="method-arguments"><!--
 					-->@for(var x = Model.IsExtension ? 1 : 0; x < Model.Parameters.Count; ++x) {<!--
 						-->var param = Model.Parameters[x];<!--
-						-->@Html.DisplayFor(m => param)<!--
-						-->if(x < Model.Parameters.Count - 1) {<!--
-							--><span class="method-param-separator"></span> <!--
-						-->}
-					}
-				</span>
-			</span>
+						--><span class="method-argument">@Html.DisplayFor(m => param)</span><!--
+						-->if(x < Model.Parameters.Count - 1) {<span class="method-param-separator"></span>}<!--
+					-->}</span><!--
+			--></span>
 			<small class="mll text-muted pull-right">
 				@Html.StaticIcon(Model.IsStatic)
 				@Html.ExtensionIcon(Model.IsExtension)

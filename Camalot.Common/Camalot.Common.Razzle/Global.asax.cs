@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Razzle.Mvc.Configuration;
+
 using Camalot.Common.Mvc.Extensions;
 using Razzle.Mvc.Castle.Configuration;
 namespace Camalot.Common.Razzle {
@@ -14,6 +15,8 @@ namespace Camalot.Common.Razzle {
 			AreaRegistration.RegisterAllAreas();
 
 			FiltersConfiguration.RegisterGlobalFilters(GlobalFilters.Filters);
+
+			RouteTable.Routes.RegisterRobotsTxt();
 
 			RouteConfiguration.RegisterRoutes(RouteTable.Routes);
 			BundleConfiguration.RegisterBundles(BundleTable.Bundles);
