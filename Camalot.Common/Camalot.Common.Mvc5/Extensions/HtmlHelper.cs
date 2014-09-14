@@ -9,6 +9,7 @@ using Camalot.Common.Extensions;
 using Camalot.Common.Mvc.Attributes;
 using System.Web.Mvc.Html;
 using System.Web;
+using Camalot.Common.Attributes;
 
 namespace Camalot.Common.Mvc.Extensions {
 	public static partial class CamalotCommonMvcExtensions {

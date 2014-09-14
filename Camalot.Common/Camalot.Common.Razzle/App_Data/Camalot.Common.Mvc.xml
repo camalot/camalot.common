@@ -63,21 +63,6 @@
             <param name="filterContext">The filter context.</param>
             <ignore>true</ignore>
         </member>
-        <member name="T:Camalot.Common.Mvc.Attributes.EnumDisplayAttribute">
-            <summary>
-            An attribute to give an enum a display value
-            </summary>
-        </member>
-        <member name="T:Camalot.Common.Mvc.Attributes.EnumIgnoreAttribute">
-            <summary>
-            An attribute to specify that an enum should be ignored when looking at the enums via reflection. 
-            </summary>
-        </member>
-        <member name="T:Camalot.Common.Mvc.Attributes.EnumValueAttribute">
-            <summary>
-            An attribute that gives an enum a string value to use.
-            </summary>
-        </member>
         <member name="T:Camalot.Common.Mvc.Attributes.NoCacheAttribute">
             <summary>
             Indicates that the request should never be cached by the browser.

@@ -106,15 +106,6 @@
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\CompressAttribute.cs">
       <Link>Attributes\CompressAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\Camalot.Common.Mvc5\Attributes\EnumDisplayAttribute.cs">
-      <Link>Attributes\EnumDisplayAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\Camalot.Common.Mvc5\Attributes\EnumIgnoreAttribute.cs">
-      <Link>Attributes\EnumIgnoreAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\Camalot.Common.Mvc5\Attributes\EnumValueAttribute.cs">
-      <Link>Attributes\EnumValueAttribute.cs</Link>
-    </Compile>
     <Compile Include="..\Camalot.Common.Mvc5\Attributes\NoCacheAttribute.cs">
       <Link>Attributes\NoCacheAttribute.cs</Link>
     </Compile>

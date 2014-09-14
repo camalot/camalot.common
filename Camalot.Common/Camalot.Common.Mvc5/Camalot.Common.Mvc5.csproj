@@ -107,9 +107,6 @@
     <Compile Include="Attributes\AjaxOnlyAttribute.cs" />
     <Compile Include="Attributes\AjaxValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Attributes\CompressAttribute.cs" />
-    <Compile Include="Attributes\EnumDisplayAttribute.cs" />
-    <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
-    <Compile Include="Attributes\EnumValueAttribute.cs" />
     <Compile Include="Attributes\NoCacheAttribute.cs" />
     <Compile Include="Attributes\RequireSourceHostAttribute.cs" />
     <Compile Include="Attributes\RobotsDisallowAttribute.cs" />

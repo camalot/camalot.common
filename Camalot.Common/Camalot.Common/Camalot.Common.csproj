@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ConfigurationPathAttribute.cs" />
+    <Compile Include="Attributes\EnumDisplayAttribute.cs" />
+    <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
+    <Compile Include="Attributes\EnumValueAttribute.cs" />
     <Compile Include="Configuration\ConfigurationReader.cs" />
     <Compile Include="Configuration\IConfigurationReader.cs" />
     <Compile Include="Extensions\Assembly.cs" />
