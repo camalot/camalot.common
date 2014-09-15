@@ -77,6 +77,7 @@ namespace Camalot.Common.Mvc.Extensions {
 		/// <param name="controller">The controller.</param>
 		/// <param name="data">The data.</param>
 		/// <returns></returns>
+		/// <gist id="bcb354968fff2df127f3"></gist>
 		public static ApiResult API<T>(this Controller controller, T data) {
 			return new ApiResult(data);
 		}

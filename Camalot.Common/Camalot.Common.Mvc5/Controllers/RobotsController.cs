@@ -39,6 +39,7 @@ namespace Camalot.Common.Mvc.Controllers {
 		/// <see cref="Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
 		/// <see cref="Camalot.Common.Mvc.Controllers.RobotsController"/>
 		/// <see cref="Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
+		/// <ignore>true</ignore>
 		public ActionResult Index() {
 
 			var disallow = GetDisallowedRegisteredAreas()

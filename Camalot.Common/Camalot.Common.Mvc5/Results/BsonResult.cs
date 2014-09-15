@@ -70,6 +70,12 @@ namespace Camalot.Common.Mvc.Results {
 		/// </summary>
 		/// <param name="data">The data.</param>
 		public BsonResult(T data) : base(data) { }
+		/// <summary>
+		/// Gets or sets the data.
+		/// </summary>
+		/// <value>
+		/// The data.
+		/// </value>
 		public new T Data { get; set; }
 	}
 }

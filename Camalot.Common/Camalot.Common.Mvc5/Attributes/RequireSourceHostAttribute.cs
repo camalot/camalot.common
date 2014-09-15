@@ -11,7 +11,8 @@ namespace Camalot.Common.Mvc.Attributes {
 	/// <summary>
 	/// Requires an action/controller to be called only from the specified host
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
+	/// <gist id="af91f34d5c3c0630cb07"></gist>
+	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
 	public class RequireSourceHostAttribute : ActionFilterAttribute {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RequireSourceHostAttribute"/> class.

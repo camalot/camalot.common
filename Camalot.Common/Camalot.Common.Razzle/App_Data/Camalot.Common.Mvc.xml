@@ -8,6 +8,7 @@
             <summary>
             Causes all ajax request to not be cached by the browser.
             </summary>
+            <gist id="a516e3b232ddd08de55b"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Attributes.AjaxNoCacheFilterAttribute.OnResultExecuting(System.Web.Mvc.ResultExecutingContext)">
             <summary>
@@ -79,6 +80,7 @@
             <summary>
             Requires an action/controller to be called only from the specified host
             </summary>
+            <gist id="af91f34d5c3c0630cb07"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Attributes.RequireSourceHostAttribute.#ctor(System.String[])">
             <summary>
@@ -332,6 +334,7 @@
             <see cref="T:Camalot.Common.Mvc.Attributes.RobotsDisallowAttribute"/>
             <see cref="T:Camalot.Common.Mvc.Controllers.RobotsController"/>
             <see cref="T:Camalot.Common.Mvc.Configuration.RobotsRouteConfiguration"/>
+            <ignore>true</ignore>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.LoadFromWebConfiguration(System.Web.Optimization.BundleCollection)">
             <summary>
@@ -400,6 +403,7 @@
             <param name="controller">The controller.</param>
             <param name="data">The data.</param>
             <returns></returns>
+            <gist id="bcb354968fff2df127f3"></gist>
         </member>
         <member name="M:Camalot.Common.Mvc.Extensions.CamalotCommonMvcExtensions.Url(System.Web.Mvc.ControllerContext)">
             <summary>
@@ -604,6 +608,14 @@
             Initializes a new instance of the <see cref="T:Camalot.Common.Mvc.Results.BsonResult`1"/> class.
             </summary>
             <param name="data">The data.</param>
+        </member>
+        <member name="P:Camalot.Common.Mvc.Results.BsonResult`1.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
         </member>
         <member name="T:Camalot.Common.Mvc.Results.JsonpResult`1">
             <summary>

@@ -20,6 +20,9 @@
 .gist-container .gist .gist-meta a:nth-child(1) {
   display: none !important;
 }
+.gist-container .gist .gist-data .line-pre {
+  color: #f3f3f3 !important;
+}
 .gist-container .gist .gist-syntax {
   background: #282424 !important;
   color: #f3f3f3 !important;

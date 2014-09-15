@@ -10,7 +10,10 @@ namespace Camalot.Common.Attributes {
 	/// <summary>
 	/// A helper attribute for defining configuration elements in the web config.
 	/// </summary>
-	/// <ignore>true</ignore>
+	/// <gist id="6fc378fae7d7a51c58a1">Define the configuration</gist>
+	/// <gist id="6214ba8cf5bc2eabeb45">Define the xml configuration in the app/web config file</gist>
+	/// <gist id="eab0e87c8adf9548d41f">Load the configuration</gist>
+	/// <see cref="Camalot.Common.Configuration.ConfigurationReader" />
 	[AttributeUsage ( AttributeTargets.Class )]
 	public class ConfigurationPathAttribute : Attribute {
 		/// <summary>

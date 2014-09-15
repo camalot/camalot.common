@@ -10,6 +10,7 @@ namespace Camalot.Common.Mvc.Attributes {
 	/// <summary>
 	/// Causes all ajax request to not be cached by the browser.
 	/// </summary>
+	/// <gist id="a516e3b232ddd08de55b"></gist>
 	public class AjaxNoCacheFilterAttribute : ActionFilterAttribute {
 
 		/// <summary>
