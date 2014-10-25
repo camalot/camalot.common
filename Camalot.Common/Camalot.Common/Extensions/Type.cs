@@ -49,6 +49,18 @@ namespace Camalot.Common.Extensions {
 		}
 
 		/// <summary>
+		/// Gets the default value of the type.
+		/// </summary>
+		/// <param name="t">The type.</param>
+		/// <returns></returns>
+		public static object GetDefaultValue(this Type t) {
+			if(t.IsValueType) {
+				return t.CreateInstance();
+			}
+			return null;
+		}
+
+		/// <summary>
 		/// Gets the custom attribute.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
