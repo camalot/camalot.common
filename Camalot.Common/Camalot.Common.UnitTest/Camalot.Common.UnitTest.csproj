@@ -89,6 +89,8 @@
     <Compile Include="InExtensions\InFieldInfo\ForWithAttribute.cs" />
     <Compile Include="InExtensions\InFileInfo\ForGetMimeType.cs" />
     <Compile Include="InExtensions\InGuid\ForIsEmpty.cs" />
+    <Compile Include="InExtensions\InIEnumerable\ForFirstOrValue.cs" />
+    <Compile Include="InExtensions\InIEnumerable\ForSingleOrValue.cs" />
     <Compile Include="InExtensions\InMatch\ForForEach.cs" />
     <Compile Include="InExtensions\InMemberInfo\ForGetCustomAttributeValue.cs" />
     <Compile Include="InExtensions\InMemberInfo\ForHasAttribute.cs" />

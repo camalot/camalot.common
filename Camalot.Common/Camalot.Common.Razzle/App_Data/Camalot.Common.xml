@@ -827,6 +827,18 @@
             <param name="t">The t.</param>
             <param name="test">The test must evaluate to true, or the exception will be thrown.</param>
             <param name="message">The message.</param>
+            <param name="param">The parameter.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Throws if test returns false.</exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0,System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Requires the specified object to pass the predicate test.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The t.</param>
+            <param name="test">The test.</param>
+            <param name="message">The message.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentException">Throws if test returns false.</exception>
         </member>
