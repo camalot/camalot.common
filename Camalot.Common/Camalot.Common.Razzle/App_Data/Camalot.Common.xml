@@ -448,6 +448,44 @@
             <param name="guid">The unique identifier.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrValue``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Gets the first item in the enumeration. If it is empty, then it returns the specified value instead of the "Default".
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <param name="predicate">The predicate.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrValue``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Gets the first item in the enumeration. If it is empty, then it returns the specified value instead of the "Default".
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrValue``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Gets a Single item in the enumeration. If the enumeration is not only a single item then it returns the specified value instead of the "Default".
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <param name="predicate">The predicate.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrValue``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Gets a Single item in the enumeration. If the enumeration is not only a single item then it returns the specified value instead of the "Default".
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumeration">The enumeration.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.Match,System.Action{System.Text.RegularExpressions.Match})">
             <summary>
             Enumerate through each match. Automatically calls NextMatch for you.
@@ -620,6 +658,16 @@
             <param name="value">The value.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or``1(``0,System.Func{``0,System.Boolean},``0)">
+            <summary>
+            Returns the object or the specified value object if test is false.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="s">The s.</param>
+            <param name="test">The test.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Or(System.String,System.String)">
             <summary>
             Returns the string or the specified value if null (or empty).
@@ -770,6 +818,17 @@
             <returns></returns>
             <exception cref="T:System.ArgumentException"></exception>
             <gist id="abd4a899b9fe766184de"/>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0,System.Func{``0,System.Boolean},System.String,System.String)">
+            <summary>
+            Requires the specified object to pass the predicate test.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="t">The t.</param>
+            <param name="test">The test must evaluate to true, or the exception will be thrown.</param>
+            <param name="message">The message.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">Throws if test returns false.</exception>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0)">
             <summary>
@@ -1546,6 +1605,13 @@
             </summary>
             <typeparam name="TType">The type of the type.</typeparam>
             <param name="t">The attribute.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetDefaultValue(System.Type)">
+            <summary>
+            Gets the default value of the type.
+            </summary>
+            <param name="t">The type.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttribute``1(System.Type)">
