@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A
 		Build\Camalot.Common.Mvc5.nuspec = Build\Camalot.Common.Mvc5.nuspec
 		Build\Camalot.Common.nuspec = Build\Camalot.Common.nuspec
 		Build\Camalot.Common.Owin.nuspec = Build\Camalot.Common.Owin.nuspec
+		Build\camalot.common.testsettings = Build\camalot.common.testsettings
 		Build\MSBuild.Community.Tasks.dll = Build\MSBuild.Community.Tasks.dll
 		Build\MSBuild.Community.Tasks.Targets = Build\MSBuild.Community.Tasks.Targets
 		Build\MSBuild.Community.Tasks.xml = Build\MSBuild.Community.Tasks.xml

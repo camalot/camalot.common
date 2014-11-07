@@ -13,7 +13,7 @@ namespace Camalot.Common.UnitTest.InExtensions.InMethodInfo {
 	public class ForExtensionOf {
 		[TestMethod]
 		public void WhenMethodIsExtensionOfType_MustReturnType() {
-			var method = typeof(CamalotCommonExtensions).GetMethod("ForEach");
+			var method = typeof(CamalotCommonExtensions).GetMethods().First(x => x.Name == "ForEach");
 			Assert.IsNotNull(method);
 			Assert.IsNotNull(method.ExtensionOf());
 		}

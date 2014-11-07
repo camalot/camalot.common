@@ -13,14 +13,14 @@ namespace Camalot.Common.UnitTest.InExtensions.InMethodInfo {
 	public class ForIsExtensionOf {
 		[TestMethod]
 		public void WhenMethodIsExtensionOfType_MustReturnTrue() {
-			var method = typeof(CamalotCommonExtensions).GetMethod("ForEach");
+			var method = typeof(CamalotCommonExtensions).GetMethod("IsEmpty");
 			Assert.IsNotNull(method);
-			Assert.IsTrue(method.IsExtensionOf<Match>());
+			Assert.IsTrue(method.IsExtensionOf<Guid>());
 		}
 
 		[TestMethod]
 		public void WhenMethodIsNotExtensionOfType_MustReturnFalse() {
-			var method = typeof(CamalotCommonExtensions).GetMethod("ForEach");
+			var method = typeof(CamalotCommonExtensions).GetMethod("IsEmpty");
 			Assert.IsNotNull(method);
 			Assert.IsFalse(method.IsExtensionOf<DateTime>());
 		}

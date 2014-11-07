@@ -85,7 +85,17 @@
     <Compile Include="InExtensions\InDouble\ForIsEven.cs" />
     <Compile Include="InExtensions\InDouble\ForIsOdd.cs" />
     <Compile Include="InExtensions\InMatch\ForFirst.cs" />
+    <Compile Include="InExtensions\InMatch\ForFirstOrDefault.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="InExtensions\InMatch\ForSingle.cs" />
+    <Compile Include="InExtensions\InMatch\ForSingleOrDefault.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InExtensions\InMatch\ForToArray.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="InExtensions\InMatch\ForToList.cs" />
     <Compile Include="InExtensions\InStream\ForToByteArray.cs" />
     <Compile Include="InExtensions\InUInteger\ForIsEven.cs" />
     <Compile Include="InExtensions\InUInteger\ForIsOdd.cs" />
