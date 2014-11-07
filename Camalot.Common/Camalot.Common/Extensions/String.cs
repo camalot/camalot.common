@@ -42,7 +42,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="pattern">The pattern.</param>
 		/// <returns>The regular expression match.</returns>
 		public static Match Match(this String s, String pattern) {
-			return Match(s, pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+			return Match(s, pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase );
 		}
 
 		/// <summary>
@@ -334,6 +334,16 @@ namespace Camalot.Common.Extensions {
 		/// <returns></returns>
 		public static string UrlDecode(this string input) {
 			return System.Net.WebUtility.UrlDecode(input);
+		}
+
+		/// <summary>
+		/// Truncates the input string to the maximum length.
+		/// </summary>
+		/// <param name="input">The input.</param>
+		/// <param name="maxLength">The maximum length.</param>
+		/// <returns></returns>
+		public static string Truncate(this string input, int maxLength) {
+			return input.Length <= maxLength ? input : new string(input.Take(maxLength).ToArray());
 		}
 	}
 }

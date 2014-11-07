@@ -313,6 +313,15 @@ namespace Camalot.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sequence contains more than one element.
+        /// </summary>
+        public static string Sequence_MoreTanOne {
+            get {
+                return ResourceManager.GetString("Sequence_MoreTanOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unknown Xml Node Type.
         /// </summary>
         public static string XmlNode_UnknownNodeType {

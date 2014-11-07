@@ -215,6 +215,100 @@
             <param name="bytes">The bytes.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToList(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Converts the capture collection to a list of capture items.
+            </summary>
+            <param name="captures">The captures.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToArray(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Converts the capture collection to an array of capture items.
+            </summary>
+            <param name="captures">The captures.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.CaptureCollection,System.Action{System.Text.RegularExpressions.Capture})">
+            <summary>
+            Enumerate through each Capture.
+            </summary>
+            <param name="captures">The Captures.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,System.Boolean},System.Action{System.Text.RegularExpressions.Capture})">
+            <summary>
+            Enumerate through each Capture.
+            </summary>
+            <param name="captures">The Captures.</param>
+            <param name="predicate">The predicate.</param>
+            <param name="action">The action.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Gets the first match Capture from the specified match.
+            </summary>
+            <param name="g">The Capture collection.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,System.Boolean})">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="g">The capture collection.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The capture collection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,System.Boolean})">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The capture collection.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The capture collection.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,System.Boolean})">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The g.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.CaptureCollection)">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The g.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.CaptureCollection,System.Func{System.Text.RegularExpressions.Capture,System.Boolean})">
+            <summary>
+            Gets the first match capture from the specified match.
+            </summary>
+            <param name="c">The capture collection.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToHtmlHex(System.Drawing.Color)">
             <summary>
             Transforms the Color to an HTML hexadecimal string (#FFFFFF).
@@ -432,13 +526,149 @@
             Gets the extension of the specified file.
             </summary>
             <param name="file">The file.</param>
-            <returns></returns>
+            <returns>Just the extension, there will not be a leading ".".</returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.NameWithoutExtension(System.IO.FileInfo)">
             <summary>
             Gets the file name without extension.
             </summary>
             <param name="file">The file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Single)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Single)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Decimal)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Decimal)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Double)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Double)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToList(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Converts the group collection to a list of group items.
+            </summary>
+            <param name="groups">The groups.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToArray(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Converts the group collection to an array of group items.
+            </summary>
+            <param name="groups">The groups.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.GroupCollection,System.Action{System.Text.RegularExpressions.Group})">
+            <summary>
+            Enumerate through each group.
+            </summary>
+            <param name="groups">The groups.</param>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.GroupCollection,System.Func{System.Text.RegularExpressions.Group,System.Boolean},System.Action{System.Text.RegularExpressions.Group})">
+            <summary>
+            Enumerate through each group.
+            </summary>
+            <param name="groups">The groups.</param>
+            <param name="predicate">The predicate.</param>
+            <param name="action">The action.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.GroupCollection,System.Func{System.Text.RegularExpressions.Group,System.Boolean})">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.GroupCollection,System.Func{System.Text.RegularExpressions.Group,System.Boolean})">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.GroupCollection,System.Func{System.Text.RegularExpressions.Group,System.Boolean})">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The g.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.GroupCollection)">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The g.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.GroupCollection,System.Func{System.Text.RegularExpressions.Group,System.Boolean})">
+            <summary>
+            Gets the first match group from the specified match.
+            </summary>
+            <param name="g">The group collection.</param>
+            <param name="predicate">The predicate.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEmpty(System.Guid)">
@@ -486,6 +716,94 @@
             <param name="value">The value.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.In``1(``0,``0[])">
+            <summary>
+            Checks if the source is in the specified list of values
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="list">The list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.In``1(``0,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks if the source is in the specified list of values
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="list">The list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int32)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Int32)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.UInt32)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.UInt32)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int64)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Int64)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.UInt64)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.UInt64)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToList(System.Text.RegularExpressions.Match)">
+            <summary>
+            Converts the matches to a list of matches.
+            </summary>
+            <param name="match">The match.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToArray(System.Text.RegularExpressions.Match)">
+            <summary>
+            Converts the matches to an array of match items
+            </summary>
+            <param name="match">The match.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ForEach(System.Text.RegularExpressions.Match,System.Action{System.Text.RegularExpressions.Match})">
             <summary>
             Enumerate through each match. Automatically calls NextMatch for you.
@@ -495,35 +813,69 @@
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.Match)">
             <summary>
-            Gets the first match group value.
+            Gets the first match item from the specified match.
             </summary>
             <param name="m">The match.</param>
             <returns></returns>
             <exception cref="T:System.InvalidOperationException">
             </exception>
         </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.Match)">
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.First(System.Text.RegularExpressions.Match,System.Func{System.Text.RegularExpressions.Match,System.Boolean})">
             <summary>
-            Gets the first match group value.
+            Gets the first match item from the specified match.
             </summary>
             <param name="m">The match.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.Match)">
+            <summary>
+            Gets the first match item from the specified match.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.FirstOrDefault(System.Text.RegularExpressions.Match,System.Func{System.Text.RegularExpressions.Match,System.Boolean})">
+            <summary>
+            Gets the first match item from the specified match.
+            </summary>
+            <param name="m">The m.</param>
+            <param name="predicate">The predicate.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.Match)">
             <summary>
-            Gets a single match group.
+            Gets a single match.
             </summary>
             <param name="m">The match.</param>
             <returns></returns>
             <exception cref="T:System.InvalidOperationException">
             </exception>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Single(System.Text.RegularExpressions.Match,System.Func{System.Text.RegularExpressions.Match,System.Boolean})">
+            <summary>
+            Gets a single match.
+            </summary>
+            <param name="m">The match.</param>
+            <param name="predicate">The predicate.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.Match)">
             <summary>
-            Gets a single match group or a default if no match.
+            Gets a single match or a default if no match.
             </summary>
             <param name="m">The match.</param>
             <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.SingleOrDefault(System.Text.RegularExpressions.Match,System.Func{System.Text.RegularExpressions.Match,System.Boolean})">
+            <summary>
+            Gets a single match or a default if no match.
+            </summary>
+            <param name="m">The match.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetCustomAttributeValue``2(System.Reflection.MemberInfo,System.Func{``0,``1})">
             <summary>
@@ -1300,6 +1652,34 @@
             <returns></returns>
             <exception cref="T:System.ArgumentException">value '{2}' must be a value between {0} and {1}.With ( low, high, i )</exception>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int16)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Int16)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.UInt16)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.UInt16)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToByteArray(System.IO.Stream)">
             <summary>
             Gets the byte array from a stream.
@@ -1585,6 +1965,14 @@
             Decodes a url encoded input string
             </summary>
             <param name="input">The input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Truncate(System.String,System.Int32)">
+            <summary>
+            Truncates the input string to the maximum length.
+            </summary>
+            <param name="input">The input.</param>
+            <param name="maxLength">The maximum length.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsNullable(System.Type)">
@@ -2031,6 +2419,11 @@
         <member name="P:Camalot.Common.Properties.Resources.Sequence_Empty">
             <summary>
               Looks up a localized string similar to Sequence contains no elements.
+            </summary>
+        </member>
+        <member name="P:Camalot.Common.Properties.Resources.Sequence_MoreTanOne">
+            <summary>
+              Looks up a localized string similar to Sequence contains more than one element.
             </summary>
         </member>
         <member name="P:Camalot.Common.Properties.Resources.XmlNode_UnknownNodeType">

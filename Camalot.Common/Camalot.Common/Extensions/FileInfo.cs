@@ -97,7 +97,7 @@ namespace Camalot.Common.Extensions {
 		/// Gets the extension of the specified file.
 		/// </summary>
 		/// <param name="file">The file.</param>
-		/// <returns></returns>
+		/// <returns>Just the extension, there will not be a leading ".".</returns>
 		public static String Extension(this FileInfo file) {
 			var ext = Path.GetExtension(file.Name);
 			ext = ext.REReplace(@"^\.", String.Empty);

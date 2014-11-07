@@ -204,4 +204,7 @@
   <data name="Sequence_Empty" xml:space="preserve">
     <value>Sequence contains no elements</value>
   </data>
+  <data name="Sequence_MoreTanOne" xml:space="preserve">
+    <value>Sequence contains more than one element</value>
+  </data>
 </root>
