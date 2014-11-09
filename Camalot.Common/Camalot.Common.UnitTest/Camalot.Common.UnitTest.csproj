@@ -84,6 +84,7 @@
     <Compile Include="InExtensions\InDateTime\ForToKind.cs" />
     <Compile Include="InExtensions\InDouble\ForIsEven.cs" />
     <Compile Include="InExtensions\InDouble\ForIsOdd.cs" />
+    <Compile Include="InExtensions\InLong\ForMultipliedScopes.cs" />
     <Compile Include="InExtensions\InMatch\ForFirst.cs" />
     <Compile Include="InExtensions\InMatch\ForFirstOrDefault.cs">
       <SubType>Code</SubType>

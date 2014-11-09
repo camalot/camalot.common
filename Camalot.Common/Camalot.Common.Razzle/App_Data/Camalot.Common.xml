@@ -4,6 +4,106 @@
         <name>Camalot.Common</name>
     </assembly>
     <members>
+        <member name="M:Camalot.Common.Arguments.#ctor(System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Arguments"/> class.
+            </summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Camalot.Common.Arguments.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Arguments"/> class.
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Arguments.Parse(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Parses the specified args.
+            </summary>
+            <param name="args">The args.</param>
+        </member>
+        <member name="M:Camalot.Common.Arguments.Get(System.String)">
+            <summary>
+            Gets the specified param value.
+            </summary>
+            <param name="param">The param.</param>
+            <returns>The value of the param.</returns>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
+        <member name="M:Camalot.Common.Arguments.Get(System.String[])">
+            <summary>
+            Gets the value of a param from the specified paramlist.
+            </summary>
+            <param name="paramlist">The paramlist.</param>
+            <returns>The value of the param.</returns>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
+        <member name="M:Camalot.Common.Arguments.ContainsKey(System.String)">
+            <summary>
+            Determines whether this instance contains the specified key.
+            </summary>
+            <param name="param">The param.</param>
+            <returns>
+            	<c>true</c> if this instance contains the specified key; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Arguments.ContainsKey(System.String[])">
+            <summary>
+            Determines whether this instance contains any of the params in the specified param list.
+            </summary>
+            <param name="paramlist">The paramlist.</param>
+            <returns>
+            	<c>true</c> if this instance contains any of the params in the specified param list; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Arguments.ContainsValue(System.String)">
+            <summary>
+            Determines whether the specified value contains value.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            	<c>true</c> if the specified value contains value; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Arguments.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:System.String"/> with the specified param.
+            </summary>
+            <value></value>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Item(System.String[])">
+            <summary>
+            Gets the <see cref="T:System.String"/> with the specified paramlist.
+            </summary>
+            <value></value>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Keys">
+            <summary>
+            Gets the keys.
+            </summary>
+            <value>The keys.</value>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Values">
+            <summary>
+            Gets the values.
+            </summary>
+            <value>The values.</value>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Count">
+            <summary>
+            Gets the count.
+            </summary>
+            <value>The count.</value>
+        </member>
         <member name="T:Camalot.Common.Attributes.ConfigurationPathAttribute">
             <summary>
             A helper attribute for defining configuration elements in the web config.
@@ -324,6 +424,355 @@
             <returns></returns>
             <exception cref="T:System.ArgumentException">Unexpected html color string format.</exception>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Decimal)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Decimal)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.T(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^12 (one trillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Tera(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^40
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Peta(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^50
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.P(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^15 (one quadrillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Exa(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^60
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.E(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^18 (one quintillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Zetta(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^70
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Z(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^21 (one sextillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Yotta(System.Decimal)">
+            <summary>
+            Multiplies the value by 2^80
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Y(System.Decimal)">
+            <summary>
+            Multiplies the value by 10^24 (one septillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Double)">
+            <summary>
+            Determines whether the specified value is even.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Double)">
+            <summary>
+            Determines whether the specified value is odd.
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.Double)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.Double)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.Double)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.Double)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.Double)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.Double)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.T(System.Double)">
+            <summary>
+            Multiplies the value by 10^12 (one trillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Tera(System.Double)">
+            <summary>
+            Multiplies the value by 2^40
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Peta(System.Double)">
+            <summary>
+            Multiplies the value by 2^50
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.P(System.Double)">
+            <summary>
+            Multiplies the value by 10^15 (one quadrillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Exa(System.Double)">
+            <summary>
+            Multiplies the value by 2^60
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.E(System.Double)">
+            <summary>
+            Multiplies the value by 10^18 (one quintillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Zetta(System.Double)">
+            <summary>
+            Multiplies the value by 2^70
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Z(System.Double)">
+            <summary>
+            Multiplies the value by 10^21 (one sextillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Yotta(System.Double)">
+            <summary>
+            Multiplies the value by 2^80
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Y(System.Double)">
+            <summary>
+            Multiplies the value by 10^24 (one septillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.To``1(System.IConvertible)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:System.OverflowException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.To``1(System.IConvertible,System.IFormatProvider)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <param name="formatProvider">The format provider.</param>
+            <returns></returns>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:System.OverflowException"></exception>
+            <exception cref="T:System.FormatException"></exception>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToOrDefault``1(System.IConvertible)">
+            <summary>
+            Converts the object to the specified type or to the default value if it cannot
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToOrDefault``1(System.IConvertible,System.IFormatProvider)">
+            <summary>
+            Converts the object to the specified type or to the default value if it cannot
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <param name="formatProvider">The format provider.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToOrValue``1(System.IConvertible,``0)">
+            <summary>
+            Converts the object to the specified type or to the specified value if it cannot
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToOrValue``1(System.IConvertible,System.IFormatProvider,``0)">
+            <summary>
+            Converts the object to the specified type or to the specified value if it cannot
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <param name="formatProvider">The format provider.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Epoch(System.DateTime)">
             <summary>
             just gets Epoch representation of DateTime
@@ -549,33 +998,133 @@
             <param name="value">The value.</param>
             <returns></returns>
         </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Decimal)">
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.Single)">
             <summary>
-            Determines whether the specified value is even.
+            Multiplies the value by 2^10
             </summary>
             <param name="value">The value.</param>
             <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
         </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Decimal)">
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.Single)">
             <summary>
-            Determines whether the specified value is odd.
+            Multiplies the value by 10^3 (one thousand)
             </summary>
             <param name="value">The value.</param>
             <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
         </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Double)">
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.Single)">
             <summary>
-            Determines whether the specified value is even.
+            Multiplies the value by 2^20
             </summary>
             <param name="value">The value.</param>
             <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
         </member>
-        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsOdd(System.Double)">
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.Single)">
             <summary>
-            Determines whether the specified value is odd.
+            Multiplies the value by 10^6 (one million)
             </summary>
             <param name="value">The value.</param>
             <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.Single)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.Single)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.T(System.Single)">
+            <summary>
+            Multiplies the value by 10^12 (one trillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Tera(System.Single)">
+            <summary>
+            Multiplies the value by 2^40
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Peta(System.Single)">
+            <summary>
+            Multiplies the value by 2^50
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.P(System.Single)">
+            <summary>
+            Multiplies the value by 10^15 (one quadrillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Exa(System.Single)">
+            <summary>
+            Multiplies the value by 2^60
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.E(System.Single)">
+            <summary>
+            Multiplies the value by 10^18 (one quintillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Zetta(System.Single)">
+            <summary>
+            Multiplies the value by 2^70
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Z(System.Single)">
+            <summary>
+            Multiplies the value by 10^21 (one sextillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Yotta(System.Single)">
+            <summary>
+            Multiplies the value by 2^80
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Y(System.Single)">
+            <summary>
+            Multiplies the value by 10^24 (one septillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToList(System.Text.RegularExpressions.GroupCollection)">
             <summary>
@@ -762,6 +1311,102 @@
             <param name="value">The value.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.Int32)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.Int32)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.UInt32)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.UInt32)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.Int32)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.Int32)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.UInt32)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.UInt32)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.Int32)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.Int32)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.UInt32)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.UInt32)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int64)">
             <summary>
             Determines whether the specified value is even.
@@ -789,6 +1434,230 @@
             </summary>
             <param name="value">The value.</param>
             <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.Int64)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.Int64)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Kilo(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^10
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.K(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^3 (one thousand)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="00deb6720cc278be8ca9" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.Int64)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.Int64)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Mega(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^20
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.M(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^6 (one million)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="d01704cf490ec59fc1e9" />	
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.Int64)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.Int64)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Giga(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^30
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.B(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^9 (one billion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Tera(System.Int64)">
+            <summary>
+            Multiplies the value by 2^40
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.T(System.Int64)">
+            <summary>
+            Multiplies the value by 10^12 (one trillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Tera(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^40
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.T(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^12 (one trillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="1061db9b00620852af88" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Peta(System.Int64)">
+            <summary>
+            Multiplies the value by 2^50
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.P(System.Int64)">
+            <summary>
+            Multiplies the value by 10^15 (one quadrillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Peta(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^50
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.P(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^15 (one quadrillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="c9dc04638a360990984a" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Exa(System.Int64)">
+            <summary>
+            Multiplies the value by 2^60
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.E(System.Int64)">
+            <summary>
+            Multiplies the value by 10^18 (one quintillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Exa(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^60
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.E(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^18 (one quintillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="2d53fbbd5442e8b731a0" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Zetta(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^70
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Z(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^21 (one sextillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="28b00f2ec3e2c83ef173" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Yotta(System.UInt64)">
+            <summary>
+            Multiplies the value by 2^80
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Y(System.UInt64)">
+            <summary>
+            Multiplies the value by 10^24 (one septillion)
+            </summary>
+            <param name="value">The value.</param>
+            <returns></returns>
+            <gist id="749614ebc92dc68211b7" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToList(System.Text.RegularExpressions.Match)">
             <summary>

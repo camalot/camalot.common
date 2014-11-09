@@ -11,7 +11,7 @@ namespace Camalot.Common.Extensions {
 		/// </summary>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool IsEven(this float value) {
+		public static bool IsEven(this double value) {
 			return (value % 2) == 0;
 		}
 
@@ -20,10 +20,9 @@ namespace Camalot.Common.Extensions {
 		/// </summary>
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
-		public static bool IsOdd(this float value) {
+		public static bool IsOdd(this double value) {
 			return (value % 2) != 0;
 		}
-
 
 		/// <summary>
 		/// Multiplies the value by 2^10
@@ -31,7 +30,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="00deb6720cc278be8ca9" />
-		public static float Kilo(this float value) {
+		public static double Kilo(this double value) {
 			return value * 1024L;
 		}
 
@@ -41,7 +40,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="00deb6720cc278be8ca9" />
-		public static float K(this float value) {
+		public static double K(this double value) {
 			return value * 1000L;
 		}
 
@@ -53,7 +52,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="d01704cf490ec59fc1e9" />	
-		public static float Mega(this float value) {
+		public static double Mega(this double value) {
 			return value.Kilo() * 1024L;
 		}
 
@@ -63,7 +62,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="d01704cf490ec59fc1e9" />	
-		public static float M(this float value) {
+		public static double M(this double value) {
 			return value.K() * 1000L;
 
 		}
@@ -75,7 +74,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="f1b33489ed80d3f8bc0f" />
-		public static float Giga(this float value) {
+		public static double Giga(this double value) {
 			return value.Mega() * 1024L;
 		}
 
@@ -85,7 +84,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="f1b33489ed80d3f8bc0f" />
-		public static float B(this float value) {
+		public static double B(this double value) {
 			return value.M() * 1000;
 		}
 
@@ -95,7 +94,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="1061db9b00620852af88" />
-		public static float T(this float value) {
+		public static double T(this double value) {
 			return value.B() * 1000L;
 		}
 
@@ -105,7 +104,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="1061db9b00620852af88" />
-		public static float Tera(this float value) {
+		public static double Tera(this double value) {
 			return value.Giga() * 1024L;
 		}
 
@@ -115,7 +114,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="c9dc04638a360990984a" />
-		public static float Peta(this float value) {
+		public static double Peta(this double value) {
 			return value.Tera() * 1024L;
 		}
 
@@ -125,7 +124,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="c9dc04638a360990984a" />
-		public static float P(this float value) {
+		public static double P(this double value) {
 			return value.T() * 1000;
 		}
 
@@ -135,7 +134,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="2d53fbbd5442e8b731a0" />
-		public static float Exa(this float value) {
+		public static double Exa(this double value) {
 			return value.Peta() * 1024L;
 		}
 
@@ -145,7 +144,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="2d53fbbd5442e8b731a0" />
-		public static float E(this float value) {
+		public static double E(this double value) {
 			return value.P() * 1000;
 		}
 
@@ -155,7 +154,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="28b00f2ec3e2c83ef173" />
-		public static float Zetta(this float value) {
+		public static double Zetta(this double value) {
 			return value.Exa() * 1024L;
 		}
 
@@ -165,7 +164,7 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="28b00f2ec3e2c83ef173" />
-		public static float Z(this float value) {
+		public static double Z(this double value) {
 			return value.E() * 1000;
 		}
 
@@ -176,8 +175,8 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="749614ebc92dc68211b7" />
-		public static float Yotta(this float value) {
-			return value.Zetta() * 1024F;
+		public static double Yotta(this double value) {
+			return value.Zetta() * 1024;
 		}
 
 		/// <summary>
@@ -186,9 +185,9 @@ namespace Camalot.Common.Extensions {
 		/// <param name="value">The value.</param>
 		/// <returns></returns>
 		/// <gist id="749614ebc92dc68211b7" />
-		public static float Y(this float value) {
-			return value.Z() * 1000F;
+		public static double Y(this double value) {
+			return value.Z() * 1000;
 		}
-
 	}
+
 }

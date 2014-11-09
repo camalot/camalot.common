@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arguments.cs" />
     <Compile Include="Attributes\ConfigurationPathAttribute.cs" />
     <Compile Include="Attributes\EnumDisplayAttribute.cs" />
     <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
@@ -64,6 +65,11 @@
     <Compile Include="Extensions\Byte.cs" />
     <Compile Include="Extensions\CaptureCollection.cs" />
     <Compile Include="Extensions\Color.cs" />
+    <Compile Include="Extensions\Decimal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\Double.cs" />
+    <Compile Include="Extensions\IConvertible.cs" />
     <Compile Include="Extensions\DateTime.cs" />
     <Compile Include="Extensions\Enum.cs" />
     <Compile Include="Extensions\FieldInfo.cs" />
