@@ -59,6 +59,8 @@
     <Compile Include="Attributes\EnumDisplayAttribute.cs" />
     <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
     <Compile Include="Attributes\EnumValueAttribute.cs" />
+    <Compile Include="Comparers\Comparer.cs" />
+    <Compile Include="Comparers\LambdaComparer.cs" />
     <Compile Include="Configuration\ConfigurationReader.cs" />
     <Compile Include="Configuration\IConfigurationReader.cs" />
     <Compile Include="Extensions\Assembly.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Extensions\IEnumerable.cs" />
     <Compile Include="Extensions\InList.cs" />
     <Compile Include="Extensions\Integer.cs" />
+    <Compile Include="Extensions\IOrderedQueryable.cs" />
     <Compile Include="Extensions\Long.cs" />
     <Compile Include="Extensions\Match.cs" />
     <Compile Include="Extensions\MemberInfo.cs" />

@@ -161,6 +161,60 @@
             The value.
             </value>
         </member>
+        <member name="T:Camalot.Common.Comparers.Comparer`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Camalot.Common.Comparers.Comparer`1.#ctor(System.Func{`0,`0,System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Comparers.Comparer`1"/> class.
+            </summary>
+            <param name="func">The function.</param>
+        </member>
+        <member name="M:Camalot.Common.Comparers.Comparer`1.Compare(`0,`0)">
+            <summary>
+            Compares two objects and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="x">The first object to compare.</param>
+            <param name="y">The second object to compare.</param>
+            <returns>
+            A signed integer that indicates the relative values of <paramref name="x" /> and <paramref name="y" />, as shown in the following table.Value Meaning Less than zero<paramref name="x" /> is less than <paramref name="y" />.Zero<paramref name="x" /> equals <paramref name="y" />.Greater than zero<paramref name="x" /> is greater than <paramref name="y" />.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Comparers.LambdaComparer`1.#ctor(System.Func{`0,`0,System.Boolean},System.Func{`0,System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Comparers.LambdaComparer`1"/> class.
+            </summary>
+            <param name="comparer">The comparer.</param>
+            <param name="hash">The hash.</param>
+        </member>
+        <member name="M:Camalot.Common.Comparers.LambdaComparer`1.#ctor(System.Func{`0,`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Comparers.LambdaComparer`1"/> class.
+            </summary>
+            <param name="comparer">The comparer.</param>
+        </member>
+        <member name="M:Camalot.Common.Comparers.LambdaComparer`1.Equals(`0,`0)">
+            <summary>
+            Determines whether the specified objects are equal.
+            </summary>
+            <param name="x">The first object of type <paramref name="T" /> to compare.</param>
+            <param name="y">The second object of type <paramref name="T" /> to compare.</param>
+            <returns>
+            true if the specified objects are equal; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Camalot.Common.Comparers.LambdaComparer`1.GetHashCode(`0)">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <param name="obj">The object.</param>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
         <member name="T:Camalot.Common.Configuration.ConfigurationReader">
             <summary>
             Gets a configuration object from the configuration context.
@@ -1265,6 +1319,42 @@
             <param name="value">The value.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.OrderBy``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Order by the specified property ascending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.OrderByDescending``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Order by the specified property descending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ThenBy``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Then order by the specified property ascending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ThenByDescending``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Then order by the specified property descending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.In``1(``0,``0[])">
             <summary>
             Checks if the source is in the specified list of values
@@ -1406,6 +1496,42 @@
             <param name="value">The value.</param>
             <returns></returns>
             <gist id="f1b33489ed80d3f8bc0f" />
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.OrderBy``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            Order by the specified property ascending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.OrderByDescending``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            Order by the specified property descending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ThenBy``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            Then order by the specified property ascending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ThenByDescending``1(System.Linq.IOrderedQueryable{``0},System.String)">
+            <summary>
+            Then order by the specified property descending.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="property">The property.</param>
+            <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int64)">
             <summary>
