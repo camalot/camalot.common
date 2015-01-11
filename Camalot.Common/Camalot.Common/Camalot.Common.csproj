@@ -33,7 +33,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
+	
+  <PropertyGroup Condition="Exists('..\build\camalot.pfx')">
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\build\camalot.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+	<PropertyGroup Condition="!Exists('..\build\camalot.pfx')">
+		<SignAssembly>false</SignAssembly>
+	</PropertyGroup>
+
+		<ItemGroup>
     <Reference Include="MoreLinq, Version=1.1.17511.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\morelinq.1.1.0\lib\net35\MoreLinq.dll</HintPath>
@@ -59,6 +68,9 @@
     <Compile Include="Attributes\EnumDisplayAttribute.cs" />
     <Compile Include="Attributes\EnumIgnoreAttribute.cs" />
     <Compile Include="Attributes\EnumValueAttribute.cs" />
+    <Compile Include="Collections\IPagedEnumerable.cs" />
+    <Compile Include="Collections\IPagingSettings.cs" />
+    <Compile Include="Collections\PagedEnumerable.cs" />
     <Compile Include="Comparers\Comparer.cs" />
     <Compile Include="Comparers\LambdaComparer.cs" />
     <Compile Include="Configuration\ConfigurationReader.cs" />
@@ -83,6 +95,8 @@
     <Compile Include="Extensions\InList.cs" />
     <Compile Include="Extensions\Integer.cs" />
     <Compile Include="Extensions\IOrderedQueryable.cs" />
+    <Compile Include="Extensions\IPagedEnumerable.cs" />
+    <Compile Include="Extensions\IPagingSettings.cs" />
     <Compile Include="Extensions\Long.cs" />
     <Compile Include="Extensions\Match.cs" />
     <Compile Include="Extensions\MemberInfo.cs" />
@@ -124,7 +138,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Collections\" />
     <Folder Include="Configuration\Handlers\" />
     <Folder Include="IO\" />
   </ItemGroup>

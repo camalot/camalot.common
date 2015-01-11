@@ -33,7 +33,17 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
+
+	<PropertyGroup Condition="Exists('..\build\camalot.pfx')">
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\build\camalot.pfx</AssemblyOriginatorKeyFile>
+	</PropertyGroup>
+	<PropertyGroup Condition="!Exists('..\build\camalot.pfx')">
+		<SignAssembly>false</SignAssembly>
+	</PropertyGroup>
+
+
+	<ItemGroup>
     <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>

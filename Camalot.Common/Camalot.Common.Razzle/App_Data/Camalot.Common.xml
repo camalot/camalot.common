@@ -161,6 +161,107 @@
             The value.
             </value>
         </member>
+        <member name="P:Camalot.Common.Collections.IPagedEnumerable`1.Total">
+            <summary>
+            Gets the total.
+            </summary>
+            <value>
+            The total.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.IPagedEnumerable`1.PageSize">
+            <summary>
+            Gets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.IPagedEnumerable`1.PageIndex">
+            <summary>
+            Gets the index of the page.
+            </summary>
+            <value>
+            The index of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.IPagedEnumerable`1.PageCount">
+            <summary>
+            Gets the page count.
+            </summary>
+            <value>
+            The page count.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.IPagedEnumerable`1.Results">
+            <summary>
+            Gets the results.
+            </summary>
+            <value>
+            The results.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Collections.PagedEnumerable`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Camalot.Common.Collections.PagedEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Collections.PagedEnumerable`1"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="pageIndex">Index of the page.</param>
+            <param name="pageSize">Size of the page.</param>
+        </member>
+        <member name="M:Camalot.Common.Collections.PagedEnumerable`1.#ctor(System.Collections.Generic.IEnumerable{`0},Camalot.Common.Collections.IPagingSettings{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Camalot.Common.Collections.PagedEnumerable`1"/> class.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="paging">The paging.</param>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerable`1.Total">
+            <summary>
+            Gets the total.
+            </summary>
+            <value>
+            The total.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerable`1.PageSize">
+            <summary>
+            Gets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerable`1.PageIndex">
+            <summary>
+            Gets the index of the page.
+            </summary>
+            <value>
+            The index of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerable`1.PageCount">
+            <summary>
+            Gets the page count.
+            </summary>
+            <value>
+            The page count.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerable`1.Results">
+            <summary>
+            Gets the results.
+            </summary>
+            <value>
+            The results.
+            </value>
+        </member>
         <member name="T:Camalot.Common.Comparers.Comparer`1">
             <summary>
             
@@ -1531,6 +1632,34 @@
             <typeparam name="T"></typeparam>
             <param name="source">The source.</param>
             <param name="property">The property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsPagedEnumerable``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Converts the IEnumerable to a PagedEnumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="page">The page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.AsPagedEnumerable``1(System.Collections.Generic.IEnumerable{``0},Camalot.Common.Collections.IPagingSettings{``0})">
+            <summary>
+            Converts the IEnumerable to a PagedEnumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">The source.</param>
+            <param name="settings">The settings.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ConvertTo``2(Camalot.Common.Collections.IPagingSettings{``0})">
+            <summary>
+            Converts the specified source to the target.
+            </summary>
+            <typeparam name="TSource">The type of the source.</typeparam>
+            <typeparam name="TTarget">The type of the target.</typeparam>
+            <param name="source">The source.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsEven(System.Int64)">

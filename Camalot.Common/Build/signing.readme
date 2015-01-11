@@ -1,0 +1,1 @@
+If you want to sign the assembly, a PFX key must be placed in the ./Build/ directory. The file name must be camalot.pfx.
