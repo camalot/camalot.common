@@ -3099,6 +3099,34 @@
             <param name="maxLength">The maximum length.</param>
             <returns></returns>
         </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Runs the task function synchronously.
+            </summary>
+            <param name="task">The task.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Runs the task function synchronously.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RunSync(System.Threading.Tasks.Task)">
+            <summary>
+            Runs the task synchronously.
+            </summary>
+            <param name="task">The task.</param>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.RunSync``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Runs the task synchronously.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.IsNullable(System.Type)">
             <summary>
             Determines whether the specified type is nullable.
@@ -3760,5 +3788,7 @@
             The types.
             </value>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Camalot.Common.TaskHelper.RunSync(System.Func{System.Threading.Tasks.Task})" -->
+        <!-- Badly formed XML comment ignored for member "M:Camalot.Common.TaskHelper.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})" -->
     </members>
 </doc>
