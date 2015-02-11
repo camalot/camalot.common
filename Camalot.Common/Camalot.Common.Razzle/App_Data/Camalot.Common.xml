@@ -262,6 +262,84 @@
             The results.
             </value>
         </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel.Total">
+            <summary>
+            Gets the total.
+            </summary>
+            <value>
+            The total.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel.PageSize">
+            <summary>
+            Gets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel.PageIndex">
+            <summary>
+            Gets the index of the page.
+            </summary>
+            <value>
+            The index of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel.PageCount">
+            <summary>
+            Gets the page count.
+            </summary>
+            <value>
+            The page count.
+            </value>
+        </member>
+        <member name="T:Camalot.Common.Collections.PagedEnumerableModel`1">
+            <summary>
+            This is used to map between PagedEnumerable and something that can be mapped out with automapper.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel`1.Total">
+            <summary>
+            Gets the total.
+            </summary>
+            <value>
+            The total.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel`1.PageSize">
+            <summary>
+            Gets the size of the page.
+            </summary>
+            <value>
+            The size of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel`1.PageIndex">
+            <summary>
+            Gets the index of the page.
+            </summary>
+            <value>
+            The index of the page.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel`1.PageCount">
+            <summary>
+            Gets the page count.
+            </summary>
+            <value>
+            The page count.
+            </value>
+        </member>
+        <member name="P:Camalot.Common.Collections.PagedEnumerableModel`1.Results">
+            <summary>
+            Gets the results.
+            </summary>
+            <value>
+            The results.
+            </value>
+        </member>
         <member name="T:Camalot.Common.Comparers.Comparer`1">
             <summary>
             
@@ -385,6 +463,35 @@
             Gets the string representation of the array of bytes.
             </summary>
             <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Gets the string from a byte array.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="index">The index.</param>
+            <param name="count">The count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[],System.Int32,System.Int32,System.Text.Encoding)">
+            <summary>
+            Gets the string from a byte array.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="index">The index.</param>
+            <param name="count">The count.</param>
+            <param name="encoding">The encoding.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.GetString(System.Byte[],System.Int32,System.Int32,System.String)">
+            <summary>
+            Gets the string from a byte array.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="index">The index.</param>
+            <param name="count">The count.</param>
+            <param name="encoding">The encoding.</param>
             <returns></returns>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.ToBase64String(System.Byte[])">

@@ -69,6 +69,7 @@
     <Compile Include="Collections\IPagedEnumerable.cs" />
     <Compile Include="Collections\IPagingSettings.cs" />
     <Compile Include="Collections\PagedEnumerable.cs" />
+    <Compile Include="Collections\PagedEnumerableModel.cs" />
     <Compile Include="Comparers\Comparer.cs" />
     <Compile Include="Comparers\LambdaComparer.cs" />
     <Compile Include="Configuration\ConfigurationReader.cs" />

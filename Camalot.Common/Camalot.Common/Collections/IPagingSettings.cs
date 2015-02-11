@@ -9,6 +9,9 @@ namespace Camalot.Common.Collections {
 	public interface IPagingSettings<T> {
 		int Skip { get; set; }
 		int Take { get; set; }
+		string OrderBy { get; set; }
+		bool IsOrderDescending { get; set; }
+
 	}
 
 	public class PagingSettings<T> : IPagingSettings<T> {
@@ -23,5 +26,9 @@ namespace Camalot.Common.Collections {
 		}
 		public int Skip { get; set; }
 		public int Take { get; set; }
+
+		public string OrderBy { get; set; }
+		public bool IsOrderDescending { get; set; }
+
 	}
 }

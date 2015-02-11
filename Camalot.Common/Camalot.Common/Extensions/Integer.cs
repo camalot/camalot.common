@@ -164,5 +164,25 @@ namespace Camalot.Common.Extensions {
 			return value.M() * 1000;
 		}
 
+		/// <summary>
+		/// Shortens a number. 1000 = 1K, 110000 = 1.1M
+		/// </summary>
+		/// <param name="value">The value.</param>
+		/// <param name="start">The start.</param>
+		/// <returns></returns>
+		public static string ToShortNumberString(this int value, int start) {
+			string[] suf = { "H", "K", "M", "B", "T", "q", "Q", "s" };
+			if(value < start)
+				return value.ToString();
+			long bytes = Math.Abs(value);
+			int place = Convert.ToInt32(Math.Floor(Math.Log(bytes, 1.K())));
+			double num = Math.Round(bytes / Math.Pow(1.K(), place), 1);
+			return (Math.Sign(value) * num).ToString() + suf[place];
+		}
+
+		public static string ToShortNumberString(this int value) {
+			return value.ToShortNumberString(10.K());
+		}
+
 	}
 }

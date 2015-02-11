@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Camalot.Common.Extensions;
@@ -28,11 +30,29 @@ namespace Camalot.Common.Collections {
 		/// <param name="source">The source.</param>
 		/// <param name="paging">The paging.</param>
 		public PagedEnumerable(IEnumerable<T> source, IPagingSettings<T> paging) {
+			var queryable = source.Require().AsQueryable();
+			if(!string.IsNullOrWhiteSpace(paging.OrderBy)) {
+				string command = paging.IsOrderDescending ? "OrderByDescending" : "OrderBy";
+				var type = typeof(T);
+				var property = type.GetProperty(paging.OrderBy, BindingFlags.IgnoreCase | BindingFlags.Default | BindingFlags.Public | BindingFlags.Instance | BindingFlags.GetProperty );
+				if(property != null) {
+					var parameter = Expression.Parameter(type, "p");
+
+					var propertyAccess = Expression.MakeMemberAccess(parameter, property);
+					var orderByExpression = Expression.Lambda(propertyAccess, parameter);
+					var resultExpression = Expression.Call(typeof(Queryable), command, new Type[] { type, property.PropertyType },
+																				queryable.Expression, Expression.Quote(orderByExpression));
+					queryable = queryable.Provider.CreateQuery<T>(resultExpression);
+				}
+
+			}
+
 			PageIndex = paging.Skip == 0 ? 0 : (int)Math.Ceiling(paging.Skip / (double)paging.Take);
 			PageSize = paging.Take;
-			Total = source.Count();
-			Results = source.Require().Skip(paging.Skip).Take(paging.Take);
+			Total = queryable.Count();
+			Results = queryable.Skip(paging.Skip).Take(paging.Take);
 		}
+
 
 		/// <summary>
 		/// Gets the total.
