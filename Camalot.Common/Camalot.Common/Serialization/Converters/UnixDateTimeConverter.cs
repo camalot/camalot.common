@@ -22,38 +22,41 @@ namespace Camalot.Common.Serialization.Converters {
 		/// The object value.
 		/// </returns>
 		/// <exception cref="Exception"></exception>
-		public override object ReadJson ( JsonReader reader, Type objectType, object existingValue,
-		JsonSerializer serializer ) {
-			if ( reader.TokenType != JsonToken.Float && reader.TokenType != JsonToken.Integer ) {
-				throw new Exception (
-						String.Format ( "Unexpected token parsing date. Expected Integer, got {0}. {1}",
-						reader.TokenType, reader.Value ) );
+		public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+		JsonSerializer serializer) {
+			if(reader.TokenType != JsonToken.Float && reader.TokenType != JsonToken.Integer) {
+				throw new Exception(
+						String.Format("Unexpected token parsing date. Expected Integer, got {0}. {1}",
+						reader.TokenType, reader.Value));
 			}
 
-
-			if ( reader.Value != null ) {
-				var date = new DateTime ( 1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc );
-				var val = reader.Value.ToString();
-				if ( reader.TokenType == JsonToken.Float ) {
-					if(val.Length >= 13) {
-						var ticks = (double)reader.Value;
-						date = date.AddMilliseconds(ticks / 1000);
+			if(reader.Value != null) {
+				try {
+					var date = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+					var val = reader.Value.ToString();
+					if(reader.TokenType == JsonToken.Float) {
+						if(val.Length >= 13) {
+							var ticks = (double)reader.Value;
+							date = date.AddMilliseconds(ticks / 1000);
+						} else {
+							var ticks = (double)reader.Value;
+							date = date.AddSeconds(ticks);
+						}
 					} else {
-						var ticks = (double)reader.Value;
-						date = date.AddSeconds(ticks);
+						if(val.Length >= 13) {
+							var ticks = (long)reader.Value;
+							date = date.AddMilliseconds(ticks / 1000);
+						} else {
+							var ticks = (long)reader.Value;
+							date = date.AddSeconds(ticks);
+						}
 					}
-				} else {
-					if(val.Length >= 13) {
-						var ticks = (long)reader.Value;
-						date = date.AddMilliseconds(ticks / 1000);
-					} else {
-						var ticks = (long)reader.Value;
-						date = date.AddSeconds(ticks);
-					}
+					return DateTime.SpecifyKind(date, DateTimeKind.Utc);
+				} catch(IndexOutOfRangeException ioore) {
+					return existingValue;
 				}
-				return DateTime.SpecifyKind ( date, DateTimeKind.Utc );
 			} else {
-				return null;
+				return existingValue;
 			}
 		}
 		/// <summary>
@@ -64,27 +67,28 @@ namespace Camalot.Common.Serialization.Converters {
 		/// <param name="serializer">The calling serializer.</param>
 		/// <exception cref="ArgumentOutOfRangeException"></exception>
 		/// <exception cref="Exception">Expected date object value.</exception>
-		public override void WriteJson ( JsonWriter writer, object value,
-		JsonSerializer serializer ) {
+		public override void WriteJson(JsonWriter writer, object value,
+		JsonSerializer serializer) {
 			long ticks;
-			if ( value is DateTime ) {
-				var epoc = new DateTime ( 1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc );
+			if(value is DateTime) {
+
+				var epoc = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
 				var dt = (DateTime)value;
-				if ( dt.Kind == DateTimeKind.Local ) {
-					dt = new DateTimeOffset ( dt.ToUniversalTime ( ), new TimeSpan ( 0 ) ).DateTime;
+				if(dt.Kind == DateTimeKind.Local) {
+					dt = new DateTimeOffset(dt.ToUniversalTime(), new TimeSpan(0)).DateTime;
 				}
 
 				var delta = dt - epoc;
-				if ( delta.TotalSeconds < 0 ) {
-					throw new ArgumentOutOfRangeException (
-							String.Format ( "Unix epoch starts January 1st, 1970 - {0}", value.ToString ( ) ) );
+				if(delta.TotalSeconds < 0) {
+					ticks = 0;
+				} else {
+					ticks = (long)delta.TotalSeconds;
 				}
-				ticks = (long)delta.TotalSeconds;
 			} else {
-				throw new Exception ( "Expected date object value." );
+				throw new Exception("Expected date object value.");
 			}
-			writer.WriteValue ( ticks );
+			writer.WriteValue(ticks);
 		}
 	}
 }
