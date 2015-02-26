@@ -33,12 +33,23 @@ namespace Camalot.Common.Serialization.Converters {
 
 			if ( reader.Value != null ) {
 				var date = new DateTime ( 1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc );
+				var val = reader.Value.ToString();
 				if ( reader.TokenType == JsonToken.Float ) {
-					var ticks = (double)reader.Value;
-					date = date.AddSeconds ( ticks );
+					if(val.Length >= 13) {
+						var ticks = (double)reader.Value;
+						date = date.AddMilliseconds(ticks / 1000);
+					} else {
+						var ticks = (double)reader.Value;
+						date = date.AddSeconds(ticks);
+					}
 				} else {
-					var ticks = (long)reader.Value;
-					date = date.AddSeconds ( ticks );
+					if(val.Length >= 13) {
+						var ticks = (long)reader.Value;
+						date = date.AddMilliseconds(ticks / 1000);
+					} else {
+						var ticks = (long)reader.Value;
+						date = date.AddSeconds(ticks);
+					}
 				}
 				return DateTime.SpecifyKind ( date, DateTimeKind.Utc );
 			} else {

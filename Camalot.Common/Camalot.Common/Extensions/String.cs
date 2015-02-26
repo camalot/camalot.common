@@ -345,5 +345,7 @@ namespace Camalot.Common.Extensions {
 		public static string Truncate(this string input, int maxLength) {
 			return input.Length <= maxLength ? input : new string(input.Take(maxLength).ToArray());
 		}
+
+
 	}
 }
