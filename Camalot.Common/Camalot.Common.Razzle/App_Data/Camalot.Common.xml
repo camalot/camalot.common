@@ -21,6 +21,20 @@
             </summary>
             <param name="args">The args.</param>
         </member>
+        <member name="P:Camalot.Common.Arguments.Item(System.String)">
+            <summary>
+            Gets the <see cref="T:System.String"/> with the specified param.
+            </summary>
+            <value></value>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
+        <member name="P:Camalot.Common.Arguments.Item(System.String[])">
+            <summary>
+            Gets the <see cref="T:System.String"/> with the specified paramlist.
+            </summary>
+            <value></value>
+            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
+        </member>
         <member name="M:Camalot.Common.Arguments.Get(System.String)">
             <summary>
             Gets the specified param value.
@@ -64,28 +78,6 @@
             	<c>true</c> if the specified value contains value; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:Camalot.Common.Arguments.ToString">
-            <summary>
-            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
-            </summary>
-            <returns>
-            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
-            </returns>
-        </member>
-        <member name="P:Camalot.Common.Arguments.Item(System.String)">
-            <summary>
-            Gets the <see cref="T:System.String"/> with the specified param.
-            </summary>
-            <value></value>
-            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
-        </member>
-        <member name="P:Camalot.Common.Arguments.Item(System.String[])">
-            <summary>
-            Gets the <see cref="T:System.String"/> with the specified paramlist.
-            </summary>
-            <value></value>
-            <exception cref="T:System.IndexOutOfRangeException">If it does not contain the specified param.</exception>
-        </member>
         <member name="P:Camalot.Common.Arguments.Keys">
             <summary>
             Gets the keys.
@@ -104,6 +96,14 @@
             </summary>
             <value>The count.</value>
         </member>
+        <member name="M:Camalot.Common.Arguments.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+        </member>
         <member name="T:Camalot.Common.Attributes.ConfigurationPathAttribute">
             <summary>
             A helper attribute for defining configuration elements in the web config.
@@ -111,7 +111,7 @@
             <gist id="6fc378fae7d7a51c58a1">Define the configuration</gist>
             <gist id="6214ba8cf5bc2eabeb45">Define the xml configuration in the app/web config file</gist>
             <gist id="eab0e87c8adf9548d41f">Load the configuration</gist>
-            <see cref="T:Camalot.Common.Configuration.ConfigurationReader"/>
+            <see cref="T:Camalot.Common.Configuration.ConfigurationReader" />
         </member>
         <member name="M:Camalot.Common.Attributes.ConfigurationPathAttribute.#ctor(System.String)">
             <summary>
@@ -401,7 +401,16 @@
             <gist id="6fc378fae7d7a51c58a1">Define the configuration</gist>
             <gist id="6214ba8cf5bc2eabeb45">Define the xml configuration in the app/web config file</gist>
             <gist id="eab0e87c8adf9548d41f">Load the configuration</gist>
-            <see cref="T:Camalot.Common.Attributes.ConfigurationPathAttribute"/>
+            <see cref="T:Camalot.Common.Attributes.ConfigurationPathAttribute" />
+        </member>
+        <member name="M:Camalot.Common.Configuration.ConfigurationReader.Get``1">
+            <summary>
+            Gets a configuration object from the configuration context.
+            </summary>
+            <typeparam name="T">The configuration object to get from the context.</typeparam>
+            <returns></returns>
+            <gist id="eab0e87c8adf9548d41f">Load the configuration</gist>
+            <see cref="T:Camalot.Common.Attributes.ConfigurationPathAttribute" />
         </member>
         <member name="T:Camalot.Common.Configuration.IConfigurationReader">
             <summary>
@@ -414,15 +423,6 @@
             </summary>
             <typeparam name="T">The configuration object to get from the context.</typeparam>
             <returns></returns>
-        </member>
-        <member name="M:Camalot.Common.Configuration.ConfigurationReader.Get``1">
-            <summary>
-            Gets a configuration object from the configuration context.
-            </summary>
-            <typeparam name="T">The configuration object to get from the context.</typeparam>
-            <returns></returns>
-            <gist id="eab0e87c8adf9548d41f">Load the configuration</gist>
-            <see cref="T:Camalot.Common.Attributes.ConfigurationPathAttribute"/>
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.WithAttribute``1(System.Reflection.Assembly)">
             <summary>
@@ -2379,7 +2379,7 @@
             <param name="message">The message.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentException"></exception>
-            <gist id="abd4a899b9fe766184de"/>
+            <gist id="abd4a899b9fe766184de" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.Guid)">
             <summary>
@@ -2408,7 +2408,7 @@
             <param name="message">The message.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentException"></exception>
-            <gist id="abd4a899b9fe766184de"/>
+            <gist id="abd4a899b9fe766184de" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(``0,System.Func{``0,System.Boolean},System.String,System.String)">
             <summary>
@@ -2451,7 +2451,7 @@
             <param name="message">The message.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentException"></exception>
-            <gist id="abd4a899b9fe766184de"/>
+            <gist id="abd4a899b9fe766184de" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require(System.String)">
             <summary>
@@ -2471,7 +2471,7 @@
             <param name="message">The message.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentException"></exception>
-            <gist id="abd4a899b9fe766184de"/>
+            <gist id="abd4a899b9fe766184de" />
         </member>
         <member name="M:Camalot.Common.Extensions.CamalotCommonExtensions.Require``1(System.Nullable{``0})">
             <summary>
@@ -3398,13 +3398,21 @@
         </member>
         <member name="M:Camalot.Common.Mime.FileTypeMap.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Camalot.Common.Mime.FileTypeMap"/> class.
+            Initializes a new instance of the <see cref="T:Camalot.Common.Mime.FileTypeMap" /> class.
             </summary>
         </member>
         <member name="M:Camalot.Common.Mime.FileTypeMap.#cctor">
             <summary>
             Initializes the <see cref="T:Camalot.Common.Mime.FileTypeMap"/> class.
             </summary>
+        </member>
+        <member name="P:Camalot.Common.Mime.FileTypeMap.DefaultFileTypeMap">
+            <summary>
+            Gets the default file type map.
+            </summary>
+            <value>
+            The default file type map.
+            </value>
         </member>
         <member name="M:Camalot.Common.Mime.FileTypeMap.GetMimeType(System.IO.FileInfo)">
             <summary>
@@ -3425,14 +3433,6 @@
             Gets all MimeTypes.
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:Camalot.Common.Mime.FileTypeMap.DefaultFileTypeMap">
-            <summary>
-            Gets the default file type map.
-            </summary>
-            <value>
-            The default file type map.
-            </value>
         </member>
         <member name="P:Camalot.Common.Mime.FileTypeMap.DefaultMimeType">
             <summary>
@@ -3532,6 +3532,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Camalot.Common.Net.HttpMethods">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="F:Camalot.Common.Net.HttpMethods.OPTIONS">
             <summary>
             The OPTIONS method represents a request for information about the communication options available on the request/response chain identified by the Request-URI. 
@@ -3593,6 +3598,48 @@
             <summary>
             This specification reserves the method name CONNECT for use with a proxy that can dynamically switch to being a tunnel (e.g. SSL tunneling [44]).
             </summary>
+        </member>
+        <member name="T:Camalot.Common.Net.HttpWebRequestBuilder">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Camalot.Common.Net.HttpWebRequestBuilder.Build(System.Uri)">
+            <summary>
+            Starts building the HttpWebRequest.
+            </summary>
+            <param name="uri">The URI.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Net.HttpWebRequestBuilder.Setting``1(System.Linq.Expressions.Expression{System.Func{System.Net.HttpWebRequest,``0}},``0)">
+            <summary>
+            Settings the specified setting.
+            </summary>
+            <typeparam name="V"></typeparam>
+            <param name="xpression">The xpression.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Net.HttpWebRequestBuilder.SetHeader(System.String,System.String)">
+            <summary>
+            Sets a header.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Net.HttpWebRequestBuilder.SetHeader(System.String)">
+            <summary>
+            Sets a header.
+            </summary>
+            <param name="header">The header.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Camalot.Common.Net.HttpWebRequestBuilder.Create">
+            <summary>
+            Creates the instance of the HttpWebRequest.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:Camalot.Common.Properties.Resources">
             <summary>
@@ -3769,7 +3816,7 @@
             <summary>
             Reads the JSON representation of the object.
             </summary>
-            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
             <param name="objectType">Type of the object.</param>
             <param name="existingValue">The existing value of object being read.</param>
             <param name="serializer">The calling serializer.</param>
@@ -3782,7 +3829,7 @@
             <summary>
             Writes the JSON representation of the object.
             </summary>
-            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
             <param name="value">The value.</param>
             <param name="serializer">The calling serializer.</param>
             <exception cref="T:System.Exception">Expected guid object value.</exception>
@@ -3814,7 +3861,7 @@
             <summary>
             Reads the JSON representation of the object.
             </summary>
-            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
             <param name="objectType">Type of the object.</param>
             <param name="existingValue">The existing value of object being read.</param>
             <param name="serializer">The calling serializer.</param>
@@ -3828,7 +3875,7 @@
             <summary>
             Writes the JSON representation of the object.
             </summary>
-            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
             <param name="value">The value.</param>
             <param name="serializer">The calling serializer.</param>
             <exception cref="T:System.ArgumentException">Expected token parsing color, expected Color, got {0}..With ( value.GetType ( ).Name )</exception>
@@ -3842,7 +3889,7 @@
             <summary>
             Reads the JSON representation of the object.
             </summary>
-            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader"/> to read from.</param>
+            <param name="reader">The <see cref="T:Newtonsoft.Json.JsonReader" /> to read from.</param>
             <param name="objectType">Type of the object.</param>
             <param name="existingValue">The existing value of object being read.</param>
             <param name="serializer">The calling serializer.</param>
@@ -3855,7 +3902,7 @@
             <summary>
             Writes the JSON representation of the object.
             </summary>
-            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter"/> to write to.</param>
+            <param name="writer">The <see cref="T:Newtonsoft.Json.JsonWriter" /> to write to.</param>
             <param name="value">The value.</param>
             <param name="serializer">The calling serializer.</param>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>

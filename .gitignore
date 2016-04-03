@@ -9,6 +9,9 @@
 .localhistory/
 *.nupkg
 
+.vs/
+.vscode/
+
 # Build results
 [Dd]ebug/
 [Rr]elease/

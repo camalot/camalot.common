@@ -14,7 +14,6 @@ namespace Camalot.Common.Extensions {
 		/// <param name="stream">The stream.</param>
 		/// <returns></returns>
 		public static byte[] ToByteArray(this Stream stream) {
-			var bytes = new byte[4096];
 			using(stream) {
 				using(var ms = new MemoryStream()) {
 					stream.CopyTo(ms);
@@ -30,7 +29,6 @@ namespace Camalot.Common.Extensions {
 		/// <param name="stream">The stream.</param>
 		/// <returns></returns>
 		public async static Task<byte[]> ToByteArrayAsync(this Stream stream) {
-			var bytes = new byte[4096];
 			using(stream) {
 				using(var ms = new MemoryStream()) {
 					await stream.CopyToAsync(ms);

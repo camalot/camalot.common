@@ -1,6 +1,8 @@
 camalot.common
 ==============
 
+[![Build status](https://ci.appveyor.com/api/projects/status/m3otng2vc8tfurfx?svg=true)](https://ci.appveyor.com/project/camalot/camalot-common)
+
 > Camalot.Common is a collection of classes, extensions and other things that I have written over the years that I used to find myself copying the files 
 in to my projects every time I created them. 
 
