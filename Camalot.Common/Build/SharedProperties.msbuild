@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0" DefaultTargets="Build">
+	<Import Project="$(MSBuildProjectDirectory)\..\.build\MSBuild.Community.Tasks.targets" Condition="'$(MSBuildCommunityTasksPath)' == ''"/>
+
+	<Import Project="$(MSBuildProjectDirectory)\NuGetPublish.msbuild"
+				Condition="Exists('$(MSBuildProjectDirectory)\NuGetPublish.msbuild') AND '$(PublishNuGet)' != 'PublishNuGet' " />
+
+	<!-- http://www.appveyor.com/docs/environment-variables -->
+
+	<PropertyGroup>
+		<!-- This indicates that this file has been loaded -->
+		<SharedProperties>SharedProperties</SharedProperties>
+
+		<CI_BUILD_NUMBER Condition=" '$(APPVEYOR)' == 'True' AND '$(APPVEYOR_BUILD_NUMBER)' != '' ">$(APPVEYOR_BUILD_NUMBER)</CI_BUILD_NUMBER>
+
+		<Major>1</Major>
+		<Minor>0</Minor>
+		<Build>$(CI_BUILD_NUMBER)</Build>
+		<Revision>0</Revision>
+
+		<VersionFile>$(MSBuildProjectDirectory)\..\Shared\VersionAssemblyInfo.txt</VersionFile>
+		<SkipIncrementAssemblyVersion Condition=" '$(SkipIncrementAssemblyVersion)' == '' ">False</SkipIncrementAssemblyVersion>
+		<ProgramFiles32>$(MSBuildProgramFiles32)</ProgramFiles32>
+		<!--Use OS env var as a fallback:- 32 bit MSBuild 2.0/3.5 on x64 will use this-->
+		<ProgramFiles32 Condition=" '$(ProgramFiles32)' == '' ">$(ProgramFiles%28x86%29)</ProgramFiles32>
+		<!-- Handle MSBuild 2.0/3.5 running in 64 bit mode - neither of the above env vars are available. http://stackoverflow.com/questions/336633
+       NB this trick (Adding a literal " (x86)" to the 64 bit Program Files path) may or may not work on all versions/locales of Windows -->
+		<ProgramFiles32 Condition ="'$(ProgramFiles32)' == '' AND 'AMD64' == '$(PROCESSOR_ARCHITECTURE)'">$(ProgramFiles) (x86)</ProgramFiles32>
+		<!--Catch-all - handles .NET 2.0/3.5 non-AMD64 and .NET 2.0 on x86 -->
+		<ProgramFiles32 Condition=" '$(ProgramFiles32)' == '' ">$(ProgramFiles)</ProgramFiles32>
+		<CCNetProject Condition="'$(CCNetProject)' == ''">Camalot.Common</CCNetProject>
+		<OriginalAssemblyName>Camalot.Common</OriginalAssemblyName>
+
+		<GIT_HOME Condition=" '$(GIT_HOME)' == '' ">$(ProgramFiles32)\Git\bin</GIT_HOME>
+
+		<Configuration Condition="'$(CCNetBuildCondition)' == 'ForceBuild'">Release</Configuration>
+		<Configuration Condition="'$(CCNetBuildCondition)' != 'ForceBuild'">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' != 'AnyCPU' AND '$(Platform)' != 'x64' ">AnyCPU</Platform>
+		<ReleasePlatform>$(Platform)</ReleasePlatform>
+		<ReleasePlatform Condition=" '$(ReleasePlatform)' == '' OR '$(ReleasePlatform)' == 'Any CPU' OR '$(ReleasePlatform)' == 'BPC' ">x86</ReleasePlatform>
+
+		<PlatformConstant Condition=" '$(Platform)' == 'x86' OR '$(Platform)' == 'AnyCPU' ">PLATFORMX86</PlatformConstant>
+		<PlatformConstant Condition=" '$(Platform)' == 'x64' ">PLATFORMX64</PlatformConstant>
+		<PlatformConstant Condition=" '$(Platform)' == 'ia64' ">PLATFORMIA64</PlatformConstant>
+		<PlatformConstant Condition=" '$(PlatformConstant)' == '' ">PLATFORMX86</PlatformConstant>
+		<OSPlatform Condition=" '$(OSPlatform)' == '' ">WINDOWS</OSPlatform>
+
+		<SignAssemblies Condition=" '$(SignAssemblies)' == '' ">false</SignAssemblies>
+		<CCNetArtifactDirectory Condition=" '$(CCNetArtifactDirectory)' == '' ">$(MSBuildProjectDirectory)\..\bin\</CCNetArtifactDirectory>
+		<CCNetWorkingDirectory Condition=" '$(CCNetWorkingDirectory)' == '' ">$(MSBuildProjectDirectory)\..\</CCNetWorkingDirectory>
+		<CCNetBuildDate Condition=" '$(CCNetBuildDate)' == '' ">$([System.DateTime]::UtcNow.ToString("MM-dd-yyyy"))</CCNetBuildDate>
+		<CCNetBuildTime Condition=" '$(CCNetBuildTime)' == '' ">$([System.DateTime]::UtcNow.ToString("hh:mm:ss"))</CCNetBuildTime>
+
+		<CleanBuildOutput>True</CleanBuildOutput>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<CompileDependsOn>$(CompileDependsOn)</CompileDependsOn>
+		<PublishMode Condition=" '$(PublishMode)' == '' ">None</PublishMode>
+
+		<CompileDependsOn>$(CompileDependsOn)</CompileDependsOn>
+
+		<PublishNuGet Condition=" '$(PublishMode)' == 'NuGet' ">PublishNuGet</PublishNuGet>
+		<NugetPath>$(MSBuildProjectDirectory)\..\.nuget</NugetPath>
+		<Platform Condition=" '$(Platform)' == '' OR '$(Platform)' == 'AnyCPU' ">AnyCPU</Platform>
+		<LocalDeploy Condition=" '$(LocalDeploy)' == '' ">E:\Development\deploy\nuget</LocalDeploy>
+		<ProjectFriendlyName>Camalot.Common</ProjectFriendlyName>
+		<NugetPackageId>$(CCNetProject).$(Platform)</NugetPackageId>
+		<NugetPackageId Condition=" '$(Platform)' == 'x86' ">$(CCNetProject)</NugetPackageId>
+		<DescriptionFile>$(MSBuildProjectDirectory)\Build\publish-changelog.txt</DescriptionFile>
+		<ReleasesPath>$(CCNetArtifactDirectory)\$(Configuration)\nuget\</ReleasesPath>
+
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<NugetContentFiles Include="$(OutputPath)\Nuget\content\**" />
+		<NugetToolsFiles Include="$(OutputPath)\Nuget\tools\**" />
+	</ItemGroup>
+
+	<Target Name="CoreBuild" DependsOnTargets="BuildPrep">
+
+		<MSBuild Projects ="@(ProjectsToBuild)" ContinueOnError="false"
+						 Properties="$(MSBuildProperties)">
+			<Output ItemName="OutputFiles" TaskParameter="TargetOutputs"/>
+		</MSBuild>
+	</Target>
+
+	<Target Name="BuildPrep" DependsOnTargets="SetBuildNumber;AssemblyInfo">
+		<CreateProperty Value="$(CCNetArtifactDirectory)$(Configuration)\$(CCNetLabel)\$(ReleasePlatform)\">
+			<Output PropertyName="OutputPath" TaskParameter="Value" />
+		</CreateProperty>
+
+		<CreateProperty Value="DefineConstants=$(DefineConstants) $(PlatformConstant) $(PlatformConstant);OSPlatform=$(OSPlatform);ReleasePlatform=$(ReleasePlatform);SignAssemblies=$(SignAssemblies);Configuration=$(Configuration);OutputPath=$(OutputPath);CCNetLabel=$(CCNetLabel);CCNetIntegrationStatus=$(CCNetIntegrationStatus);CCNetBuildCondition=$(CCNetBuildCondition);CCNetProject=$(CCNetProject);CCNetBuildDate=$(CCNetBuildDate);CCNetLastIntegrationStatus=$(CCNetLastIntegrationStatus);CCNetBuildTime=$(CCNetBuildTime);CCNetArtifactDirectory=$(CCNetArtifactDirectory);CCNetWorkingDirectory=$(CCNetWorkingDirectory);CCNetRequestSource=$(CCNetRequestSource)">
+			<Output PropertyName="MSBuildProperties" TaskParameter="Value" />
+		</CreateProperty>
+	</Target>
+	
+	
+<Target Name="SetBuildNumber">
+		<Attrib Files="$(VersionFile)" ReadOnly="false"/>
+
+		<Version
+      Condition=" '$(SkipIncrementAssemblyVersion)' == 'True' "
+      VersionFile="$(VersionFile)"
+      BuildType="None"
+      RevisionType="None">
+			<Output TaskParameter="Major" PropertyName="Major" />
+			<Output TaskParameter="Minor" PropertyName="Minor" />
+			<Output TaskParameter="Build" PropertyName="Build" />
+			<Output TaskParameter="Revision" PropertyName="Revision" />
+		</Version>
+
+		<Version
+      Condition=" '$(SkipIncrementAssemblyVersion)' != 'True' "
+      VersionFile="$(VersionFile)"
+      BuildType="Increment"
+      RevisionType="Automatic">
+			<Output TaskParameter="Major" PropertyName="Major" />
+			<Output TaskParameter="Minor" PropertyName="Minor" />
+			<Output TaskParameter="Build" PropertyName="Build" />
+			<Output TaskParameter="Revision" PropertyName="Revision" />
+		</Version>
+		
+		<!-- If CI provides a build number, we use that, otherwise we take what is in the file -->
+		<CreateProperty Value="$(Major).$(Minor).$(CI_BUILD_NUMBER).$(Revision)" Condition=" '$(CI_BUILD_NUMBER)' != '' ">
+			<Output PropertyName="CCNetLabel" TaskParameter="Value" />
+		</CreateProperty>
+		<CreateProperty Value="$(Major).$(Minor).$(Build).$(Revision)" Condition=" '$(CI_BUILD_NUMBER)' == '' ">
+			<Output PropertyName="CCNetLabel" TaskParameter="Value" />
+		</CreateProperty>
+
+		<!--<Exec Command=".\set-environment-variable.ps1 -Name MADB_BUILD_VERSION -Value $(CCNetLabel)" WorkingDirectory="$(MSBuildProjectDirectory)" Condition=" '$(APPVEYOR)' == 'True' " />-->
+		<SetEnvironmentVariable Name="MADB_BUILD_VERSION" Value="$(CCNetLabel)" Condition=" '$(CI_BUILD_NUMBER)' != '' " />
+
+	</Target>
+
+	<Target Name="AssemblyInfo"
+					Outputs="$(MSBuildProjectDirectory)\..\Shared\AssemblyVersionInfo.cs" DependsOnTargets="CleanBuild">
+		
+		
+		<AssemblyInfo CodeLanguage="CS"
+									AssemblyFileVersion="$(CCNetLabel)"
+									AssemblyVersion="$(Major).$(Minor).0.0"
+									OutputFile="$(MSBuildProjectDirectory)\..\Shared\VersionAssemblyInfo.cs"
+									/>
+	</Target>
+	<UsingTask
+  TaskName="SetEnvironmentVariable"
+  TaskFactory="CodeTaskFactory"
+  AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+
+		<ParameterGroup>
+			<Name ParameterType="System.String" Required="true" />
+			<Value ParameterType="System.String" Required="true" />
+		</ParameterGroup>
+
+		<Task>
+			<Using Namespace="System" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+        Environment.SetEnvironmentVariable(Name, Value, EnvironmentVariableTarget.Machine);
+      ]]>
+			</Code>
+		</Task>
+
+	</UsingTask>
+
+</Project>

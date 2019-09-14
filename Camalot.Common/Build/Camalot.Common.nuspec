@@ -13,11 +13,11 @@
 		<summary>A collection of useful extensions and other things.</summary>
 		<language>en-US</language>
 		<releaseNotes></releaseNotes>
-		<copyright>Copyright 2013 - 2014</copyright>
+		<copyright>Copyright 2013 - 2016</copyright>
 		<tags>extensions tools common helpers</tags>
 		<dependencies>
 			<dependency id="morelinq" version="" />
-			<dependency id="Newtonsoft.Json" version="[5.0,8.9]" />
+			<dependency id="Newtonsoft.Json" version="[5.0,13.0]" />
 		</dependencies>
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net45" />

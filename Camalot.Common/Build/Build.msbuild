@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12" DefaultTargets="Build">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14" DefaultTargets="Build">
 	<PropertyGroup>
 		<Project>$(Project)</Project>
 	</PropertyGroup>

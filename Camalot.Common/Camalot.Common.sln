@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common", "Camalot.Common\Camalot.Common.csproj", "{DF6FE85F-0CF4-4F29-8A38-878D570E8F4D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A-A1BD-4CD8-B5AE-FF81E73C0982}"
 	ProjectSection(SolutionItems) = preProject
 		Build\Build.msbuild = Build\Build.msbuild
+		Build\appveyor\BuildAll.msbuild = Build\appveyor\BuildAll.msbuild
+		Build\appveyor\BuildMadBee.msbuild = Build\appveyor\BuildMadBee.msbuild
 		Build\Camalot.Common.Mvc3.nuspec = Build\Camalot.Common.Mvc3.nuspec
 		Build\Camalot.Common.Mvc4.nuspec = Build\Camalot.Common.Mvc4.nuspec
 		Build\Camalot.Common.Mvc5.nuspec = Build\Camalot.Common.Mvc5.nuspec
@@ -21,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{FC12048A
 		Build\MSBuild.Community.Tasks.xml = Build\MSBuild.Community.Tasks.xml
 		Build\nuget.bat = Build\nuget.bat
 		Build\NugetPublish.msbuild = Build\NugetPublish.msbuild
+		Build\SharedProperties.msbuild = Build\SharedProperties.msbuild
 		Build\signing.readme = Build\signing.readme
 		Build\WebPublish.msbuild = Build\WebPublish.msbuild
 	EndProjectSection
@@ -30,14 +33,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{86343A
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{207622DE-98E6-410E-B56E-A6AFFC463F02}"
-	ProjectSection(SolutionItems) = preProject
-		..\.gitattributes = ..\.gitattributes
-		..\.gitignore = ..\.gitignore
-		..\License.md = ..\License.md
-		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.Mvc5", "Camalot.Common.Mvc5\Camalot.Common.Mvc5.csproj", "{A4F6DA8C-180F-4ADC-A127-BD6E10854058}"
@@ -55,6 +50,29 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{BBE40798-65C1-4839-A82A-090D84CE53CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Camalot.Common.Razzle", "Camalot.Common.Razzle\Camalot.Common.Razzle.csproj", "{811515AB-5FAB-4283-92B3-1884151F9EB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".git", ".git", "{808090B5-4924-42A4-BF00-92878515CEF5}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\License.md = ..\License.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "appveyor", "appveyor", "{8D154CE9-00E3-4683-9C74-B0CB04CFE2DE}"
+	ProjectSection(SolutionItems) = preProject
+		Build\appveyor\appveyor-variables.txt = Build\appveyor\appveyor-variables.txt
+		Build\appveyor\appveyor.after-build.ps1 = Build\appveyor\appveyor.after-build.ps1
+		Build\appveyor\appveyor.after-deployment.ps1 = Build\appveyor\appveyor.after-deployment.ps1
+		Build\appveyor\appveyor.before-build.ps1 = Build\appveyor\appveyor.before-build.ps1
+		Build\appveyor\appveyor.before-deployment.ps1 = Build\appveyor\appveyor.before-deployment.ps1
+		..\appveyor.yml = ..\appveyor.yml
+		Build\appveyor\InstallPfx.ps1 = Build\appveyor\InstallPfx.ps1
+		Build\appveyor\publish-changelog.txt = Build\appveyor\publish-changelog.txt
+		Build\appveyor\set-environment-variable.ps1 = Build\appveyor\set-environment-variable.ps1
+		Build\appveyor\SharedProperties.msbuild = Build\appveyor\SharedProperties.msbuild
+		Build\appveyor\WebPublish.msbuild = Build\appveyor\WebPublish.msbuild
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,5 +118,6 @@ Global
 		{FFC27262-8A85-452C-A483-A42422282CAC} = {76A473EE-2EF9-4BEC-ABB4-FF4CC9A5DE8B}
 		{A038B7F2-53A2-46D7-BC79-FC8C2420240E} = {CF6FDD37-573D-442B-80FE-FC0902D69180}
 		{811515AB-5FAB-4283-92B3-1884151F9EB8} = {BBE40798-65C1-4839-A82A-090D84CE53CD}
+		{8D154CE9-00E3-4683-9C74-B0CB04CFE2DE} = {FC12048A-A1BD-4CD8-B5AE-FF81E73C0982}
 	EndGlobalSection
 EndGlobal
