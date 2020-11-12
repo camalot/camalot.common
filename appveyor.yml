@@ -18,7 +18,7 @@ before_build:
     $ignore = Set-Location $trunk;
 
 
-    .\Build\appveyor.before-build.ps1
+    .\Build\appveyor\appveyor.before-build.ps1
 
 
     $ignore = Set-Location $rootLocation;
