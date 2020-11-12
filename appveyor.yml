@@ -23,7 +23,7 @@ before_build:
 
     $ignore = Set-Location $rootLocation;
 build:
-  project: Camalot.Common\Build\BuildAll.msbuild
+  project: .\Build\BuildAll.msbuild
   verbosity: detailed
 after_build:
 - ps: >-
